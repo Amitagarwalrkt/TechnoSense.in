@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<style>
+/* ————————————————————————
+      GLOBAL COMPONENT STYLE
+   ------------------------------------------------ */
+.world-dots {
+  display: inline-block;
+}
+
+.world-dots .container {
+  display: grid;
+  grid-template-columns: repeat(55, 10px);
+  gap: 2.75px;
+}
+
+.world-dots .cell {
+  width: 8.75px;
+  height: 8.75px;
+  background: #222;
+  border-radius: 50%;
+}
+
+/* Animation */
+@keyframes dotFade {
+  0%   { background-color: var(--dot-color); }
+  100% { background-color: #222; }
+}
+</style>
+
+</head>
+
+<body style="background:#111; display:flex; justify-content:center; align-items:center; height:100vh;">
+
+<!-- ————————————————————————
+      WORLD DOT COMPONENT
+   ------------------------------------------------ -->
+<div class="world-dots" id="worldMap1">
+  <div class="container"></div>
+</div>
+
+<script>
+/* ————————————————————————
+      AUTO-GENERATE DOT GRID
+   ------------------------------------------------ */
+function createWorldDots(elementId) {
+  const el = document.querySelector("#" + elementId + " .container");
+
+  // Create 1925 dots (35 × 55)
+  for (let i = 1; i <= 1925; i++) {
+    const d = document.createElement("div");
+    d.className = "cell";
+    d.dataset.i = i;
+    el.appendChild(d);
+  }
+
+  // Dot index lists (same as SCSS)
+  const northAmerica = [19,20,21,73,74,75,76,132,133,134,135,136,137,138,139,140,197,198,199,200,201,202,203,204,205,264,265,266,267,268,269,270,271,272,273,334,335,336,337,338,339,340,341,405,406,407,408,409,410,411,412,413,475,476,477,478,479,480,481,482,547,548,549,550,551,552,553,619,620,621,622,623,689,690,691];
+  const southAmerica = [465,531,532,533,598,599,600,665,666,667,668,669,734,735,736,737,803,804,805,872,873,941,1007];
+  const africa = [605,606,607,608,609,610,611,612,613,614,615,616,673,676,678,679,680,681,682,683,684,685,741,743,745,747,749,751,753,756,757,758,814,815,816,818,819,821,822,823,824,825,828,830,831,832,878,881,883,884,885,886,889,890,891,892,893,894,895,896,898,899,900,901,952,953,956,957,958,960,961,962,965,969,972,1022,1025,1027,1029,1030,1031,1032,1033,1034,1036,1038,1044,1090];
+  const europe = [200,260,261,262,263,322,323,324,325,326,327,328,385,386,387,388,389,390,391,392,449,450,451,452,453,454,455,456,512,513,514,515,516,517,518,519];
+  const asia = [197,198,199,202,203,204,205,207,208,258,259,260,264,265,266,267,268,269,270,271,272,273,322,323,324,325,328,329,330,331,332,333,334,335,336,337,338,339,340,341,385,386,387,388,389,390,394,395,396,397,398,399,400,401,402,403,404,405,406,407,449,450,451,452,453,454,458,459,460,461,462,463,464,465,509,510,511,512,513,515,516,518,520,521,522,523,524,525,526,527,566,567,568,569,571,572,573,575,576,577,578,620,621,622,623,624,626,627,628,629,630,671,672,673,674,676,677,678,679,680,682,683,684,685,686,687,724,725,726,727,730,731,732,733,734,735,736,737,738,739,740,741,742,743,744,745,746,780,781,782,783,784,785,786,787,789,790,791,792,793,794,795,796,797,798,828,829,830,831,832,834,835,836,837,838,839,840,841,899,900,901,902,903,904,905,906,912,913,914,915,972,973,974,975,976,977,978,979,980,981,982,983,988,989,990,991,1046,1047,1048,1049,1050,1051,1052,1053,1054,1058,1059];
+  const australia = [1127,1128,1129,1130,1191,1192,1193,1194,1195,1196,1255,1256,1257,1258,1259,1260,1319,1320,1321,1383];
+
+  const colors = {
+    northAmerica: "#11f801",
+    southAmerica: "#38a5ff",
+    africa: "#ebff01",
+    europe: "#ff0111",
+    asia: "#ff8301",
+    australia: "#ae53f5"
+  };
+
+  function apply(list, color) {
+    list.forEach(i => {
+      const dot = el.querySelector(`.cell[data-i="${i}"]`);
+      if (dot) {
+        dot.style.setProperty("--dot-color", color);
+        dot.style.animation = `dotFade 4s linear infinite`;
+        dot.style.animationDelay = `${-(Math.random() * 4000)}ms`;
+      }
+    });
+  }
+
+  apply(northAmerica, colors.northAmerica);
+  apply(southAmerica, colors.southAmerica);
+  apply(africa, colors.africa);
+  apply(europe, colors.europe);
+  apply(asia, colors.asia);
+  apply(australia, colors.australia);
+}
+
+/* Initialize component */
+createWorldDots("worldMap1");
+</script>
+
+</body>
+</html>

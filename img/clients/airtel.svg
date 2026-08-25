@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="140" viewBox="0 0 520 140" role="img" aria-label="Airtel">
+  <rect width="520" height="140" fill="transparent"/>
+  <g transform="translate(70,44)">
+    <path d="M18 52 C 8 44, 2 33, 2 21 C2 9, 9 0, 21 0 C36 0, 48 12, 48 27 C48 43, 35 56, 19 56 C14 56, 10 55, 6 53"
+          fill="none" stroke="#ef4444" stroke-width="10" stroke-linecap="round"/>
+    <text x="70" y="46" fill="#e2e8f0" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="38" font-weight="700">airtel</text>
+  </g>
+</svg>
