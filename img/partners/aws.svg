@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="140" viewBox="0 0 520 140" role="img" aria-label="AWS Partner">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 0.35 0" result="c"/>
+      <feMerge>
+        <feMergeNode in="c"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="1" y="1" width="518" height="138" rx="18" fill="#0b1022" stroke="rgba(59,130,246,0.35)" stroke-width="2"/>
+  <rect x="18" y="18" width="484" height="104" rx="14" fill="rgba(30,41,59,0.55)" stroke="rgba(6,182,212,0.25)"/>
+
+  <g filter="url(#glow)">
+    <text x="52" y="78" fill="#e2e8f0" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="44" font-weight="800" letter-spacing="1.2">AWS</text>
+    <text x="170" y="78" fill="#94a3b8" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="3.2">PARTNER</text>
+    <path d="M52 92 C 130 125, 210 125, 292 95" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+  </g>
+</svg>
