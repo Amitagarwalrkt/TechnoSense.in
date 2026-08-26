@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>TechnoSense AI Assistant</title>
+	<link rel="stylesheet" href="css/ai-chatbot.css">
+</head>
+<body>
+	<div class="shell">
+		<aside>
+			<div class="brand"><div class="logo">✦</div> TechnoSense</div>
+			<div class="menu-label">Workspace</div>
+			<nav>
+				<a class="active" href="#">✦ <span>AI Assistant</span></a>
+				<a href="#">▣ <span>Dashboard</span></a>
+				<a href="#">◷ <span>Recent activity</span></a>
+			</nav>
+			<div class="menu-label" style="margin-top:30px">Support</div>
+			<nav><a href="#">⚙ <span>Settings</span></a><a href="#">? <span>Help center</span></a></nav>
+			<div class="side-bottom"><strong>Build smarter with AI</strong><span>Your intelligent workspace for faster, simpler work.</span></div>
+		</aside>
+		<main>
+			<header><div><h1>AI Assistant</h1><p>Your intelligent workspace companion</p></div><div class="profile"><span>Welcome</span><div class="avatar"><i class="fa-solid fa-user"></i></div></div></header>
+			<section class="content">
+				<div class="welcome"><div class="spark">✦</div><h2>How can I help you today?</h2><p>Ask anything, explore ideas, or get help with your work.</p></div>
+				<div class="suggestions"><div class="suggestion"><b>✧ Brainstorm ideas</b><span>Generate creative ideas for your next project</span></div><div class="suggestion"><b>▤ Summarize content</b><span>Turn long text into clear, concise notes</span></div><div class="suggestion"><b>⌘ Write something</b><span>Draft emails, posts, and more</span></div></div>
+				<div class="chat"><div class="message"><div class="logo" style="width:28px;height:28px;border-radius:9px;font-size:14px">✦</div><div class="bubble">Hello! I'm your TechnoSense AI Assistant. I'm here to help you work smarter.</div></div></div>
+				<div class="input-wrap"><input type="text" placeholder="Message your AI assistant..." aria-label="Message your AI assistant" /><button aria-label="Send">↑</button></div><div class="disclaimer">AI Assistant is a demo preview. Responses may not always be accurate.</div>
+			</section>
+		</main>
+	</div>
+
+	<script>
+		// Chat functionality
+		const chatContainer = document.querySelector('.chat');
+		const inputField = document.querySelector('.input-wrap input');
+		const sendButton = document.querySelector('.input-wrap button');
+
+		// Add message to chat
+		function addMessage(text, isUser = false) {
+			const messageDiv = document.createElement('div');
+			messageDiv.className = `message ${isUser ? 'user' : ''}`;
+			
+			if (!isUser) {
+				const logo = document.createElement('div');
+				logo.className = 'logo';
+				logo.style.cssText = 'width:28px;height:28px;border-radius:9px;font-size:14px';
+				logo.textContent = '✦';
+				messageDiv.appendChild(logo);
+			}
+			
+			const bubble = document.createElement('div');
+			bubble.className = 'bubble';
+			bubble.textContent = text;
+			messageDiv.appendChild(bubble);
+			
+			chatContainer.appendChild(messageDiv);
+			
+			// Auto-scroll to bottom
+			const content = document.querySelector('.content');
+			content.scrollTop = content.scrollHeight;
+		}
+
+		// Show typing indicator
+		function showTyping() {
+			const messageDiv = document.createElement('div');
+			messageDiv.className = 'message';
+			
+			const logo = document.createElement('div');
+			logo.className = 'logo';
+			logo.style.cssText = 'width:28px;height:28px;border-radius:9px;font-size:14px';
+			logo.textContent = '✦';
+			messageDiv.appendChild(logo);
+			
+			const typing = document.createElement('div');
+			typing.className = 'typing';
+			typing.innerHTML = '<span></span><span></span><span></span>';
+			messageDiv.appendChild(typing);
+			messageDiv.id = 'typing-indicator';
+			
+			chatContainer.appendChild(messageDiv);
+			
+			// Auto-scroll to bottom
+			const content = document.querySelector('.content');
+			content.scrollTop = content.scrollHeight;
+		}
+
+		// Remove typing indicator
+		function removeTyping() {
+			const typingIndicator = document.getElementById('typing-indicator');
+			if (typingIndicator) {
+				typingIndicator.remove();
+			}
+		}
+
+		// Simple bot responses
+		const botResponses = [
+			"That's interesting! Tell me more about your project.",
+			"I understand. How can I assist you further?",
+			"Great question! Let me help you with that.",
+			"I'm here to help. What would you like to know?",
+			"That's a good point. Let me provide more information.",
+			"I'm listening. What's on your mind?",
+			"Thanks for sharing. How can I support you?"
+		];
+
+		function getBotResponse() {
+			return botResponses[Math.floor(Math.random() * botResponses.length)];
+		}
+
+		// Handle send message
+		function sendMessage() {
+			const message = inputField.value.trim();
+			
+			if (!message) return;
+			
+			// Add user message
+			addMessage(message, true);
+			inputField.value = '';
+			
+			// Show typing indicator
+			showTyping();
+			
+			// Simulate bot response delay
+			setTimeout(() => {
+				removeTyping();
+				addMessage(getBotResponse(), false);
+			}, 1500);
+		}
+
+		// Event listeners
+		sendButton.addEventListener('click', sendMessage);
+		inputField.addEventListener('keypress', (e) => {
+			if (e.key === 'Enter') {
+				sendMessage();
+			}
+		});
+	</script>
+</body>
+</html>
