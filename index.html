@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 	<!-- Basic -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,8 +45,7 @@
 
 	<!-- Theme Custom CSS -->
 	<link rel="stylesheet" href="css/custom.css">
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42715764-11"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
@@ -57,6 +54,384 @@
 
 		gtag('config', 'UA-42715764-11');
 	</script>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<!-- =========================================================
+     AI ASSISTANT - FINAL SIZE / POSITION / SPACING FIX
+     ========================================================= -->
+<style id="ai-assistant-final-fix">
+
+    /* ---------------- DESKTOP ---------------- */
+    .shell {
+        position: fixed !important;
+
+        /* Move chatbot slightly downward */
+        right: 28px !important;
+        bottom: 90px !important;
+
+        /* Balanced size */
+        width: 380px !important;
+        height: 600px !important;
+
+        max-width: calc(100vw - 40px) !important;
+        max-height: calc(100vh - 110px) !important;
+
+        display: none;
+        flex-direction: column;
+
+        overflow: hidden !important;
+        box-sizing: border-box;
+
+        z-index: 99999;
+    }
+
+    /* Keep all chatbot sections inside the fixed window */
+    .shell main {
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 1 auto !important;
+
+        width: 100% !important;
+        height: 100% !important;
+
+        min-width: 0 !important;
+        min-height: 0 !important;
+    }
+
+    /* Header */
+    .shell header {
+        flex-shrink: 0 !important;
+    }
+
+    /* Scroll only the conversation/content */
+    .shell .content {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        padding: 16px 16px 8px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Header avatar */
+    .shell .avatar {
+        display: grid !important;
+        place-items: center !important;
+
+        width: 38px !important;
+        height: 38px !important;
+
+        border-radius: 12px !important;
+
+        color: #fff !important;
+        background: linear-gradient(135deg, #0d7cff, #6854ff) !important;
+
+        font-size: 15px !important;
+    }
+
+    .shell .avatar i {
+        line-height: 1 !important;
+    }
+
+    /* Welcome area */
+    .shell .welcome {
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
+    }
+
+    .shell .welcome p {
+        margin-top: 7px !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Suggestions */
+    .shell .suggestions {
+        margin-bottom: 7px !important;
+    }
+
+    /* Chat messages */
+    .shell .chat {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .shell .message {
+        margin: 9px 0 !important;
+    }
+
+    /* Input and disclaimer stay at bottom */
+    .shell .input-wrap,
+    .shell .disclaimer {
+        flex-shrink: 0 !important;
+    }
+
+    /* ---------------- LARGE DESKTOP ---------------- */
+    @media (min-width: 1200px) {
+        .shell {
+            right: 28px !important;
+            bottom: 90px !important;
+
+            width: 380px !important;
+            height: 600px !important;
+
+            max-height: calc(100vh - 110px) !important;
+        }
+    }
+
+    /* ---------------- TABLET ---------------- */
+    @media (max-width: 1199px) and (min-width: 901px) {
+        .shell {
+            right: 20px !important;
+            bottom: 85px !important;
+
+            width: 370px !important;
+            height: 590px !important;
+
+            max-height: calc(100vh - 100px) !important;
+        }
+    }
+
+    /* ---------------- SMALL TABLET ---------------- */
+    @media (max-width: 900px) {
+        .shell {
+            right: 16px !important;
+            bottom: 82px !important;
+
+            width: min(360px, calc(100vw - 32px)) !important;
+            height: min(580px, calc(100vh - 95px)) !important;
+
+            max-height: calc(100vh - 95px) !important;
+        }
+    }
+
+    /* ---------------- MOBILE ---------------- */
+    @media (max-width: 600px) {
+        .shell {
+            right: 10px !important;
+            left: 10px !important;
+            bottom: 78px !important;
+
+            width: auto !important;
+            height: min(640px, calc(100vh - 88px)) !important;
+
+            max-height: calc(100vh - 88px) !important;
+
+            border-radius: 20px !important;
+        }
+
+        .shell .content {
+            padding: 14px 12px 8px !important;
+        }
+    }
+
+    /* ---------------- SMALL MOBILE ---------------- */
+    @media (max-width: 390px) {
+        .shell {
+            right: 7px !important;
+            left: 7px !important;
+            bottom: 68px !important;
+
+            height: calc(100vh - 78px) !important;
+            max-height: calc(100vh - 78px) !important;
+        }
+    }
+
+</style>
+
+
+<style id="chat-gap-fix">
+/* =========================================================
+   CHATBOT - CLEAN GAP / SPACING FIX
+   ========================================================= */
+
+.shell {
+    right: 28px !important;
+    bottom: 90px !important;
+
+    width: 380px !important;
+    height: 600px !important;
+
+    display: none;
+    flex-direction: column;
+
+    overflow: hidden !important;
+    box-sizing: border-box;
+}
+
+/* Header */
+.shell header {
+    flex-shrink: 0 !important;
+    padding: 15px 18px !important;
+}
+
+/* Main content */
+.shell main {
+    display: flex !important;
+    flex-direction: column !important;
+
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+}
+
+/* Scrollable content */
+.shell .content {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    padding: 18px 18px 8px !important;
+
+    box-sizing: border-box !important;
+}
+
+/* Welcome section */
+.shell .welcome {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
+    margin: 0 !important;
+}
+
+/* Spark icon */
+.shell .spark {
+    margin-bottom: 9px !important;
+}
+
+/* Main heading */
+.shell h2 {
+    margin: 0 !important;
+    line-height: 1.2 !important;
+}
+
+/* Subtitle */
+.shell .welcome p {
+    margin-top: 7px !important;
+    margin-bottom: 14px !important;
+
+    line-height: 1.5 !important;
+}
+
+/* =========================================================
+   CHAT SECTION
+   ========================================================= */
+
+.shell .chat {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+
+    /* Gap between welcome area and first message */
+    padding-top: 10px !important;
+}
+
+/* Individual messages */
+.shell .message {
+    margin: 12px 0 !important;
+}
+
+/* First message should have slightly less top space */
+.shell .message:first-child {
+    margin-top: 4px !important;
+}
+
+/* Bot/user message spacing */
+.shell .message + .message {
+    margin-top: 14px !important;
+}
+
+/* Message bubble */
+.shell .bubble {
+    margin: 0 !important;
+}
+
+/* Bot icon */
+.shell .logo {
+    flex-shrink: 0 !important;
+}
+
+/* =========================================================
+   INPUT SECTION
+   ========================================================= */
+
+.shell .input-wrap {
+    flex-shrink: 0 !important;
+
+    width: calc(100% - 24px) !important;
+
+    margin: 8px auto 8px !important;
+}
+
+/* Disclaimer */
+.shell .disclaimer {
+    flex-shrink: 0 !important;
+
+    margin: 0 10px 10px !important;
+}
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+    .shell {
+        right: 28px !important;
+        bottom: 90px !important;
+
+        width: 380px !important;
+        height: 600px !important;
+    }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1199px) and (min-width: 901px) {
+    .shell {
+        right: 20px !important;
+        bottom: 85px !important;
+
+        width: 370px !important;
+        height: 590px !important;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+    .shell {
+        right: 10px !important;
+        left: 10px !important;
+        bottom: 78px !important;
+
+        width: auto !important;
+        height: min(640px, calc(100vh - 88px)) !important;
+
+        max-height: calc(100vh - 88px) !important;
+    }
+
+    .shell .content {
+        padding: 14px 13px 8px !important;
+    }
+
+    .shell .chat {
+        padding-top: 8px !important;
+    }
+}
+</style>
 
 </head>
 
@@ -788,16 +1163,13 @@
 										class="fab fa-linkedin-in"></i></a>
 							</li>
 							<li class="social-icons-instagram mx-2">
-								<a href="http://www.instagram.com/" class="no-footer-css" target="_blank"
-									title="Instagram"><i class="fab fa-instagram"></i></a>
+								<a href="https://www.instagram.com/" class="no-footer-css" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
 							</li>
 							<li class="social-icons-twitter mx-2">
-								<a href="http://www.twitter.com/" class="no-footer-css" target="_blank"
-									title="Twitter"><i class="fab fa-x-twitter"></i></a>
+								<a href="https://www.twitter.com/" class="no-footer-css" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>
 							</li>
 							<li class="social-icons-facebook">
-								<a href="http://www.facebook.com/" class="no-footer-css" target="_blank"
-									title="Facebook"><i class="fab fa-facebook-f"></i></a>
+								<a href="https://www.facebook.com/" class="no-footer-css" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
 							</li>
 						</ul>
 					</div>
@@ -1310,58 +1682,184 @@
 			}
 		});
 	</script>
+
+	<!-- AI Assistant Button & Chatbot -->
+	<button id="ai-assistant-toggle" class="ai-assistant-button" aria-label="Toggle AI Assistant" title="Open AI Assistant">✦</button>
+
+	<!-- AI Assistant Chatbot Shell -->
+	<div class="shell" id="chatbot-shell">
+		<main>
+			<header>
+				<div>
+					<h1>AI Assistant</h1>
+					<p>Your intelligent workspace companion</p>
+				</div>
+				<div class="profile">
+					<span>Welcome, Amit</span>
+					<div class="avatar">AA</div>
+				</div>
+			</header>
+			<section class="content">
+				<div class="welcome">
+					<div class="spark">✦</div>
+					<h2>How can I help you today?</h2>
+					<p>Ask anything, explore ideas, or get help with your work.</p>
+				</div>
+<div class="chat">
+					<div class="message">
+						<div class="logo" style="width:28px;height:28px;border-radius:9px;font-size:14px">✦</div>
+						<div class="bubble">Hello! I'm your TechnoSense AI Assistant. I'm here to help you work smarter.</div>
+					</div>
+				</div>
+				<div class="input-wrap">
+					<input type="text" placeholder="Message your AI assistant..." aria-label="Message your AI assistant" />
+					<button aria-label="Send">↑</button>
+				</div>
+				<div class="disclaimer">AI Assistant is a demo preview. Responses may not always be accurate.</div>
+			</section>
+		</main>
+	</div>
+
+	<!-- AI Assistant JavaScript -->
 	<script>
-		function createWorldDots() {
-			const container = document.querySelector("#worldMap");
+		const chatShell = document.getElementById('chatbot-shell');
+		const toggleButton = document.getElementById('ai-assistant-toggle');
+		const chatContainer = document.querySelector('.chat');
+		const inputField = document.querySelector('.input-wrap input');
+		const sendButton = document.querySelector('.input-wrap button');
+		let isOpen = false;
 
-			// Generate all 1925 dots
-			for (let i = 1; i <= 1925; i++) {
-				const dot = document.createElement("div");
-				dot.className = "dot";
-				dot.dataset.i = i;
-				container.appendChild(dot);
+		// Toggle chatbot visibility
+		toggleButton.addEventListener('click', function() {
+			isOpen = !isOpen;
+			if (isOpen) {
+				chatShell.classList.add('show');
+				chatShell.classList.remove('closing');
+			} else {
+				chatShell.classList.add('closing');
+				setTimeout(() => {
+					chatShell.classList.remove('show');
+					chatShell.classList.remove('closing');
+				}, 220);
 			}
+		});
 
-			// Dot index lists (correct)
-			const northAmerica = [19, 20, 21, 73, 74, 75, 76, 77, 123, 124, 127, 128, 129, 130, 131, 132, 177, 178, 179, 181, 182, 183, 184, 185, 186, 187, 188, 228, 229, 230, 231, 232, 233, 234, 237, 238, 239, 240, 241, 242, 243, 283, 284, 285, 286, 287, 288, 289, 293, 294, 295, 296, 297, 332, 333, 334, 337, 339, 340, 341, 342, 343, 348, 349, 350, 351, 352, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 404, 405, 406, 407, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 459, 460, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 509, 510, 511, 514, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 564, 565, 566, 607, 610, 611, 612, 613, 614, 615, 616, 619, 620, 621, 622, 666, 667, 668, 669, 670, 671, 672, 674, 675, 676, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 778, 779, 780, 781, 782, 783, 784, 785, 786, 834, 835, 836, 837, 838, 839, 889, 890, 891, 892, 893, 894, 944, 945, 946, 947, 948, 949, 1000, 1001, 1002, 1005, 1056, 1057, 1112, 1113, 1114, 1169];
-
-			const southAmerica = [1225, 1226, 1227, 1228, 1229, 1281, 1282, 1283, 1284, 1285, 1335, 1336, 1337, 1338, 1339, 1340, 1341, 1342, 1390, 1391, 1392, 1393, 1394, 1395, 1396, 1397, 1446, 1447, 1448, 1449, 1450, 1451, 1502, 1503, 1504, 1505, 1506, 1557, 1558, 1559, 1560, 1612, 1613, 1614, 1666, 1667, 1668, 1721, 1722, 1776, 1777, 1831, 1832, 1887];
-
-			const africa = [961, 962, 963, 965, 1020, 1021, 1019, 1018, 1017, 1016, 1015, 1069, 1070, 1071, 1072, 1073, 1074, 1075, 1076, 1077, 1124, 1125, 1126, 1127, 1128, 1129, 1130, 1131, 1132, 1133, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187, 1188, 1189, 1235, 1236, 1237, 1238, 1239, 1240, 1241, 1242, 1243, 1244, 1293, 1294, 1295, 1296, 1297, 1298, 1348, 1349, 1350, 1351, 1352, 1404, 1405, 1406, 1407, 1459, 1460, 1461, 1462, 1514, 1515, 1516, 1518, 1573, 1569, 1570, 1571, 1624, 1625];
-
-			const europe = [361, 362, 415, 416, 417, 469, 470, 471, 472, 523, 524, 525, 527, 582, 580, 579, 578, 632, 634, 636, 631, 311, 312, 251, 519, 520, 686, 687, 689, 688, 690, 691, 692, 637, 638, 583, 528, 473, 418, 474, 475, 365, 421, 476, 477, 531, 530, 529, 584, 585, 586, 639, 640, 641, 693, 694, 695, 696, 795, 796, 850, 851, 797, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 805, 804, 803, 802, 801, 799, 798, 800, 854, 856, 857, 911];
-
-			const asia = [154, 208, 209, 210, 262, 263, 264, 265, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 325, 326, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 603, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 657, 658, 697, 698, 699, 700, 701, 702, 703, 704, 705, 706, 707, 708, 709, 712, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 821, 859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 876, 913, 914, 916, 917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 928, 930, 967, 968, 969, 970, 972, 973, 974, 975, 976, 977, 978, 979, 980, 981, 982, 1022, 1023, 1024, 1025, 1026, 1027, 1029, 1030, 1031, 1034, 1035, 1036, 1037, 1079, 1080, 1081, 1085, 1089, 1090, 1135, 1144, 1145, 1200, 1202, 1203, 1255, 1256, 1257, 1311];
-
-			const australia = [1206, 1262, 1263, 1317, 1369, 1370, 1372, 1422, 1423, 1424, 1425, 1426, 1427, 1428, 1476, 1477, 1478, 1479, 1480, 1481, 1482, 1483, 1531, 1532, 1533, 1534, 1535, 1536, 1537, 1538, 1586, 1587, 1590, 1591, 1592, 1645, 1646, 1650, 1705];
-
-			const regions = [
-				[northAmerica, "#11f801"],
-				[southAmerica, "#38a5ff"],
-				[africa, "#ebff01"],
-				[europe, "#ff0111"],
-				[asia, "#ff8301"],
-				[australia, "#ae53f5"]
-			];
-
-			regions.forEach(([arr, color]) => {
-				arr.forEach(i => {
-					const dot = container.querySelector(`[data-i="${i}"]`);
-					if (dot) {
-						dot.style.setProperty("--dot-color", color);
-						dot.style.animation = `worldFade 4s infinite`;
-						dot.style.animationDelay = `${-(Math.random() *
-							5000)}ms`;
-					}
-				});
-			});
+		// Add message to chat
+		function addMessage(text, isUser = false) {
+			const messageDiv = document.createElement('div');
+			messageDiv.className = `message ${isUser ? 'user' : ''}`;
+			
+			if (!isUser) {
+				const logo = document.createElement('div');
+				logo.className = 'logo';
+				logo.style.cssText = 'width:28px;height:28px;border-radius:9px;font-size:14px';
+				logo.textContent = '✦';
+				messageDiv.appendChild(logo);
+			}
+			
+			const bubble = document.createElement('div');
+			bubble.className = 'bubble';
+			bubble.textContent = text;
+			messageDiv.appendChild(bubble);
+			
+			chatContainer.appendChild(messageDiv);
+			
+			// Auto-scroll to bottom
+			const content = document.querySelector('.content');
+			content.scrollTop = content.scrollHeight;
 		}
 
-		createWorldDots();
-	</script>
+		// Show typing indicator
+		function showTyping() {
+			const messageDiv = document.createElement('div');
+			messageDiv.className = 'message';
+			
+			const logo = document.createElement('div');
+			logo.className = 'logo';
+			logo.style.cssText = 'width:28px;height:28px;border-radius:9px;font-size:14px';
+			logo.textContent = '✦';
+			messageDiv.appendChild(logo);
+			
+			const typing = document.createElement('div');
+			typing.className = 'typing';
+			typing.innerHTML = '<span></span><span></span><span></span>';
+			messageDiv.appendChild(typing);
+			messageDiv.id = 'typing-indicator';
+			
+			chatContainer.appendChild(messageDiv);
+			
+			// Auto-scroll to bottom
+			const content = document.querySelector('.content');
+			content.scrollTop = content.scrollHeight;
+		}
 
+		// Remove typing indicator
+		function removeTyping() {
+			const typingIndicator = document.getElementById('typing-indicator');
+			if (typingIndicator) {
+				typingIndicator.remove();
+			}
+		}
+
+		// Simple bot responses
+		const botResponses = [
+			"That's interesting! Tell me more about your project.",
+			"I understand. How can I assist you further?",
+			"Great question! Let me help you with that.",
+			"I'm here to help. What would you like to know?",
+			"That's a good point. Let me provide more information.",
+			"I'm listening. What's on your mind?",
+			"Thanks for sharing. How can I support you?",
+			"Let me think about that for a moment.",
+			"That's a great insight! Can you elaborate?",
+			"I'm glad you asked. Here's what I think...",
+			"Interesting perspective! Tell me more.",
+			"I appreciate that feedback. What else can I help with?"
+		];
+
+		function getBotResponse() {
+			return botResponses[Math.floor(Math.random() * botResponses.length)];
+		}
+
+		// Handle send message
+		function sendMessage() {
+			const message = inputField.value.trim();
+			
+			if (!message) return;
+			
+			// Add user message
+			addMessage(message, true);
+			inputField.value = '';
+			
+			// Show typing indicator
+			showTyping();
+			
+			// Simulate bot response delay
+			setTimeout(() => {
+				removeTyping();
+				addMessage(getBotResponse(), false);
+			}, 1500);
+		}
+
+		// Event listeners
+		sendButton.addEventListener('click', sendMessage);
+		inputField.addEventListener('keypress', (e) => {
+			if (e.key === 'Enter') {
+				sendMessage();
+			}
+		});
+
+		// Focus on input when message area is clicked
+		document.querySelector('.content').addEventListener('click', function(e) {
+			if (e.target.classList.contains('suggestion')) {
+				const suggestionText = e.target.querySelector('b').textContent;
+				inputField.value = suggestionText;
+				inputField.focus();
+			}
+		});
+	</script>
+	
 </body>
 
 
 </html>
-
