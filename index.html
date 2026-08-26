@@ -436,6 +436,7 @@
 </head>
 
 <body data-plugin-page-transition>
+	<div id="root"></div>
 	<div class="body">
 		<!-- Modern Navbar -->
 		<header class="modern-navbar" id="navbar">
@@ -1684,7 +1685,7 @@
 	</script>
 
 	<!-- AI Assistant Button & Chatbot -->
-	<button id="ai-assistant-toggle" class="ai-assistant-button" aria-label="Toggle AI Assistant" title="Open AI Assistant">✦</button>
+	<button id="ai-assistant-toggle" class="ai-assistant-button" aria-label="Ask me: open AI Assistant" title="Ask me">✦<span class="ai-assistant-label">Ask me</span></button>
 
 	<!-- AI Assistant Chatbot Shell -->
 	<div class="shell" id="chatbot-shell">
@@ -1858,6 +1859,7 @@
 			}
 		});
 	</script>
+	<script type="module" src="/src/main.jsx"></script>
 	
 </body>
 

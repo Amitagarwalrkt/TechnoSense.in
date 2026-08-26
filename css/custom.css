@@ -4051,6 +4051,36 @@ body .main .who-we-are-section {
         box-shadow 0.2s ease;
 }
 
+.ai-assistant-label {
+    position: absolute;
+    right: 58px;
+    top: 50%;
+    padding: 5px 10px;
+    color: #ffffff;
+    background: #111827;
+    border: 1px solid rgba(105, 84, 255, 0.45);
+    border-radius: 6px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: askMeLabel 4s ease-in-out 1 forwards;
+}
+
+@keyframes askMeLabel {
+    0%, 65%, 100% {
+        opacity: 0;
+        transform: translate(8px, -50%);
+    }
+
+    10%, 52% {
+        opacity: 1;
+        transform: translate(0, -50%);
+    }
+}
+
 .ai-assistant-button:hover {
     transform: scale(1.08);
 
@@ -4094,6 +4124,10 @@ body .main .who-we-are-section {
         bottom: 100px;
 
         font-size: 18px;
+    }
+
+    .ai-assistant-label {
+        display: none;
     }
 }
 
@@ -4256,7 +4290,7 @@ body .main .who-we-are-section {
    HIDE SIDEBAR
    ========================================================= */
 
-aside {
+.shell aside {
     display: none !important;
 }
 
@@ -4365,7 +4399,7 @@ aside {
    PROFILE
    ========================================================= */
 
-.profile {
+.shell .profile {
     display: flex;
 
     align-items: center;
@@ -4382,7 +4416,7 @@ aside {
    AVATAR
    ========================================================= */
 
-.avatar {
+.shell .avatar {
     position: relative;
 
     display: grid;
@@ -4420,7 +4454,7 @@ aside {
         infinite;
 }
 
-.avatar::after {
+.shell .avatar::after {
     content: "";
 
     position: absolute;
@@ -4524,7 +4558,7 @@ aside {
    WELCOME SECTION
    ========================================================= */
 
-.welcome {
+.shell .welcome {
     text-align: center;
 
     padding: 0 5px 0;
@@ -4535,7 +4569,7 @@ aside {
    SPARK ICON
    ========================================================= */
 
-.spark {
+.shell .spark {
     position: relative;
 
     display: inline-grid;
@@ -4571,7 +4605,7 @@ aside {
         infinite;
 }
 
-.spark::before {
+.shell .spark::before {
     content: "";
 
     position: absolute;
@@ -4651,7 +4685,7 @@ aside {
    WELCOME DESCRIPTION
    ========================================================= */
 
-.welcome p {
+.shell .welcome p {
     max-width: 310px;
 
     margin: 5px auto 8px;
@@ -4668,7 +4702,7 @@ aside {
    SUGGESTIONS
    ========================================================= */
 
-.suggestions {
+.shell .suggestions {
     display: grid;
 
     grid-template-columns:
@@ -4679,7 +4713,7 @@ aside {
     margin-bottom: 10px;
 }
 
-.suggestion {
+.shell .suggestion {
     position: relative;
 
     min-width: 0;
@@ -4714,7 +4748,7 @@ aside {
     cursor: pointer;
 }
 
-.suggestion:hover {
+.shell .suggestion:hover {
     transform: translateY(-3px);
 
     border-color:
@@ -4734,7 +4768,7 @@ aside {
         rgba(22, 119, 255, 0.08);
 }
 
-.suggestion b {
+.shell .suggestion b {
     display: block;
 
     margin-bottom: 5px;
@@ -4746,7 +4780,7 @@ aside {
     font-weight: 650;
 }
 
-.suggestion span {
+.shell .suggestion span {
     display: block;
 
     color: #8f9ab5;
@@ -4768,7 +4802,7 @@ aside {
    and the actual conversation messages.
 */
 
-.chat {
+.shell .chat {
     width: 100%;
 
     max-width: 100%;
@@ -4788,7 +4822,7 @@ aside {
    MESSAGE
    ========================================================= */
 
-.message {
+.shell .message {
     display: flex;
 
     align-items: flex-end;
@@ -4804,11 +4838,11 @@ aside {
         both;
 }
 
-.message:first-child {
+.shell .message:first-child {
     margin-top: 0;
 }
 
-.message.user {
+.shell .message.user {
     justify-content: flex-end;
 }
 
@@ -4834,7 +4868,7 @@ aside {
    CHAT BUBBLE
    ========================================================= */
 
-.bubble {
+.shell .bubble {
     max-width: 78%;
 
     padding: 10px 13px;
@@ -4862,7 +4896,7 @@ aside {
     backdrop-filter: blur(8px);
 }
 
-.message:not(.user) .bubble {
+.shell .message:not(.user) .bubble {
     position: relative;
 
     background:
@@ -4873,7 +4907,7 @@ aside {
         );
 }
 
-.user .bubble {
+.shell .user .bubble {
     border-radius:
         15px 15px 4px 15px;
 
@@ -4894,7 +4928,7 @@ aside {
    TYPING INDICATOR
    ========================================================= */
 
-.typing {
+.shell .typing {
     display: inline-flex;
 
     align-items: center;
@@ -4909,7 +4943,7 @@ aside {
         rgba(255, 255, 255, 0.06);
 }
 
-.typing span {
+.shell .typing span {
     width: 5px;
     height: 5px;
 
@@ -4924,11 +4958,11 @@ aside {
         ease-in-out;
 }
 
-.typing span:nth-child(2) {
+.shell .typing span:nth-child(2) {
     animation-delay: 0.15s;
 }
 
-.typing span:nth-child(3) {
+.shell .typing span:nth-child(3) {
     animation-delay: 0.3s;
 }
 
@@ -4955,7 +4989,7 @@ aside {
    INPUT
    ========================================================= */
 
-.input-wrap {
+.shell .input-wrap {
     display: flex;
 
     align-items: center;
@@ -4987,7 +5021,7 @@ aside {
         background 0.25s ease;
 }
 
-.input-wrap:focus-within {
+.shell .input-wrap:focus-within {
     border-color:
         rgba(38, 125, 255, 0.65);
 
@@ -5001,7 +5035,7 @@ aside {
         rgba(0, 0, 0, 0.25);
 }
 
-.input-wrap input {
+.shell .input-wrap input {
     flex: 1;
 
     min-width: 0;
@@ -5021,14 +5055,14 @@ aside {
     font-size: 11px;
 }
 
-.input-wrap input::placeholder {
+.shell .input-wrap input::placeholder {
     color: #77829d;
 
     transition:
         color 0.2s ease;
 }
 
-.input-wrap input:focus::placeholder {
+.shell .input-wrap input:focus::placeholder {
     color: #626e88;
 }
 
@@ -5095,7 +5129,7 @@ aside {
    DISCLAIMER
    ========================================================= */
 
-.disclaimer {
+.shell .disclaimer {
     margin: 0 10px 10px;
 
     color: #68738d;
@@ -5128,7 +5162,7 @@ aside {
         padding: 18px 20px 10px;
     }
 
-    .chat {
+    .shell .chat {
         padding-top: 22px;
     }
 }
@@ -5166,11 +5200,11 @@ aside {
         padding: 16px 16px 10px;
     }
 
-    .chat {
+    .shell .chat {
         padding-top: 18px;
     }
 
-    .welcome p {
+    .shell .welcome p {
         max-width: 290px;
 
         margin-bottom: 8px;
@@ -5215,7 +5249,7 @@ aside {
         font-size: 9px;
     }
 
-    .avatar {
+    .shell .avatar {
         width: 34px;
         height: 34px;
 
@@ -5228,7 +5262,7 @@ aside {
         padding: 12px 13px 8px;
     }
 
-    .spark {
+    .shell .spark {
         width: 44px;
         height: 44px;
 
@@ -5243,7 +5277,7 @@ aside {
         font-size: 20px;
     }
 
-    .welcome p {
+    .shell .welcome p {
         max-width: 280px;
 
         margin:
@@ -5261,30 +5295,30 @@ aside {
         margin-bottom: 8px;
     }
 
-    .suggestion {
+    .shell .suggestion {
         padding: 10px;
     }
 
-    .suggestion b {
+    .shell .suggestion b {
         font-size: 10px;
     }
 
-    .suggestion span {
+    .shell .suggestion span {
         font-size: 8px;
     }
 
     /*
        Mobile chat spacing
     */
-    .chat {
+    .shell .chat {
         padding-top: 18px;
     }
 
-    .message {
+    .shell .message {
         margin: 10px 0;
     }
 
-    .bubble {
+    .shell .bubble {
         max-width: 84%;
 
         padding: 9px 11px;
@@ -5292,7 +5326,7 @@ aside {
         font-size: 10px;
     }
 
-    .input-wrap {
+    .shell .input-wrap {
         width: calc(100% - 12px);
 
         margin-bottom: 9px;
@@ -5322,11 +5356,11 @@ aside {
         padding: 10px 12px 8px;
     }
 
-    .chat {
+    .shell .chat {
         padding-top: 16px;
     }
 
-    .spark {
+    .shell .spark {
         margin-bottom: 2px;
     }
 
@@ -5334,15 +5368,15 @@ aside {
         grid-template-columns: 1fr;
     }
 
-    .suggestion:nth-child(3) {
+    .shell .suggestion:nth-child(3) {
         display: none;
     }
 
-    .welcome p {
+    .shell .welcome p {
         max-width: 250px;
     }
 
-    .bubble {
+    .shell .bubble {
         max-width: 88%;
     }
 }
@@ -5354,11 +5388,11 @@ aside {
 
 @media (max-width: 330px) {
 
-    .suggestion:nth-child(2) {
+    .shell .suggestion:nth-child(2) {
         display: none;
     }
 
-    .welcome p {
+    .shell .welcome p {
         display: none;
     }
 
@@ -5366,228 +5400,1257 @@ aside {
         bottom: 68px;
     }
 
-    .chat {
+    .shell .chat {
         padding-top: 14px;
+    }
+}
+/* =========================================================
+   AI CHATBOT — CLEANED & STABILIZED STYLES
+   ========================================================= */
+
+/* Prevent sizing/inline defaults from causing layout shifts */
+.ai-assistant-button,
+.shell,
+.shell *,
+.shell *::before,
+.shell *::after {
+    box-sizing: border-box;
+}
+
+.shell input,
+.shell .input-wrap button {
+    font-family: inherit;
+}
+
+.shell .input-wrap button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* =========================================================
+   AI ASSISTANT BUTTON
+   ========================================================= */
+
+.ai-assistant-button {
+    position: fixed;
+    right: 24px;
+    bottom: 50px;
+
+    display: grid;
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: 0;
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #087cff,
+        #6954ff
+    );
+
+    box-shadow:
+        0 12px 30px rgba(0, 72, 190, 0.35),
+        0 0 0 0 rgba(41, 122, 255, 0.4);
+
+    cursor: pointer;
+
+    z-index: 10000;
+
+    animation: chatButtonPulse 3s infinite;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.ai-assistant-label {
+    position: absolute;
+    right: 58px;
+    top: 50%;
+    padding: 5px 10px;
+    color: #ffffff;
+    background: #111827;
+    border: 1px solid rgba(105, 84, 255, 0.45);
+    border-radius: 6px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: askMeLabel 4s ease-in-out 1 forwards;
+}
+
+@keyframes askMeLabel {
+    0%, 65%, 100% {
+        opacity: 0;
+        transform: translate(8px, -50%);
+    }
+
+    10%, 52% {
+        opacity: 1;
+        transform: translate(0, -50%);
+    }
+}
+
+.ai-assistant-button:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 15px 35px rgba(0, 72, 190, 0.45);
+}
+
+@keyframes chatButtonPulse {
+
+    0% {
+        box-shadow:
+            0 12px 30px rgba(0, 72, 190, 0.35),
+            0 0 0 0 rgba(41, 122, 255, 0.35);
+    }
+
+    70% {
+        box-shadow:
+            0 12px 30px rgba(0, 72, 190, 0.35),
+            0 0 0 12px rgba(41, 122, 255, 0);
+    }
+
+    100% {
+        box-shadow:
+            0 12px 30px rgba(0, 72, 190, 0.35),
+            0 0 0 0 rgba(41, 122, 255, 0);
     }
 }
 
 /* =========================================================
-   FINAL AI ASSISTANT / CHATBOT UI FIXES
-   =========================================================
-
-   Fixes:
-   - Removes the brainstorm/suggestion cards completely.
-   - Keeps comfortable spacing between welcome area and messages.
-   - Keeps the chat message area flexible and scrollable.
-   - Prevents the input area from becoming cramped.
-   - Gives the assistant panel a cleaner desktop size/position.
-   - Improves tablet/mobile sizing without affecting the main website.
+   MOBILE ASSISTANT BUTTON
    ========================================================= */
 
-/* ---------- Suggestion / Brainstorm cards: removed ---------- */
-.suggestions,
-.suggestion {
+@media (max-width: 600px) {
+
+    .ai-assistant-button {
+        width: 44px;
+        height: 44px;
+
+        right: 20px;
+        bottom: 100px;
+
+        font-size: 18px;
+    }
+
+    .ai-assistant-label {
+        display: none;
+    }
+}
+
+/* =========================================================
+   CHATBOT VARIABLES
+   ========================================================= */
+
+:root {
+    --bot-bg: #080d20;
+    --bot-card: rgba(15, 23, 48, 0.96);
+    --bot-card-light: rgba(25, 35, 65, 0.95);
+
+    --bot-text: #f5f7ff;
+    --bot-muted: #9da8c2;
+
+    --bot-border: rgba(255, 255, 255, 0.10);
+
+    --bot-primary: #1677ff;
+    --bot-primary-dark: #0d5ed7;
+
+    --bot-purple: #7357ff;
+    --bot-cyan: #00cfff;
+
+    --bot-user: linear-gradient(
+        135deg,
+        #0878f9 0%,
+        #1765e9 55%,
+        #6355f5 100%
+    );
+
+    --bot-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(22, 119, 255, 0.12);
+
+    --bot-radius: 22px;
+}
+
+/* =========================================================
+   CHAT SHELL
+   ========================================================= */
+
+.shell {
+    position: fixed;
+
+    right: 30px;
+    bottom: 120px;
+
+    width: 380px;
+    height: 600px;
+
+    max-width: calc(100vw - 60px);
+    max-height: calc(100vh - 150px);
+
+    display: none;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(82, 85, 255, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 0% 100%,
+            rgba(0, 207, 255, 0.08),
+            transparent 35%
+        ),
+        var(--bot-bg);
+
+    border: 1px solid var(--bot-border);
+
+    border-radius: var(--bot-radius);
+
+    box-shadow: var(--bot-shadow);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    z-index: 99999;
+
+    transform-origin: bottom right;
+
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   OPEN ANIMATION
+   ========================================================= */
+
+@keyframes chatbotOpen {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.94);
+
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+.shell.show {
+    display: flex !important;
+
+    animation:
+        chatbotOpen
+        0.35s
+        cubic-bezier(.16, 1, .3, 1)
+        forwards;
+}
+
+/* =========================================================
+   CLOSE ANIMATION
+   ========================================================= */
+
+.shell.closing {
+    animation:
+        chatbotClose
+        0.22s
+        ease
+        forwards;
+}
+
+@keyframes chatbotClose {
+
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(0.95);
+    }
+}
+
+/* =========================================================
+   HIDE SIDEBAR
+   ========================================================= */
+
+.shell aside {
     display: none !important;
 }
 
-/* ---------- Assistant shell ---------- */
-.shell {
-    width: 390px;
-    height: 600px;
-    max-width: calc(100vw - 48px);
-    max-height: calc(100vh - 120px);
-    right: 24px;
-    bottom: 80px;
-    border-radius: 20px;
-    overflow: hidden;
-}
+/* =========================================================
+   MAIN
+   ========================================================= */
 
-/* Keep the assistant above all page content */
-.ai-assistant-button,
-.shell {
-    z-index: 100000;
-}
+.shell main {
+    display: flex;
 
-/* ---------- Header ---------- */
-.shell header {
-    min-height: 74px;
-    padding: 15px 18px;
-    gap: 14px;
-}
+    flex: 1;
 
-.shell header > div:first-child {
+    flex-direction: column;
+
     min-width: 0;
+    min-height: 0;
+
+    width: 100%;
 }
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.shell header {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    min-height: 72px;
+
+    padding: 15px 18px;
+
+    flex-shrink: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(17, 29, 61, 0.98),
+            rgba(10, 17, 37, 0.98)
+        );
+
+    border-bottom:
+        1px solid var(--bot-border);
+
+    z-index: 5;
+}
+
+.shell header::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: -1px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0, 207, 255, 0.65),
+            rgba(115, 87, 255, 0.65),
+            transparent
+        );
+
+    opacity: 0.8;
+}
+
+/* =========================================================
+   HEADER TITLE
+   ========================================================= */
 
 .shell header h1 {
-    font-size: 16px;
-    line-height: 1.25;
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.2px;
 }
 
 .shell header p {
-    font-size: 11px;
-    line-height: 1.45;
+    margin: 3px 0 0;
+
+    color: var(--bot-muted);
+
+    font-size: 10px;
 }
 
-.profile {
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+.shell .profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--bot-muted);
+
+    font-size: 10px;
+}
+
+/* =========================================================
+   AVATAR
+   ========================================================= */
+
+.shell .avatar {
+    position: relative;
+
+    display: grid;
+
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
     flex-shrink: 0;
-    gap: 10px;
-    white-space: nowrap;
-}
 
-.profile span {
-    font-size: 11px;
-}
-
-.avatar {
-    width: 40px;
-    height: 40px;
     border-radius: 12px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d7cff,
+            #6854ff
+        );
+
     font-size: 15px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 6px 20px
+        rgba(22, 119, 255, 0.35);
+
+    animation:
+        avatarPulse
+        3s
+        ease-in-out
+        infinite;
 }
 
-/* ---------- Scrollable content ---------- */
+.shell .avatar::after {
+    content: "";
+
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    right: -2px;
+    bottom: -2px;
+
+    border:
+        2px solid
+        #080d20;
+
+    border-radius: 50%;
+
+    background: #20e58a;
+
+    box-shadow:
+        0 0 8px
+        rgba(32, 229, 138, 0.8);
+}
+
+@keyframes avatarPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 6px 20px
+            rgba(22, 119, 255, 0.30);
+    }
+
+    50% {
+        box-shadow:
+            0 6px 28px
+            rgba(22, 119, 255, 0.55);
+    }
+}
+
+/* =========================================================
+   CONTENT AREA
+   ========================================================= */
+
 .shell .content {
+    position: relative;
+
     display: flex;
     flex-direction: column;
+
+    flex: 1;
+
     min-height: 0;
-    padding: 18px 18px 12px;
-    overflow-x: hidden;
+
+    /*
+       The content area is the ONLY scrolling region.
+       Extra bottom space prevents messages from being
+       hidden behind the fixed/sticky composer.
+    */
+    padding: 18px 18px 92px;
+
     overflow-y: auto;
+
+    overflow-x: hidden;
+
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(32, 76, 160, 0.08),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #080d20 0%,
+            #070b18 100%
+        );
 }
 
-/* ---------- Welcome area ---------- */
-.welcome {
-    flex: 0 0 auto;
-    padding: 0;
-    margin: 0;
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.shell .content::-webkit-scrollbar {
+    width: 5px;
 }
 
-.spark {
-    width: 52px;
-    height: 52px;
-    margin: 0 auto 12px;
+.shell .content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.shell .content::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #247dff,
+            #6855ff
+        );
+}
+
+/* =========================================================
+   WELCOME SECTION
+   ========================================================= */
+
+.shell .welcome {
+    text-align: center;
+
+    padding: 0 5px 0;
+}
+
+/* =========================================================
+   SPARK ICON
+   ========================================================= */
+
+.shell .spark {
+    position: relative;
+
+    display: inline-grid;
+
+    place-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    margin-bottom: 2px;
+
     border-radius: 16px;
-    font-size: 23px;
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #7355ff
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(45, 92, 255, 0.35);
+
+    animation:
+        botFloat
+        3s
+        ease-in-out
+        infinite;
 }
+
+.shell .spark::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -5px;
+
+    border-radius: inherit;
+
+    border:
+        1px solid
+        rgba(74, 130, 255, 0.25);
+
+    animation:
+        sparkRing
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+/* =========================================================
+   SPARK ANIMATIONS
+   ========================================================= */
+
+@keyframes sparkRing {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes botFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* =========================================================
+   MAIN HEADING
+   ========================================================= */
 
 .shell h2 {
     margin: 0;
-    font-size: clamp(20px, 3vw, 26px);
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            19px,
+            4vw,
+            24px
+        );
+
+    font-weight: 750;
+
     line-height: 1.2;
-    letter-spacing: -0.7px;
+
+    letter-spacing: -0.6px;
 }
 
-.welcome p {
-    max-width: 320px;
-    margin: 8px auto 0;
+/* =========================================================
+   WELCOME DESCRIPTION
+   ========================================================= */
+
+.shell .welcome p {
+    max-width: 310px;
+
+    margin: 5px auto 8px;
+
+    color: var(--bot-muted);
+
     font-size: 11px;
-    line-height: 1.55;
+
+    line-height: 1.5;
 }
 
-/* ---------- Conversation ---------- */
-.chat {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 20px 0 4px;
+/* =========================================================
+   SUGGESTIONS
+   ========================================================= */
+
+.shell .suggestions {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 7px;
+
+    margin-bottom: 10px;
 }
 
-.message {
-    width: 100%;
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
-    margin: 10px 0;
-}
+.shell .suggestion {
+    position: relative;
 
-.message:first-child {
-    margin-top: 0;
-}
-
-.bubble {
-    max-width: 82%;
-    padding: 11px 14px;
-    border-radius: 15px 15px 15px 5px;
-    font-size: 11px;
-    line-height: 1.55;
-    overflow-wrap: anywhere;
-}
-
-.user .bubble {
-    border-radius: 15px 15px 5px 15px;
-}
-
-/* ---------- Input ---------- */
-.input-wrap {
-    flex-shrink: 0;
-    width: 100%;
-    margin: 10px 0 8px;
-    padding: 6px 6px 6px 14px;
-    min-height: 52px;
-    gap: 10px;
-    border-radius: 15px;
-}
-
-.input-wrap input {
     min-width: 0;
-    font-size: 12px;
+
+    padding: 12px;
+
+    text-align: left;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.04);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+
+    cursor: pointer;
+}
+
+.shell .suggestion:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(55, 133, 255, 0.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(26, 111, 255, 0.13),
+            rgba(102, 75, 255, 0.10)
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.22),
+        0 0 15px
+        rgba(22, 119, 255, 0.08);
+}
+
+.shell .suggestion b {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+    font-weight: 650;
+}
+
+.shell .suggestion span {
+    display: block;
+
+    color: #8f9ab5;
+
+    font-size: 9px;
+
     line-height: 1.4;
 }
 
-.shell button {
-    width: 40px;
-    height: 40px;
-    border-radius: 11px;
-    flex: 0 0 40px;
+/* =========================================================
+   CHAT SECTION
+   ========================================================= */
+
+/*
+   THIS IS THE MAIN FIX.
+
+   Adds space between the header/icon area
+   and the actual conversation messages.
+*/
+
+.shell .chat {
+    width: 100%;
+
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    /*
+       Moves the chat messages downward.
+    */
+    padding-top: 22px;
+
+    box-sizing: border-box;
 }
 
-/* ---------- Disclaimer ---------- */
-.disclaimer {
-    flex-shrink: 0;
-    margin: 0 6px 2px;
-    font-size: 8px;
-    line-height: 1.45;
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.shell .message {
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 8px;
+
+    margin: 12px 0;
+
+    animation:
+        messageIn
+        0.3s
+        ease
+        both;
 }
 
-/* ---------- Desktop: prevent oversized assistant ---------- */
-@media (min-width: 1200px) {
-    .shell {
-        width: 390px;
-        height: 600px;
-        right: 24px;
-        bottom: 80px;
-        max-width: calc(100vw - 48px);
-        max-height: calc(100vh - 100px);
+.shell .message:first-child {
+    margin-top: 0;
+}
+
+.shell .message.user {
+    justify-content: flex-end;
+}
+
+@keyframes messageIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
     }
 }
 
-/* ---------- Tablet ---------- */
+/* =========================================================
+   CHAT BUBBLE
+   ========================================================= */
+
+.shell .bubble {
+    max-width: 78%;
+
+    padding: 10px 13px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    border-radius:
+        15px 15px 15px 4px;
+
+    color: #c6cee0;
+
+    background:
+        rgba(255, 255, 255, 0.065);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.12);
+
+    backdrop-filter: blur(8px);
+}
+
+.shell .message:not(.user) .bubble {
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.045)
+        );
+}
+
+.shell .user .bubble {
+    border-radius:
+        15px 15px 4px 15px;
+
+    border: none;
+
+    color: #ffffff;
+
+    background:
+        var(--bot-user);
+
+    box-shadow:
+        0 7px 20px
+        rgba(16, 99, 239, 0.25);
+}
+
+/* =========================================================
+   TYPING INDICATOR
+   ========================================================= */
+
+.shell .typing {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    padding: 10px 13px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+}
+
+.shell .typing span {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #8fa4d5;
+
+    animation:
+        typing
+        1.2s
+        infinite
+        ease-in-out;
+}
+
+.shell .typing span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.shell .typing span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes typing {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+
+        opacity: 0.4;
+    }
+
+    30% {
+        transform:
+            translateY(-4px);
+
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.shell .input-wrap {
+    position: sticky;
+    bottom: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    width: calc(100% - 24px);
+
+    margin: 8px auto 0;
+
+    padding: 6px 6px 6px 14px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 15px;
+
+    background:
+        rgba(12, 18, 38, 0.96);
+
+    box-shadow:
+        0 -10px 24px
+        rgba(7, 11, 24, 0.55),
+        0 10px 30px
+        rgba(0, 0, 0, 0.22);
+
+    z-index: 20;
+    isolation: isolate;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.shell .input-wrap:focus-within {
+    border-color:
+        rgba(38, 125, 255, 0.65);
+
+    background:
+        rgba(255, 255, 255, 0.085);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(25, 112, 255, 0.08),
+        0 10px 30px
+        rgba(0, 0, 0, 0.25);
+}
+
+.shell .input-wrap input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 9px 0;
+
+    border: 0;
+
+    outline: 0;
+
+    color: #ffffff;
+
+    background: transparent;
+
+    font: inherit;
+
+    font-size: 11px;
+}
+
+.shell .input-wrap input::placeholder {
+    color: #77829d;
+
+    transition:
+        color 0.2s ease;
+}
+
+.shell .input-wrap input:focus::placeholder {
+    color: #626e88;
+}
+
+/* =========================================================
+   CHAT SEND BUTTON
+   ========================================================= */
+
+.shell .input-wrap button {
+    display: grid;
+
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border: 0;
+
+    border-radius: 11px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #6755ff
+        );
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 18px
+        rgba(37, 107, 255, 0.28);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.shell .input-wrap button:hover {
+    transform:
+        translateY(-1px)
+        scale(1.04);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 8px 22px
+        rgba(37, 107, 255, 0.4);
+}
+
+.shell .input-wrap button:active {
+    transform: scale(0.95);
+}
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+.shell .disclaimer {
+    position: sticky;
+    bottom: 0;
+    z-index: 19;
+
+    margin: 0 10px 8px;
+
+    color: #68738d;
+
+    text-align: center;
+
+    font-size: 8px;
+
+    line-height: 1.4;
+}
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    .shell {
+        right: 28px;
+
+        bottom: 145px;
+
+        width: 360px;
+
+        height: 520px;
+    }
+
+    .shell .content {
+        padding: 18px 20px 10px;
+    }
+
+    .shell .chat {
+        padding-top: 22px;
+    }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
 @media (max-width: 900px) {
+
     .shell {
         right: 18px;
-        bottom: 90px;
-        width: min(380px, calc(100vw - 36px));
-        height: min(580px, calc(100vh - 110px));
-    }
-}
 
-/* ---------- Mobile ---------- */
-@media (max-width: 600px) {
-    .shell {
-        left: 10px;
-        right: 10px;
-        bottom: 76px;
-        width: auto;
-        height: min(620px, calc(100vh - 90px));
-        max-width: none;
-        max-height: none;
-        border-radius: 18px;
+        bottom: 130px;
+
+        width:
+            min(
+                350px,
+                calc(100vw - 36px)
+            );
+
+        height:
+            min(
+                500px,
+                calc(100vh - 110px)
+            );
     }
 
     .shell header {
         min-height: 68px;
+    }
+
+    .shell .content {
+        padding: 16px 16px 86px;
+    }
+
+    .shell .chat {
+        padding-top: 18px;
+    }
+
+    .shell .welcome p {
+        max-width: 290px;
+
+        margin-bottom: 8px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .shell {
+        right: 10px;
+        left: 10px;
+
+        bottom: 125px;
+
+        width: auto;
+
+        height:
+            min(
+                670px,
+                calc(100vh - 95px)
+            );
+
+        border-radius: 20px;
+    }
+
+    .shell header {
+        min-height: 64px;
+
         padding: 12px 14px;
     }
 
@@ -5599,98 +6662,625 @@ aside {
         font-size: 9px;
     }
 
-    .profile span {
-        font-size: 9px;
-    }
+    .shell .avatar {
+        width: 34px;
+        height: 34px;
 
-    .avatar {
-        width: 36px;
-        height: 36px;
         border-radius: 10px;
+
         font-size: 13px;
     }
 
     .shell .content {
-        padding: 14px 13px 9px;
+        padding: 12px 13px 82px;
     }
 
-    .spark {
-        width: 46px;
-        height: 46px;
-        margin-bottom: 10px;
+    .shell .spark {
+        width: 44px;
+        height: 44px;
+
         border-radius: 14px;
-        font-size: 20px;
+
+        font-size: 19px;
+
+        margin-bottom: 2px;
     }
 
     .shell h2 {
         font-size: 20px;
     }
 
-    .welcome p {
+    .shell .welcome p {
         max-width: 280px;
+
+        margin:
+            5px auto 8px;
+
         font-size: 10px;
     }
 
-    .chat {
+    .suggestions {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 6px;
+
+        margin-bottom: 8px;
+    }
+
+    .shell .suggestion {
+        padding: 10px;
+    }
+
+    .shell .suggestion b {
+        font-size: 10px;
+    }
+
+    .shell .suggestion span {
+        font-size: 8px;
+    }
+
+    /*
+       Mobile chat spacing
+    */
+    .shell .chat {
         padding-top: 18px;
     }
 
-    .message {
-        gap: 8px;
-        margin: 9px 0;
+    .shell .message {
+        margin: 10px 0;
     }
 
-    .bubble {
-        max-width: 86%;
+    .shell .bubble {
+        max-width: 84%;
+
         padding: 9px 11px;
+
         font-size: 10px;
     }
 
-    .input-wrap {
-        min-height: 48px;
-        margin: 8px 0 7px;
-    }
-
-    .input-wrap input {
-        font-size: 11px;
-    }
-
-    .shell button {
-        width: 36px;
-        height: 36px;
-        flex-basis: 36px;
+    .shell .input-wrap {
+        width: calc(100% - 12px);
+        margin-bottom: 0;
     }
 }
 
-/* ---------- Small mobile ---------- */
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
 @media (max-width: 390px) {
+
     .shell {
-        left: 7px;
         right: 7px;
-        bottom: 64px;
-        height: calc(100vh - 76px);
-        border-radius: 16px;
+        left: 7px;
+
+        bottom: 72px;
+
+        height:
+            calc(100vh - 82px);
+
+        border-radius: 18px;
     }
 
     .shell .content {
-        padding: 11px 11px 7px;
+        padding: 10px 12px 78px;
     }
 
-    .chat {
+    .shell .chat {
         padding-top: 16px;
     }
 
-    .bubble {
-        max-width: 90%;
+    .shell .spark {
+        margin-bottom: 2px;
+    }
+
+    .suggestions {
+        grid-template-columns: 1fr;
+    }
+
+    .shell .suggestion:nth-child(3) {
+        display: none;
+    }
+
+    .shell .welcome p {
+        max-width: 250px;
+    }
+
+    .shell .bubble {
+        max-width: 88%;
     }
 }
 
-/* ---------- Accessibility ---------- */
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 330px) {
+
+    .shell .suggestion:nth-child(2) {
+        display: none;
+    }
+
+    .shell .welcome p {
+        display: none;
+    }
+
+    .shell {
+        bottom: 68px;
+    }
+
+    .shell .chat {
+        padding-top: 14px;
+    }
+}
+
+/* =========================================================
+   FIXED / STABLE PROMPT COMPOSER
+   ========================================================= */
+
+/* Keep the prompt visually anchored while the conversation scrolls. */
+.shell .input-wrap {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    flex-shrink: 0;
+}
+
+.shell .disclaimer {
+    flex-shrink: 0;
+}
+
+/* Respect reduced-motion preferences. */
 @media (prefers-reduced-motion: reduce) {
+    .ai-assistant-button,
+    .ai-assistant-label,
     .shell,
-    .shell * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+    .shell .avatar,
+    .shell .spark,
+    .shell .spark::before,
+    .shell .message,
+    .shell .typing span {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   FINAL CHATBOT FIX — DO NOT REMOVE
+   ========================================================= */
+
+/* The chatbot window itself never grows with messages. */
+#chatbot-shell.shell,
+.shell {
+    position: fixed !important;
+    top: auto !important;
+    left: auto !important;
+    right: 24px !important;
+    bottom: 88px !important;
+
+    width: 400px !important;
+    height: min(650px, calc(100dvh - 120px)) !important;
+
+    max-width: calc(100vw - 48px) !important;
+    max-height: calc(100dvh - 120px) !important;
+
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    display: none !important;
+    flex-direction: column !important;
+
+    overflow: hidden !important;
+    z-index: 99999 !important;
+
+    box-sizing: border-box !important;
+}
+
+#chatbot-shell.shell.show,
+.shell.show {
+    display: flex !important;
+}
+
+/* Header is never part of the scrolling area. */
+#chatbot-shell .shell-header,
+#chatbot-shell header,
+.shell header {
+    flex: 0 0 auto !important;
+    flex-shrink: 0 !important;
+}
+
+/* Main gets all remaining height. */
+#chatbot-shell main,
+.shell main {
+    position: relative !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    overflow: hidden !important;
+}
+
+/* =========================================================
+   CONVERSATION — THIS IS THE ONLY SCROLLING AREA
+   ========================================================= */
+
+#chatbot-shell .content,
+.shell .content {
+    position: relative !important;
+
+    display: block !important;
+
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    /*
+      Large bottom padding is intentional.
+      It creates real scrollable space below the last message,
+      so the fixed prompt can NEVER cover the newest response.
+    */
+    padding: 18px 18px 150px !important;
+
+    box-sizing: border-box !important;
+
+    overscroll-behavior: contain !important;
+    scrollbar-gutter: stable !important;
+    -webkit-overflow-scrolling: touch !important;
+
+    scroll-behavior: smooth !important;
+}
+
+/* Never allow chat/message children to become another scroll box. */
+#chatbot-shell .chat,
+.shell .chat {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    overflow: visible !important;
+}
+
+/* Long assistant replies must wrap inside the chatbot. */
+#chatbot-shell .message,
+#chatbot-shell .bubble,
+#chatbot-shell .typing,
+.shell .message,
+.shell .bubble,
+.shell .typing {
+    min-width: 0 !important;
+    max-width: 100% !important;
+
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+}
+
+/* =========================================================
+   PROMPT — HARD LOCK TO BOTTOM
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   This intentionally overrides the old "position: sticky"
+   rules found earlier in the CSS.
+
+   Sticky was causing the prompt and messages to fight over
+   the same scrolling area.
+*/
+#chatbot-shell .input-wrap,
+.shell .input-wrap {
+    position: absolute !important;
+
+    top: auto !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 30px !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+
+    flex: none !important;
+    flex-shrink: 0 !important;
+
+    z-index: 500 !important;
+
+    box-sizing: border-box !important;
+
+    /*
+      Opaque background prevents chat messages from showing
+      through the prompt area.
+    */
+    background:
+        linear-gradient(
+            180deg,
+            rgba(8, 13, 32, 0.30) 0%,
+            rgba(8, 13, 32, 0.97) 28%,
+            rgba(8, 13, 32, 1) 100%
+        ) !important;
+
+    box-shadow:
+        0 -18px 32px rgba(8, 13, 32, 0.95),
+        0 10px 30px rgba(0, 0, 0, 0.24) !important;
+
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Disclaimer is locked under the prompt. */
+#chatbot-shell .disclaimer,
+.shell .disclaimer {
+    position: absolute !important;
+
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 7px !important;
+
+    width: auto !important;
+    margin: 0 !important;
+
+    z-index: 501 !important;
+
+    pointer-events: none !important;
+}
+
+/* Stable send button dimensions. */
+#chatbot-shell .input-wrap button,
+.shell .input-wrap button {
+    flex: 0 0 38px !important;
+
+    width: 38px !important;
+    min-width: 38px !important;
+
+    height: 38px !important;
+    min-height: 38px !important;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+    #chatbot-shell.shell,
+    .shell {
+        right: 18px !important;
+        bottom: 78px !important;
+
+        width: min(390px, calc(100vw - 36px)) !important;
+        height: min(620px, calc(100dvh - 103px)) !important;
+
+        max-width: calc(100vw - 36px) !important;
+        max-height: calc(100dvh - 103px) !important;
+    }
+
+    #chatbot-shell .content,
+    .shell .content {
+        padding-bottom: 145px !important;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+    #chatbot-shell.shell,
+    .shell {
+        left: 10px !important;
+        right: 10px !important;
+        bottom: 68px !important;
+
+        width: auto !important;
+        height: min(680px, calc(100dvh - 82px)) !important;
+
+        max-width: none !important;
+        max-height: calc(100dvh - 82px) !important;
+
+        border-radius: 20px !important;
+    }
+
+    #chatbot-shell .content,
+    .shell .content {
+        padding: 12px 13px 145px !important;
+    }
+
+    #chatbot-shell .input-wrap,
+    .shell .input-wrap {
+        left: 9px !important;
+        right: 9px !important;
+        bottom: 28px !important;
+    }
+
+    #chatbot-shell .disclaimer,
+    .shell .disclaimer {
+        left: 8px !important;
+        right: 8px !important;
+        bottom: 6px !important;
+    }
+}
+
+@media (max-width: 390px) {
+    #chatbot-shell.shell,
+    .shell {
+        left: 7px !important;
+        right: 7px !important;
+        bottom: 56px !important;
+
+        height: calc(100dvh - 66px) !important;
+        max-height: calc(100dvh - 66px) !important;
+    }
+
+    #chatbot-shell .content,
+    .shell .content {
+        padding-left: 11px !important;
+        padding-right: 11px !important;
+        padding-bottom: 140px !important;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    #chatbot-shell .content,
+    .shell .content {
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =========================================================
+   DEFINITIVE FIX: PROMPT MUST NOT LIVE INSIDE THE SCROLLER
+   ========================================================= */
+
+/*
+ * ROOT CAUSE:
+ * .content was position: relative.
+ * .input-wrap is inside .content.
+ * Therefore an absolute input-wrap was positioned relative
+ * to the scrolling .content and moved with the messages.
+ *
+ * FIX:
+ * .content becomes the scrolling layer WITHOUT being a
+ * positioning parent. .main remains the positioning parent.
+ * The prompt is therefore locked to the chatbot window.
+ */
+
+/* The scrolling area must NOT be the positioning parent. */
+#chatbot-shell .content,
+.shell .content {
+    position: static !important;
+
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    box-sizing: border-box !important;
+
+    /*
+     * Space at bottom so the final message can scroll above
+     * the fixed prompt.
+     */
+    padding: 18px 18px 150px !important;
+
+    overscroll-behavior: contain !important;
+    scrollbar-gutter: stable !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+}
+
+/*
+ * .main is the positioning parent.
+ * The prompt can now stay at the same coordinates while
+ * .content scrolls underneath it.
+ */
+#chatbot-shell main,
+.shell main {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+
+    overflow: hidden !important;
+}
+
+/*
+ * HARD LOCK.
+ * Do NOT use sticky here.
+ */
+#chatbot-shell .input-wrap,
+.shell .input-wrap {
+    position: absolute !important;
+
+    top: auto !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 30px !important;
+
+    margin: 0 !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    z-index: 999 !important;
+
+    flex: none !important;
+
+    box-sizing: border-box !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(8, 13, 32, 0.20) 0%,
+            rgba(8, 13, 32, 0.97) 30%,
+            rgba(8, 13, 32, 1) 100%
+        ) !important;
+
+    box-shadow:
+        0 -20px 35px rgba(8, 13, 32, 0.96) !important;
+
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Disclaimer is also anchored to the chatbot, NOT the scroller. */
+#chatbot-shell .disclaimer,
+.shell .disclaimer {
+    position: absolute !important;
+
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 7px !important;
+
+    margin: 0 !important;
+    width: auto !important;
+
+    z-index: 1000 !important;
+    pointer-events: none !important;
+}
+
+/* Never allow a nested content rule to recreate the problem. */
+#chatbot-shell .content .input-wrap,
+.shell .content .input-wrap {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 30px !important;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    #chatbot-shell .input-wrap,
+    .shell .input-wrap {
+        left: 9px !important;
+        right: 9px !important;
+        bottom: 28px !important;
+    }
+
+    #chatbot-shell .content,
+    .shell .content {
+        padding-bottom: 145px !important;
     }
 }
