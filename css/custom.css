@@ -4013,7 +4013,7 @@ body .main .who-we-are-section {
 .ai-assistant-button {
     position: fixed;
     right: 24px;
-    bottom: 50px;
+    bottom: 135px;
 
     display: grid;
     place-items: center;
@@ -5434,7 +5434,7 @@ body .main .who-we-are-section {
 .ai-assistant-button {
     position: fixed;
     right: 24px;
-    bottom: 50px;
+    bottom: 60px;
 
     display: grid;
     place-items: center;
@@ -6856,8 +6856,8 @@ body .main .who-we-are-section {
     position: fixed !important;
     top: auto !important;
     left: auto !important;
-    right: 24px !important;
-    bottom: 88px !important;
+    right: 80px !important;
+    bottom: 100px !important;
 
     width: 400px !important;
     height: min(650px, calc(100dvh - 120px)) !important;
