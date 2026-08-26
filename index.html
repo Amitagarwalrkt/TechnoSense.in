@@ -1739,7 +1739,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let isOpen = false;
     let isSending = false;
 
-    /* Keep prompt outside the scrolling message area */
+    /* =====================================================
+       KEEP PROMPT OUTSIDE THE SCROLLING MESSAGE AREA
+       ===================================================== */
+
     const main = chatShell.querySelector('main');
     const inputWrap = chatShell.querySelector('.input-wrap');
     const disclaimer = chatShell.querySelector('.disclaimer');
@@ -1752,19 +1755,28 @@ document.addEventListener('DOMContentLoaded', function () {
         main.appendChild(disclaimer);
     }
 
-    /* Toggle chatbot */
+
+    /* =====================================================
+       TOGGLE CHATBOT
+       ===================================================== */
+
     if (toggleButton) {
         toggleButton.addEventListener('click', function () {
+
             isOpen = !isOpen;
 
             if (isOpen) {
                 chatShell.classList.add('show');
                 chatShell.classList.remove('closing');
-                setTimeout(() => scrollToLatest(false), 100);
+
+                setTimeout(function () {
+                    scrollToLatest(false);
+                }, 100);
+
             } else {
                 chatShell.classList.add('closing');
 
-                setTimeout(() => {
+                setTimeout(function () {
                     chatShell.classList.remove('show');
                     chatShell.classList.remove('closing');
                 }, 220);
@@ -1772,8 +1784,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /* Chat scrolling only — NO scroll button */
+
+    /* =====================================================
+       CHAT SCROLL
+       ===================================================== */
+
     function scrollToLatest(smooth = false) {
+
         const maxScroll = Math.max(
             0,
             content.scrollHeight - content.clientHeight
@@ -1785,25 +1802,46 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+
     function refreshChatPosition() {
-        requestAnimationFrame(() => {
+
+        requestAnimationFrame(function () {
+
             scrollToLatest(false);
 
-            setTimeout(() => scrollToLatest(false), 80);
-            setTimeout(() => scrollToLatest(false), 200);
+            setTimeout(function () {
+                scrollToLatest(false);
+            }, 80);
+
+            setTimeout(function () {
+                scrollToLatest(false);
+            }, 200);
+
         });
     }
 
-    /* Add message */
+
+    /* =====================================================
+       ADD MESSAGE
+       ===================================================== */
+
     function addMessage(text, isUser = false) {
+
         if (!text) return;
 
         const messageDiv = document.createElement('div');
-        messageDiv.className = isUser ? 'message user' : 'message';
 
+        messageDiv.className =
+            isUser ? 'message user' : 'message';
+
+
+        /* AI icon */
         if (!isUser) {
+
             const logo = document.createElement('div');
+
             logo.className = 'logo';
+
             logo.style.cssText = `
                 width:28px;
                 height:28px;
@@ -1815,30 +1853,47 @@ document.addEventListener('DOMContentLoaded', function () {
                 justify-content:center;
                 flex-shrink:0;
             `;
+
             logo.textContent = '✦';
+
             messageDiv.appendChild(logo);
         }
 
+
+        /* Message bubble */
         const bubble = document.createElement('div');
+
         bubble.className = 'bubble';
+
         bubble.textContent = text;
 
         messageDiv.appendChild(bubble);
+
         chatContainer.appendChild(messageDiv);
 
         refreshChatPosition();
     }
 
-    /* Typing indicator */
+
+    /* =====================================================
+       TYPING INDICATOR
+       ===================================================== */
+
     function showTyping() {
+
         removeTyping();
 
         const messageDiv = document.createElement('div');
+
         messageDiv.className = 'message';
+
         messageDiv.id = 'typing-indicator';
 
+
         const logo = document.createElement('div');
+
         logo.className = 'logo';
+
         logo.style.cssText = `
             width:28px;
             height:28px;
@@ -1850,24 +1905,32 @@ document.addEventListener('DOMContentLoaded', function () {
             justify-content:center;
             flex-shrink:0;
         `;
+
         logo.textContent = '✦';
 
+
         const typing = document.createElement('div');
+
         typing.className = 'typing';
+
         typing.innerHTML = `
             <span></span>
             <span></span>
             <span></span>
         `;
 
+
         messageDiv.appendChild(logo);
         messageDiv.appendChild(typing);
+
         chatContainer.appendChild(messageDiv);
 
         refreshChatPosition();
     }
 
+
     function removeTyping() {
+
         const typingIndicator =
             chatContainer.querySelector('#typing-indicator');
 
@@ -1876,98 +1939,359 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    /* Bot responses */
-    const botResponses = [
-        "That's interesting! Tell me more about your project.",
-        "I understand. How can I assist you further?",
-        "Great question! Let me help you with that.",
-        "I'm here to help. What would you like to know?",
-        "That's a good point. Let me provide more information.",
-        "I'm listening. What's on your mind?",
-        "Thanks for sharing. How can I support you?",
-        "Let me think about that for a moment.",
-        "That's a great insight! Can you elaborate?",
-        "I'm glad you asked. Here's what I think...",
-        "Interesting perspective! Tell me more.",
-        "I appreciate that feedback. What else can I help with?"
+
+    /* =====================================================
+       STATIC AI RESPONSES
+       =====================================================
+
+       These are fixed responses.
+       No random response is generated anymore.
+       Add/edit keywords and answers here whenever needed.
+       ===================================================== */
+
+    const staticResponses = [
+
+        {
+            keywords: [
+                'hello',
+                'hi',
+                'hey',
+                'hii',
+                'helo',
+                'good morning',
+                'good afternoon',
+                'good evening'
+            ],
+            response:
+                "Hello! 👋 I'm the TechnoSense AI Assistant. How can I help you today?"
+        },
+
+        {
+            keywords: [
+                'who are you',
+                'what are you',
+                'about you',
+                'your name'
+            ],
+            response:
+                "I'm the TechnoSense AI Assistant. I can help you explore our services, IT solutions, cloud services, career opportunities, and general company information."
+        },
+
+        {
+            keywords: [
+                'about us',
+                'about technosense',
+                'company',
+                'technosense'
+            ],
+            response:
+                "TechnoSense is focused on delivering IT infrastructure management, cloud solutions, and digital transformation services to help organizations grow and modernize."
+        },
+
+        {
+            keywords: [
+                'service',
+                'services',
+                'what services',
+                'your services'
+            ],
+            response:
+                "We provide IT infrastructure management, cloud solutions, digital transformation services, and other technology solutions designed to support modern businesses."
+        },
+
+        {
+            keywords: [
+                'it solution',
+                'it solutions',
+                'technology solution',
+                'technology solutions'
+            ],
+            response:
+                "Our IT solutions are designed to improve infrastructure, cloud environments, business operations, scalability, and overall technology performance."
+        },
+
+        {
+            keywords: [
+                'cloud',
+                'cloud service',
+                'cloud services',
+                'cloud solution',
+                'cloud solutions'
+            ],
+            response:
+                "Our cloud solutions help businesses build, manage, and modernize their cloud infrastructure with a focus on scalability, reliability, security, and performance."
+        },
+
+        {
+            keywords: [
+                'aws',
+                'amazon web services'
+            ],
+            response:
+                "We can help businesses with AWS-focused cloud infrastructure and related IT solutions. For a specific AWS requirement, please share what you're looking to build or manage."
+        },
+
+        {
+            keywords: [
+                'career',
+                'careers',
+                'job',
+                'jobs',
+                'vacancy',
+                'vacancies',
+                'hiring'
+            ],
+            response:
+                "Interested in joining TechnoSense? Please visit the Career section of our website to explore available opportunities and submit your application."
+        },
+
+        {
+            keywords: [
+                'contact',
+                'contact us',
+                'phone',
+                'email',
+                'reach you',
+                'reach technosense'
+            ],
+            response:
+                "You can use the Contact Us section of the website to get in touch with the TechnoSense team for business enquiries, support, or service-related questions."
+        },
+
+        {
+            keywords: [
+                'help',
+                'what can you do',
+                'how can you help',
+                'what can i ask'
+            ],
+            response:
+                "I can help you with information about TechnoSense, our services, IT solutions, cloud solutions, AWS-related requirements, careers, and general website questions."
+        },
+
+        {
+            keywords: [
+                'thank you',
+                'thanks',
+                'thank'
+            ],
+            response:
+                "You're welcome! 😊 I'm happy to help. Let me know if there's anything else you'd like to know."
+        },
+
+        {
+            keywords: [
+                'bye',
+                'goodbye',
+                'see you'
+            ],
+            response:
+                "Goodbye! 👋 Thanks for visiting TechnoSense. Have a great day!"
+        }
+
     ];
 
-    function getBotResponse() {
-        return botResponses[
-            Math.floor(Math.random() * botResponses.length)
-        ];
+
+    /* =====================================================
+       FIND STATIC RESPONSE
+       ===================================================== */
+
+    function getStaticResponse(message) {
+
+        const text =
+            message
+                .toLowerCase()
+                .replace(/[^\w\s]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+
+
+        for (const item of staticResponses) {
+
+            const matched =
+                item.keywords.some(function (keyword) {
+
+                    return text.includes(
+                        keyword.toLowerCase()
+                    );
+
+                });
+
+
+            if (matched) {
+                return item.response;
+            }
+        }
+
+
+        /* Default fixed response */
+        return "Thanks for your message! I can help with TechnoSense services, IT solutions, cloud solutions, AWS, careers, and company information. Please tell me what you'd like to know.";
     }
 
-    /* Send message */
-    function sendMessage() {
-        const message = inputField.value.trim();
 
-        if (!message || isSending) return;
+    /* =====================================================
+       SEND MESSAGE
+       ===================================================== */
+
+    function sendMessage() {
+
+        const message =
+            inputField.value.trim();
+
+        if (!message || isSending) {
+            return;
+        }
 
         isSending = true;
 
-        addMessage(message, true);
+
+        /* USER MESSAGE */
+        addMessage(
+            message,
+            true
+        );
+
+
+        /* CLEAR INPUT */
         inputField.value = '';
 
+
+        /* TYPING */
         showTyping();
 
-        setTimeout(() => {
+
+        /* STATIC RESPONSE */
+        setTimeout(function () {
+
             removeTyping();
-            addMessage(getBotResponse(), false);
+
+            addMessage(
+                getStaticResponse(message),
+                false
+            );
+
             isSending = false;
-        }, 1500);
+
+        }, 700);
     }
 
-    sendButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        sendMessage();
-    });
 
-    inputField.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' && !event.shiftKey) {
+    /* =====================================================
+       SEND BUTTON
+       ===================================================== */
+
+    sendButton.addEventListener(
+        'click',
+        function (event) {
+
             event.preventDefault();
+
             sendMessage();
         }
-    });
+    );
 
-    /* Suggestions */
-    content.addEventListener('click', function (event) {
-        const suggestion = event.target.closest('.suggestion');
 
-        if (!suggestion) return;
+    /* =====================================================
+       ENTER TO SEND
+       ===================================================== */
 
-        const suggestionText = suggestion.querySelector('b');
+    inputField.addEventListener(
+        'keydown',
+        function (event) {
 
-        if (!suggestionText) return;
+            if (
+                event.key === 'Enter' &&
+                !event.shiftKey
+            ) {
 
-        inputField.value = suggestionText.textContent.trim();
-        inputField.focus();
-    });
+                event.preventDefault();
 
-    /* Keep latest response visible */
-    const messageObserver = new MutationObserver(function () {
-        refreshChatPosition();
-    });
+                sendMessage();
+            }
+        }
+    );
 
-    messageObserver.observe(chatContainer, {
-        childList: true,
-        subtree: true,
-        characterData: true
-    });
 
-    if (window.ResizeObserver) {
-        const resizeObserver = new ResizeObserver(function () {
+    /* =====================================================
+       SUGGESTIONS
+       ===================================================== */
+
+    content.addEventListener(
+        'click',
+        function (event) {
+
+            const suggestion =
+                event.target.closest('.suggestion');
+
+            if (!suggestion) return;
+
+            const suggestionText =
+                suggestion.querySelector('b');
+
+            if (!suggestionText) return;
+
+            inputField.value =
+                suggestionText.textContent.trim();
+
+            inputField.focus();
+        }
+    );
+
+
+    /* =====================================================
+       KEEP LATEST RESPONSE VISIBLE
+       ===================================================== */
+
+    const messageObserver =
+        new MutationObserver(function () {
+
             refreshChatPosition();
+
         });
 
-        resizeObserver.observe(chatContainer);
+
+    messageObserver.observe(
+        chatContainer,
+        {
+            childList: true,
+            subtree: true,
+            characterData: true
+        }
+    );
+
+
+    /* =====================================================
+       RESIZE SUPPORT
+       ===================================================== */
+
+    if (window.ResizeObserver) {
+
+        const resizeObserver =
+            new ResizeObserver(function () {
+
+                refreshChatPosition();
+
+            });
+
+        resizeObserver.observe(
+            chatContainer
+        );
     }
 
-    setTimeout(() => scrollToLatest(false), 100);
+
+    /* =====================================================
+       INITIAL POSITION
+       ===================================================== */
+
+    setTimeout(function () {
+
+        scrollToLatest(false);
+
+    }, 100);
+
 });
 </script>
 
-<script type="module" src="/src/main.jsx"></script>
 </body>
 
 
