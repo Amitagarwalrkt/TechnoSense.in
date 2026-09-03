@@ -5,9 +5,8 @@
       <stop offset="1" stop-color="#06b6d4"/>
     </linearGradient>
   </defs>
-  <rect width="520" height="140" fill="transparent"/>
   <g transform="translate(70,42)">
     <path d="M22 0 L44 0 L66 60 L48 60 L42 44 L24 44 L18 60 L0 60 Z M29 28 L37 28 L33 18 Z" fill="url(#ag)"/>
-    <text x="90" y="44" fill="#e2e8f0" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="36" font-weight="700">Altuis</text>
+    <text x="90" y="44" fill="#111827" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="36" font-weight="700">Altuis</text>
   </g>
 </svg>
