@@ -17,6 +17,8 @@ function copyLegacySite() {
           cpSync(resolve(root, file), resolve(output, file))
         }
       }
+      cpSync(resolve(root, 'send-message.php'), resolve(output, 'send-message.php'))
+      cpSync(resolve(root, 'smtp-config.php'), resolve(output, 'smtp-config.php'))
     }
   }
 }
