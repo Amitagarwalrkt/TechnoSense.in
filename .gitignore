@@ -1,0 +1,5 @@
+smtp-config.php
+node_modules/
+.env
+.env.*
+!.env.example
