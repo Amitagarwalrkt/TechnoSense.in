@@ -148,6 +148,7 @@
 								</ul>
 							</li>
 
+							<li><a href="blog.html" class="nav-link">Blog</a></li>
 							<li><a href="career.html" class="nav-link">Career</a></li>
 							<li><a href="contact-us.html" class="nav-link">Contact Us</a></li>
 						</ul>
@@ -183,15 +184,19 @@
 
 							<div class="">
 								<h4 class="mt-2 mb-1">Our <strong>Office</strong></h4>
-								<ul class="list list-icons list-icons-style-2 mt-2">
-									<li><i class="fas fa-map-marker-alt top-6"></i> <strong class="text-dark">Address:</strong> 48, 7th Floor, ETT tower - 2B-36, Sector 132 Noida.
-                                    </li>
-									<li><i class="fas fa-phone top-6"></i> <strong class="text-dark">Phone:</strong> +91-9911 191 139
-                                    </li>
-                                    <!-- <li><i class="fas fa-phone top-6"></i> <strong class="text-dark">Phone:</strong> +91-9899 996 929
-                                    </li> -->
-									<!-- <li><i class="fas fa-envelope top-6"></i> <strong class="text-dark">Email:</strong> <a href="mailto:career@gmail.com">career@gmail.com</a></li> -->
-                                    <li><i class="fas fa-envelope top-6"></i> <strong class="text-dark">Email:</strong> <a href="mailto:info@technosense.in">info@technosense.in</a></li>
+								<ul class="list list-icons list-icons-style-2 mt-2 office-contact-list">
+									<li>
+										<i class="fas fa-map-marker-alt top-6" aria-hidden="true"></i>
+										<span class="office-detail"><strong class="text-dark">Address:</strong> 48, 7th Floor, ETT tower - 2B-36, Sector 132 Noida.</span>
+									</li>
+									<li>
+										<i class="fas fa-phone top-6" aria-hidden="true"></i>
+										<span class="office-detail"><strong class="text-dark">Phone:</strong> <a href="tel:+919911191139">+91-9911 191 139</a></span>
+									</li>
+									<li>
+										<i class="fas fa-envelope top-6" aria-hidden="true"></i>
+										<span class="office-detail"><strong class="text-dark">Email:</strong> <a href="mailto:info@technosense.in">info@technosense.in</a></span>
+									</li>
 								</ul>
 							</div>
 
@@ -391,7 +396,8 @@
 					})
 					.then(function () {
 						successMessage.querySelector('strong').textContent = 'Thank you!';
-						successMessage.lastChild.textContent = ' We received your query. The TechnoSense team will contact you shortly.';
+						successMessage.lastC
+						hild.textContent = ' We received your query. The TechnoSense team will contact you shortly.';
 						successMessage.classList.remove('d-none');
 						form.reset();
 					})

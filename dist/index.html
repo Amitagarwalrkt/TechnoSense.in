@@ -12,10 +12,10 @@
 	<meta name="author" content="okler.net">
 
 	<!-- Favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-DI05UMHt.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/apple-touch-icon-DI05UMHt.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/assets/apple-touch-icon-DI05UMHt.png">
-	<link rel="manifest" href="/assets/site-BwHFeIBa.webmanifest">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/android-chrome-512x512.png">
+	<link rel="manifest" href="img/site.webmanifest">
 
 	<!-- Mobile Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
@@ -26,12 +26,26 @@
 		rel="stylesheet" type="text/css">
 
 	<!-- Vendor CSS -->
+	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="vendor/animate/animate.compat.css">
+	<link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+	<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+	<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
 
 	<!-- Theme CSS -->
+	<link rel="stylesheet" href="css/theme.css">
+	<link rel="stylesheet" href="css/theme-elements.css">
+	<link rel="stylesheet" href="css/theme-blog.css">
+	<link rel="stylesheet" href="css/theme-shop.css">
 
 	<!-- Skin CSS -->
+	<link id="skinCSS" rel="stylesheet" href="css/skins/skin-corporate-4.css">
 
 	<!-- Theme Custom CSS -->
+	<link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/premium-theme.css">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-42715764-11"></script>
 	<script>
@@ -420,8 +434,6 @@
 }
 </style>
 
-  <script type="module" crossorigin src="/assets/index-CFeSELh9.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-zuid_9G0.css">
 </head>
 
 <body data-plugin-page-transition>
@@ -436,7 +448,7 @@
 						<!-- Logo -->
 						<div class="navbar-logo">
 							<a href="index.html">
-								<img src="/assets/apple-touch-icon-DI05UMHt.png" alt="TechnoSense" class="logo-img">
+								<img src="img/logos/technosense-logo.png" alt="TechnoSense" class="logo-img">
 							</a>
 						</div>
 
@@ -512,6 +524,7 @@
 								</ul>
 							</li>
 
+							<li><a href="blog.html" class="nav-link">Blog</a></li>
 							<li><a href="career.html" class="nav-link">Career</a></li>
 							<li><a href="contact-us.html" class="nav-link">Contact Us</a></li>
 						</ul>
@@ -593,7 +606,7 @@
 										<span class="hero-panel-label">TechnoSense Platform</span>
 									</div>
 									<div class="hero-panel-body">
-										<img src="/assets/hero-C8RCsOd2.webp" alt="IT Infrastructure" class="hero-panel-img" loading="eager">
+										<img src="img/hero.webp" alt="IT Infrastructure" class="hero-panel-img" loading="eager">
 										<div class="hero-panel-overlay">
 											<div class="hero-panel-stat">
 												<i class="fas fa-chart-line"></i>
@@ -640,14 +653,6 @@
 							<span>Projects Delivered</span>
 						</div>
 						<div class="hero-stat-block">
-							<strong>50+</strong>
-							<span>Happy Clients</span>
-						</div>
-						<div class="hero-stat-block">
-							<strong>15+</strong>
-							<span>Years Experience</span>
-						</div>
-						<div class="hero-stat-block">
 							<strong>100%</strong>
 							<span>Success Rate</span>
 						</div>
@@ -680,7 +685,7 @@
 			<!-- About Section -->
 			<section class="about-section about-premium">
 				<video autoplay muted loop playsinline class="about-video-bg">
-					<source src="/assets/map-DTPi-7AX.mp4" type="video/mp4">
+					<source src="img/video/map.mp4" type="video/mp4">
 				</video>
 				<div class="about-premium-overlay" aria-hidden="true"></div>
 				<div class="about-premium-grid" aria-hidden="true"></div>
@@ -880,7 +885,7 @@
 					<div class="section-header partners-premium-header">
 						<div class="partners-header-meta">
 							<div class="section-label">Strategic Partners</div>
-							<span class="partners-count-badge"><i class="fas fa-handshake"></i> 4 Global Alliances</span>
+							<span class="partners-count-badge"><i class="fas fa-handshake"></i> 5 Global Alliances</span>
 						</div>
 						<h2 class="section-title partners-title" id="partnersTitle">Trusted <span class="partners-title-accent">Alliances</span></h2>
 						<p class="section-description partners-subtitle">We collaborate with technology leaders to deliver secure, scalable, enterprise-grade outcomes.</p>
@@ -890,30 +895,37 @@
 						<div class="partner-card partner-card--aws" role="listitem" aria-label="AWS Partner">
 							<span class="partner-tag">Cloud Platform</span>
 							<div class="partner-logo-wrap">
-								<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MjAiIGhlaWdodD0iMTQwIiB2aWV3Qm94PSIwIDAgNTIwIDE0MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJBV1MgUGFydG5lciI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB4Mj0iMSIgeTE9IjAiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMGVhNWU5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdjM2FlZCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciIHg9Ii0yMCUiIHk9Ii01MCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjIwMCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz4KICAgICAgPGZlQ29sb3JNYXRyaXggaW49ImIiIHR5cGU9Im1hdHJpeCIKICAgICAgICB2YWx1ZXM9IjEgMCAwIDAgMAogICAgICAgICAgICAgICAgMCAxIDAgMCAwCiAgICAgICAgICAgICAgICAwIDAgMSAwIDAKICAgICAgICAgICAgICAgIDAgMCAwIDAuMzUgMCIgcmVzdWx0PSJjIi8+CiAgICAgIDxmZU1lcmdlPgogICAgICAgIDxmZU1lcmdlTm9kZSBpbj0iYyIvPgogICAgICAgIDxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPgogICAgICA8L2ZlTWVyZ2U+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+CgogIDxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSI1MTgiIGhlaWdodD0iMTM4IiByeD0iMTgiIGZpbGw9IiMwYjEwMjIiIHN0cm9rZT0icmdiYSg1OSwxMzAsMjQ2LDAuMzUpIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0ODQiIGhlaWdodD0iMTA0IiByeD0iMTQiIGZpbGw9InJnYmEoMzAsNDEsNTksMC41NSkiIHN0cm9rZT0icmdiYSg2LDE4MiwyMTIsMC4yNSkiLz4KCiAgPGcgZmlsdGVyPSJ1cmwoI2dsb3cpIj4KICAgIDx0ZXh0IHg9IjUyIiB5PSI3OCIgZmlsbD0iI2UyZThmMCIgZm9udC1mYW1pbHk9IlBvcHBpbnMsIFNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0NCIgZm9udC13ZWlnaHQ9IjgwMCIgbGV0dGVyLXNwYWNpbmc9IjEuMiI+QVdTPC90ZXh0PgogICAgPHRleHQgeD0iMTcwIiB5PSI3OCIgZmlsbD0iIzk0YTNiOCIgZm9udC1mYW1pbHk9IlBvcHBpbnMsIFNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMiIgZm9udC13ZWlnaHQ9IjcwMCIgbGV0dGVyLXNwYWNpbmc9IjMuMiI+UEFSVE5FUjwvdGV4dD4KICAgIDxwYXRoIGQ9Ik01MiA5MiBDIDEzMCAxMjUsIDIxMCAxMjUsIDI5MiA5NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2cpIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC45Ii8+CiAgPC9nPgo8L3N2Zz4K" alt="AWS Partner" loading="lazy" decoding="async">
+								<img src="img/partners/aws.svg" alt="AWS Partner" loading="lazy" decoding="async">
 							</div>
 							<span class="partner-name">Amazon Web Services</span>
 						</div>
 						<div class="partner-card partner-card--microsoft" role="listitem" aria-label="Microsoft">
 							<span class="partner-tag">Productivity Suite</span>
 							<div class="partner-logo-wrap">
-								<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MjAiIGhlaWdodD0iMTQwIiB2aWV3Qm94PSIwIDAgNTIwIDE0MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJNaWNyb3NvZnQiPgogIDxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSI1MTgiIGhlaWdodD0iMTM4IiByeD0iMTgiIGZpbGw9IiMwYjEwMjIiIHN0cm9rZT0icmdiYSg1OSwxMzAsMjQ2LDAuMzUpIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0ODQiIGhlaWdodD0iMTA0IiByeD0iMTQiIGZpbGw9InJnYmEoMzAsNDEsNTksMC41NSkiIHN0cm9rZT0icmdiYSg2LDE4MiwyMTIsMC4yNSkiLz4KCiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAsNDQpIj4KICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgZmlsbD0iI2YyNTAyMiIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjAiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgZmlsbD0iIzdmYmEwMCIvPgogICAgPHJlY3QgeD0iMCIgeT0iMjYiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgZmlsbD0iIzAwYTRlZiIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjI2IiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIGZpbGw9IiNmZmI5MDAiLz4KICA8L2c+CgogIDx0ZXh0IHg9IjEzMCIgeT0iODIiIGZpbGw9IiNlMmU4ZjAiIGZvbnQtZmFtaWx5PSJQb3BwaW5zLCBTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzQiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIwLjMiPk1pY3Jvc29mdDwvdGV4dD4KPC9zdmc+Cg==" alt="Microsoft" loading="lazy" decoding="async">
+								<img src="img/partners/microsoft.svg" alt="Microsoft" loading="lazy" decoding="async">
 							</div>
 							<span class="partner-name">Microsoft</span>
 						</div>
 						<div class="partner-card partner-card--redington" role="listitem" aria-label="Redington">
 							<span class="partner-tag">Distribution</span>
 							<div class="partner-logo-wrap">
-								<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MjAiIGhlaWdodD0iMTQwIiB2aWV3Qm94PSIwIDAgNTIwIDE0MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJSZWRpbmd0b24iPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyMmM1NWUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDZiNmQ0Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KCiAgPHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjUxOCIgaGVpZ2h0PSIxMzgiIHJ4PSIxOCIgZmlsbD0iIzBiMTAyMiIgc3Ryb2tlPSJyZ2JhKDU5LDEzMCwyNDYsMC4zNSkiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxyZWN0IHg9IjE4IiB5PSIxOCIgd2lkdGg9IjQ4NCIgaGVpZ2h0PSIxMDQiIHJ4PSIxNCIgZmlsbD0icmdiYSgzMCw0MSw1OSwwLjU1KSIgc3Ryb2tlPSJyZ2JhKDYsMTgyLDIxMiwwLjI1KSIvPgoKICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2Miw0NikiPgogICAgPHBhdGggZD0iTTI0IDAgQzEwIDgsIDAgMjAsIDAgMzQgQzAgNTIsIDE0IDY2LCAzMiA2NiBDNDUgNjYsIDU2IDU4LCA2MiA0NiBDNTIgNTQsIDM4IDU4LCAyNiA1NCBDMTIgNTAsIDQgMzgsIDcgMjYgQzEwIDEyLCAyMiAyLCAzNiA0IEM0NiA1LCA1NCAxMCwgNjAgMTggQzU1IDgsIDQ1IDEsIDMzIDAgWiIKICAgICAgICAgIGZpbGw9InVybCgjcmcpIiBvcGFjaXR5PSIwLjk1Ii8+CiAgPC9nPgoKICA8dGV4dCB4PSIxMzAiIHk9IjgyIiBmaWxsPSIjZTJlOGYwIiBmb250LWZhbWlseT0iUG9wcGlucywgU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM0IiBmb250LXdlaWdodD0iNzAwIiBsZXR0ZXItc3BhY2luZz0iMC4zIj5SZWRpbmd0b248L3RleHQ+Cjwvc3ZnPgo=" alt="Redington" loading="lazy" decoding="async">
+								<img src="img/partners/redington.svg" alt="Redington" loading="lazy" decoding="async">
 							</div>
 							<span class="partner-name">Redington</span>
 						</div>
 						<div class="partner-card partner-card--fortinet" role="listitem" aria-label="Fortinet">
 							<span class="partner-tag">Cybersecurity</span>
 							<div class="partner-logo-wrap">
-								<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MjAiIGhlaWdodD0iMTQwIiB2aWV3Qm94PSIwIDAgNTIwIDE0MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJGb3J0aW5ldCI+CiAgPHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjUxOCIgaGVpZ2h0PSIxMzgiIHJ4PSIxOCIgZmlsbD0iIzBiMTAyMiIgc3Ryb2tlPSJyZ2JhKDU5LDEzMCwyNDYsMC4zNSkiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxyZWN0IHg9IjE4IiB5PSIxOCIgd2lkdGg9IjQ4NCIgaGVpZ2h0PSIxMDQiIHJ4PSIxNCIgZmlsbD0icmdiYSgzMCw0MSw1OSwwLjU1KSIgc3Ryb2tlPSJyZ2JhKDYsMTgyLDIxMiwwLjI1KSIvPgoKICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2Miw1MCkiPgogICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijc4IiBoZWlnaHQ9IjQwIiByeD0iMTAiIGZpbGw9InJnYmEoMjM5LDY4LDY4LDAuMTgpIiBzdHJva2U9InJnYmEoMjM5LDY4LDY4LDAuNTUpIiAvPgogICAgPGcgZmlsbD0iI2VmNDQ0NCIgb3BhY2l0eT0iMC45NSI+CiAgICAgIDxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjIwIiByeD0iMiIvPgogICAgICA8cmVjdCB4PSIyNCIgeT0iMTAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIyMCIgcng9IjIiLz4KICAgICAgPHJlY3QgeD0iMzgiIHk9IjEwIiB3aWR0aD0iMTAiIGhlaWdodD0iMjAiIHJ4PSIyIi8+CiAgICAgIDxyZWN0IHg9IjUyIiB5PSIxMCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjIwIiByeD0iMiIvPgogICAgICA8cmVjdCB4PSI2NiIgeT0iMTAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIyMCIgcng9IjIiLz4KICAgIDwvZz4KICA8L2c+CgogIDx0ZXh0IHg9IjE2MCIgeT0iODIiIGZpbGw9IiNlMmU4ZjAiIGZvbnQtZmFtaWx5PSJQb3BwaW5zLCBTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzQiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIwLjMiPkZvcnRpbmV0PC90ZXh0Pgo8L3N2Zz4K" alt="Fortinet" loading="lazy" decoding="async">
+								<img src="img/partners/fortinet.svg" alt="Fortinet" loading="lazy" decoding="async">
 							</div>
 							<span class="partner-name">Fortinet</span>
+						</div>
+						<div class="partner-card partner-card--nutanix" role="listitem" aria-label="Nutanix">
+							<span class="partner-tag">Hybrid Cloud Provider</span>
+							<div class="partner-logo-wrap">
+								<img src="img/partners/nutanix.svg" alt="Nutanix" loading="lazy" decoding="async">
+							</div>
+							<span class="partner-name">Nutanix</span>
 						</div>
 					</div>
 
@@ -938,25 +950,31 @@
 			<section class="clients-section clients-premium" aria-labelledby="clientsTitle">
 				<div class="container">
 					<div class="section-header clients-premium-header">
-						<div class="section-label">Trusted By</div>
+						<div class="clients-header-meta">
+							<div class="section-label">Trusted By</div>
+							<span class="clients-count-badge"><i class="fas fa-building"></i> 6 Enterprise Clients</span>
+						</div>
 						<h2 class="section-title clients-title" id="clientsTitle">Our <span class="clients-title-accent">Clients</span></h2>
 					</div>
 
 					<div class="clients-logo-wall" role="list" aria-label="Client logos">
 						<figure class="clients-logo-item" role="listitem">
-							<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MjAiIGhlaWdodD0iMTQwIiB2aWV3Qm94PSIwIDAgNTIwIDE0MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJFTUFBUiBJbmRpYSI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAsMzYpIj4KICAgIDx0ZXh0IHg9IjAiIHk9IjU0IiBmaWxsPSIjMTExODI3IiBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIiBmb250LXNpemU9IjU2IiBmb250LXdlaWdodD0iNTAwIiBsZXR0ZXItc3BhY2luZz0iMiI+RU1BQVI8L3RleHQ+CiAgICA8dGV4dCB4PSI2IiB5PSI5MiIgZmlsbD0iIzZCNzI4MCIgZm9udC1mYW1pbHk9IlBvcHBpbnMsIFNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9IjcwMCIgbGV0dGVyLXNwYWNpbmc9IjYiPklORElBPC90ZXh0PgogIDwvZz4KPC9zdmc+Cg==" alt="EMAAR India" loading="lazy" decoding="async">
+							<img src="img/clients/emaar-india.svg" alt="EMAAR India" loading="lazy" decoding="async">
 						</figure>
 						<figure class="clients-logo-item" role="listitem">
-							<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MjAiIGhlaWdodD0iMTQwIiB2aWV3Qm94PSIwIDAgNTIwIDE0MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJWYWx2b2xpbmUiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ2Ymx1ZSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMxZDRlZDgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNjBhNWZhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ2cmVkIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0M4MTAyRSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlZjQ0NDQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwLDQwKSI+CiAgICA8cGF0aCBkPSJNMCAwIEw1NSAwIEwyOCA2MCBMMCA2MCBaIiBmaWxsPSJ1cmwoI3ZibHVlKSIvPgogICAgPHBhdGggZD0iTTYwIDAgTDExNSAwIEwxMTUgNjAgTDg4IDYwIFoiIGZpbGw9InVybCgjdnJlZCkiLz4KICAgIDx0ZXh0IHg9IjE0MCIgeT0iNDQiIGZpbGw9IiMxMTE4MjciIGZvbnQtZmFtaWx5PSJQb3BwaW5zLCBTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzQiIGZvbnQtd2VpZ2h0PSI3MDAiPlZhbHZvbGluZTwvdGV4dD4KICA8L2c+Cjwvc3ZnPgo=" alt="Valvoline" loading="lazy" decoding="async">
+							<img src="img/clients/valvoline.svg" alt="Valvoline" loading="lazy" decoding="async">
 						</figure>
 						<figure class="clients-logo-item" role="listitem">
-							<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MjAiIGhlaWdodD0iMTQwIiB2aWV3Qm94PSIwIDAgNTIwIDE0MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJBaXJ0ZWwiPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcwLDQ0KSI+CiAgICA8cGF0aCBkPSJNMTggNTIgQyA4IDQ0LCAyIDMzLCAyIDIxIEMyIDksIDkgMCwgMjEgMCBDMzYgMCwgNDggMTIsIDQ4IDI3IEM0OCA0MywgMzUgNTYsIDE5IDU2IEMxNCA1NiwgMTAgNTUsIDYgNTMiCiAgICAgICAgICBmaWxsPSJub25lIiBzdHJva2U9IiNDODEwMkUiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHRleHQgeD0iNzAiIHk9IjQ2IiBmaWxsPSIjMTExODI3IiBmb250LWZhbWlseT0iUG9wcGlucywgU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM4IiBmb250LXdlaWdodD0iNzAwIj5haXJ0ZWw8L3RleHQ+CiAgPC9nPgo8L3N2Zz4K" alt="Airtel" loading="lazy" decoding="async">
+							<img src="img/clients/airtel.svg" alt="Airtel" loading="lazy" decoding="async">
 						</figure>
 						<figure class="clients-logo-item" role="listitem">
-							<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MjAiIGhlaWdodD0iMTQwIiB2aWV3Qm94PSIwIDAgNTIwIDE0MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJBbHR1aXMiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJhZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyMmM1NWUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDZiNmQ0Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MCw0MikiPgogICAgPHBhdGggZD0iTTIyIDAgTDQ0IDAgTDY2IDYwIEw0OCA2MCBMNDIgNDQgTDI0IDQ0IEwxOCA2MCBMMCA2MCBaIE0yOSAyOCBMMzcgMjggTDMzIDE4IFoiIGZpbGw9InVybCgjYWcpIi8+CiAgICA8dGV4dCB4PSI5MCIgeT0iNDQiIGZpbGw9IiMxMTE4MjciIGZvbnQtZmFtaWx5PSJQb3BwaW5zLCBTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI3MDAiPkFsdHVpczwvdGV4dD4KICA8L2c+Cjwvc3ZnPgo=" alt="Altuis" loading="lazy" decoding="async">
+							<img src="img/clients/altuis.svg" alt="Altuis" loading="lazy" decoding="async">
 						</figure>
 						<figure class="clients-logo-item" role="listitem">
-							<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MjAiIGhlaWdodD0iMTQwIiB2aWV3Qm94PSIwIDAgNTIwIDE0MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJCcml0YW5uaWEiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjAiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNlZjQ0NDQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjU5ZTBiIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNTIwIiBoZWlnaHQ9IjE0MCIgZmlsbD0idHJhbnNwYXJlbnQiLz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2MCw0NCkiPgogICAgPHBhdGggZD0iTTAgNiBDNjAgLTgsIDE3MCAtOCwgMjQwIDEwIEMyNTUgMTQsIDI2MCAxOCwgMjYwIDMwIEMyNjAgNDQsIDI1MiA1MCwgMjM4IDU0IEMxNjUgNzQsIDYwIDcwLCAwIDU4IFoiIGZpbGw9InVybCgjYmcpIiBvcGFjaXR5PSIwLjk1Ii8+CiAgICA8dGV4dCB4PSI0NSIgeT0iNDMiIGZpbGw9IiNmZmZmZmYiIGZvbnQtZmFtaWx5PSJQb3BwaW5zLCBTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzQiIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIxIj5CUklUQU5OSUE8L3RleHQ+CiAgPC9nPgo8L3N2Zz4K" alt="Britannia" loading="lazy" decoding="async">
+							<img src="img/clients/britannia.svg" alt="Britannia" loading="lazy" decoding="async">
+						</figure>
+						<figure class="clients-logo-item clients-logo-item--crazibrain" role="listitem">
+							<img src="img/clients/crazibrain.png" alt="Crazi Brain" loading="lazy" decoding="async">
 						</figure>
 					</div>
 				</div>
@@ -974,16 +992,6 @@
 							<span class="stat-number">100+</span>
 							<span class="stat-accent-line" aria-hidden="true"></span>
 							<span class="stat-label">Projects Delivered</span>
-						</div>
-						<div class="stat-item">
-							<span class="stat-number">50+</span>
-							<span class="stat-accent-line" aria-hidden="true"></span>
-							<span class="stat-label">Happy Clients</span>
-						</div>
-						<div class="stat-item">
-							<span class="stat-number">15+</span>
-							<span class="stat-accent-line" aria-hidden="true"></span>
-							<span class="stat-label">Years Experience</span>
 						</div>
 						<div class="stat-item">
 							<span class="stat-number">100%</span>
@@ -1004,7 +1012,7 @@
 							<div class="experience-visual-stage">
 								<div class="experience-video-frame">
 									<video autoplay muted loop playsinline class="about-image">
-										<source src="/assets/server-p_2ToDoR.mp4" type="video/mp4">
+										<source src="img/video/server.mp4" type="video/mp4">
 									</video>
 									<div class="experience-video-overlay" aria-hidden="true"></div>
 									<div class="experience-video-badge">
@@ -1050,7 +1058,10 @@
 
 				<div class="container">
 					<div class="section-header process-premium-header">
-						<div class="section-label">Our Process</div>
+						<div class="process-header-meta">
+							<div class="section-label">Our Process</div>
+							<span class="process-count-badge"><i class="fas fa-route"></i> 4 Delivery Stages</span>
+						</div>
 						<h2 class="section-title process-premium-title">
 							<span class="process-title-main">End-to-End Delivery:</span>
 							<span class="process-roller-line">
@@ -1157,7 +1168,7 @@
 						<div class="col-lg-6">
 							<div class="skills-video-wrapper">
 								<video autoplay muted loop playsinline class="skills-video">
-									<source src="/assets/cloude-B7EALjC4.mp4" type="video/mp4">
+									<source src="img/video/cloude.mp4" type="video/mp4">
 								</video>
 							</div>
 						</div>
@@ -1176,7 +1187,10 @@
 
 				<div class="container">
 					<div class="section-header faq-premium-header">
-						<div class="section-label">FAQ</div>
+						<div class="faq-header-meta">
+							<div class="section-label">FAQ</div>
+							<span class="faq-count-badge"><i class="fas fa-circle-question"></i> 5 Common Questions</span>
+						</div>
 						<h2 class="section-title faq-premium-title">Frequent <span class="faq-title-accent">Questions</span></h2>
 						<div class="faq-heading-line" aria-hidden="true"></div>
 						<p class="section-description">Clear answers about our IT services, security practices, and how we support your business from day one through long-term partnership.</p>
@@ -1295,7 +1309,7 @@
 				<div class="footer-premium-grid">
 					<div class="footer-brand-col">
 						<a href="index.html" class="footer-logo-wrap" aria-label="TechnoSense Home">
-							<img src="/assets/apple-touch-icon-DI05UMHt.png" alt="TechnoSense" class="footer-logo-img">
+							<img src="img/logos/technosense-logo.png" alt="TechnoSense" class="footer-logo-img">
 						</a>
 						<p class="footer-brand-desc">NextGen IT solutions — cloud, infrastructure, DevOps, and digital transformation delivered with enterprise-grade reliability.</p>
 						<div class="footer-social-row">
@@ -1311,6 +1325,7 @@
 						<ul class="footer-link-list">
 							<li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
 							<li><a href="about-us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+							<li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
 							<li><a href="contact-us.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
 							<li><a href="career.html"><i class="fas fa-chevron-right"></i> Careers</a></li>
 							<li><a href="cloud-consulting.html"><i class="fas fa-chevron-right"></i> Cloud Solutions</a></li>
@@ -2439,6 +2454,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script type="module" src="/src/main.jsx"></script>
 
 </body>
 

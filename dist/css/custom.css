@@ -49,7 +49,7 @@
 }
 
 body {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Poppins', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', sans-serif;
     line-height: 1.7;
     color: var(--text-light);
     background: var(--bg-dark);
@@ -72,7 +72,7 @@ body {
     left: 0;
     right: 0;
     z-index: 9999;
-    background: rgba(255, 255, 255, 0.97);
+    background: rgba(232, 235, 239, 0.96);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 1px 0 var(--border-light), 0 4px 24px rgba(0, 0, 0, 0.04);
@@ -678,11 +678,33 @@ body {
     }
     
     .logo-img {
-        max-height: 38px;
+        max-height: 48px;
+        margin: 0;
+        background: transparent !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
     }
     
     .navbar-main {
-        padding: 12px 0;
+        padding: 8px 0;
+        min-height: 64px;
+        align-items: center;
+    }
+
+    .navbar-logo {
+        height: 48px;
+        overflow: hidden;
+        margin-right: 0;
+    }
+
+    .navbar-logo a {
+        background: transparent !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+
+    .navbar-menu {
+        top: 64px;
     }
 }
 
@@ -722,12 +744,14 @@ body {
     }
     
     .logo-img {
-        max-height: 34px;
+        max-height: 44px;
+        margin: 0;
     }
     
     .navbar-toggle {
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
+        align-self: center;
     }
     
     .navbar-toggle span {
@@ -1478,6 +1502,9 @@ body {
     line-height: 1.9;
     color: var(--text-gray);
     margin-bottom: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: left;
 }
 
 .about-content .btn-cyberguard {
@@ -3491,6 +3518,14 @@ body .main .who-we-are-section {
     
     .hero-buttons-container {
         margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 12px;
     }
     
     .hero-buttons-container .d-flex {
@@ -3503,7 +3538,20 @@ body .main .who-we-are-section {
         padding: 14px 30px;
         font-size: 14px;
         width: 100%;
-        max-width: 280px;
+        max-width: 320px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .cyberguard-hero .hero-btn-primary,
+    .cyberguard-hero .hero-btn-secondary {
+        width: 100%;
+        max-width: none;
+        justify-content: center;
+        text-align: center;
     }
     
     /* CTA Section - Mobile */

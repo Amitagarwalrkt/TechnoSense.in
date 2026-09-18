@@ -115,6 +115,8 @@
 											<i class="fas fa-chevron-right"></i></a>
 										<ul class="submenu">
 											<li><a href="oracle-apex.html">Oracle ApEx</a></li>
+											<li><a href="website-development.html">Website Development</a></li>
+											<li><a href="mobile-app-development.html">Mobile App Development</a></li>
 											<li><a href="web-mobile-application-development.html">Web & Mobile
 													Application Development</a></li>
 											<li><a href="maf-mcs-cloud.html">MAF & MCS Cloud</a></li>
@@ -148,6 +150,7 @@
 								</ul>
 							</li>
 
+							<li><a href="blog.html" class="nav-link">Blog</a></li>
 							<li><a href="career.html" class="nav-link">Career</a></li>
 							<li><a href="contact-us.html" class="nav-link">Contact Us</a></li>
 						</ul>
@@ -183,15 +186,19 @@
 
 							<div class="">
 								<h4 class="mt-2 mb-1">Our <strong>Office</strong></h4>
-								<ul class="list list-icons list-icons-style-2 mt-2">
-									<li><i class="fas fa-map-marker-alt top-6"></i> <strong class="text-dark">Address:</strong> 48, 7th Floor, ETT tower - 2B-36, Sector 132 Noida.
-                                    </li>
-									<li><i class="fas fa-phone top-6"></i> <strong class="text-dark">Phone:</strong> +91-9911 191 139
-                                    </li>
-                                    <!-- <li><i class="fas fa-phone top-6"></i> <strong class="text-dark">Phone:</strong> +91-9899 996 929
-                                    </li> -->
-									<!-- <li><i class="fas fa-envelope top-6"></i> <strong class="text-dark">Email:</strong> <a href="mailto:career@gmail.com">career@gmail.com</a></li> -->
-                                    <li><i class="fas fa-envelope top-6"></i> <strong class="text-dark">Email:</strong> <a href="mailto:info@technosense.in">info@technosense.in</a></li>
+								<ul class="list list-icons list-icons-style-2 mt-2 office-contact-list">
+									<li>
+										<i class="fas fa-map-marker-alt top-6" aria-hidden="true"></i>
+										<span class="office-detail"><strong class="text-dark">Address:</strong> 48, 7th Floor, ETT tower - 2B-36, Sector 132 Noida.</span>
+									</li>
+									<li>
+										<i class="fas fa-phone top-6" aria-hidden="true"></i>
+										<span class="office-detail"><strong class="text-dark">Phone:</strong> <a href="tel:+919911191139">+91-9911 191 139</a></span>
+									</li>
+									<li>
+										<i class="fas fa-envelope top-6" aria-hidden="true"></i>
+										<span class="office-detail"><strong class="text-dark">Email:</strong> <a href="mailto:info@technosense.in">info@technosense.in</a></span>
+									</li>
 								</ul>
 							</div>
 
@@ -361,6 +368,7 @@
 		document.querySelectorAll('.contact-form').forEach(function (form) {
 			form.addEventListener('submit', function (event) {
 				event.preventDefault();
+				event.stopImmediatePropagation();
 
 				const successMessage = form.querySelector('.contact-form-success');
 				const errorMessage = form.querySelector('.contact-form-error');
@@ -374,25 +382,35 @@
 
 				fetch(form.action, {
 					method: 'POST',
-					body: new FormData(form)
+					body: new FormData(form),
+					headers: {
+						'Accept': 'application/json'
+					}
 				})
 					.then(function (response) {
 						return response.text().then(function (responseText) {
-							let data;
+							var data = null;
+							var trimmed = (responseText || '').trim();
+
 							try {
-								data = JSON.parse(responseText);
+								data = JSON.parse(trimmed);
 							} catch (parseError) {
-								throw new Error('The server did not return a valid response. Please run this site on a PHP-enabled server.');
+								if (!trimmed) {
+									throw new Error('No response from send-message.php. Upload send-message.php, smtp-config.php, and vendor/phpmailer on a PHP host.');
+								}
+								if (trimmed.indexOf('<!DOCTYPE') === 0 || trimmed.indexOf('<html') === 0) {
+									throw new Error('Server returned a web page instead of JSON. Confirm PHP is enabled and send-message.php is in the site root.');
+								}
+								throw new Error('Invalid server response. Check that smtp-config.php and PHPMailer are uploaded.');
 							}
-													if (!response.ok || (data.response !== 'success' && data.success !== true && data.success !== 'true')) {
-														throw new Error(data.errorMessage || data.message || 'Unable to send your message.');
+
+							if (!response.ok || (data.response !== 'success' && data.success !== true && data.success !== 'true')) {
+								throw new Error(data.errorMessage || data.message || 'Unable to send your message.');
 							}
 						});
 					})
 					.then(function () {
-						successMessage.querySelector('strong').textContent = 'Thank you!';
-						successMessage.lastC
-						hild.textContent = ' We received your query. The TechnoSense team will contact you shortly.';
+						successMessage.innerHTML = '<strong>Thank you!</strong> We received your query. The TechnoSense team will contact you shortly.';
 						successMessage.classList.remove('d-none');
 						form.reset();
 					})
@@ -404,7 +422,7 @@
 						submitButton.value = originalButtonText;
 						submitButton.disabled = false;
 					});
-			});
+			}, true);
 		});
 
 		document.addEventListener('DOMContentLoaded', function () {

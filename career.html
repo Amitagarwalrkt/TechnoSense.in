@@ -46,8 +46,20 @@
     <link id="skinCSS" rel="stylesheet" href="css/skins/skin-corporate-4.css">
 
     <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/premium-theme.css">
+    <link rel="stylesheet" href="css/custom.css?v=20260312">
+    <link rel="stylesheet" href="css/premium-theme.css?v=20260312">
+    <style>
+        /* Live-safe: Apply Now must stay white on dark card */
+        .career-apply-card h4,
+        .career-apply-card .career-apply-title,
+        .container.pb-1 .career-apply-card h4,
+        .inner-page-card .career-apply-card h4 {
+            color: #FFFFFF !important;
+            -webkit-text-fill-color: #FFFFFF !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+    </style>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42715764-11"></script>
@@ -115,6 +127,8 @@
 											<i class="fas fa-chevron-right"></i></a>
 										<ul class="submenu">
 											<li><a href="oracle-apex.html">Oracle ApEx</a></li>
+											<li><a href="website-development.html">Website Development</a></li>
+											<li><a href="mobile-app-development.html">Mobile App Development</a></li>
 											<li><a href="web-mobile-application-development.html">Web & Mobile
 													Application Development</a></li>
 											<li><a href="maf-mcs-cloud.html">MAF & MCS Cloud</a></li>
@@ -148,6 +162,7 @@
 								</ul>
 							</li>
 
+							<li><a href="blog.html" class="nav-link">Blog</a></li>
 							<li><a href="career.html" class="nav-link">Career</a></li>
 							<li><a href="contact-us.html" class="nav-link">Contact Us</a></li>
 						</ul>
@@ -281,7 +296,7 @@
                         <div class="career-apply-card">
                             <div class="career-apply-copy">
                                 <span class="career-apply-label">Join the team</span>
-                                <h4>Apply Now</h4>
+                                <h4 class="career-apply-title">Apply Now</h4>
                                 <p>If you are ready to take your career to the next level, share your resume with us. We look forward to welcoming you to the TechnoSense team.</p>
                             </div>
                             <a href="mailto:info@technosense.in" class="btn-cyberguard career-apply-btn">
