@@ -106,26 +106,6 @@ function App() {
     }
     document.body.classList.toggle('react-route-active', location.pathname !== '/')
     const handleLink = (event) => {
-      const toggle = event.target.closest('.navbar-toggle')
-      if (toggle) {
-        event.preventDefault()
-        const menu = toggle.closest('.navbar-wrapper')?.querySelector('.navbar-menu')
-        toggle.classList.toggle('active')
-        menu?.classList.toggle('active')
-        return
-      }
-      const serviceToggle = event.target.closest('.nav-dropdown > .dropdown-toggle')
-      if (serviceToggle) {
-        event.preventDefault()
-        serviceToggle.parentElement.classList.toggle('active')
-        return
-      }
-      const submenuToggle = event.target.closest('.dropdown-submenu > .dropdown-item')
-      if (submenuToggle && window.innerWidth <= 991) {
-        event.preventDefault()
-        submenuToggle.parentElement.classList.toggle('active')
-        return
-      }
       const anchor = event.target.closest('a')
       if (!anchor || anchor.target === '_blank' || !anchor.href) return
       const url = new URL(anchor.href)
@@ -134,11 +114,7 @@ function App() {
       if (path === '/' || routes[path]) { event.preventDefault(); navigate(path) }
     }
     document.addEventListener('click', handleLink)
-    return () => {
-      document.body.classList.remove('react-route-active')
-      document.querySelectorAll('.navbar-menu.active, .navbar-toggle.active, .nav-dropdown.active, .dropdown-submenu.active').forEach((element) => element.classList.remove('active'))
-      document.removeEventListener('click', handleLink)
-    }
+    return () => { document.body.classList.remove('react-route-active'); document.removeEventListener('click', handleLink) }
   }, [location.pathname, navigate])
   return <Routes>
     <Route path="/" element={<ReactPage Page={HomePage} />} />
