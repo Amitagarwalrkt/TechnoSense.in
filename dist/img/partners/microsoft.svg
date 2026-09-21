@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="140" viewBox="0 0 520 140" role="img" aria-label="Microsoft">
+  <rect x="1" y="1" width="518" height="138" rx="18" fill="#0b1022" stroke="rgba(59,130,246,0.35)" stroke-width="2"/>
+  <rect x="18" y="18" width="484" height="104" rx="14" fill="rgba(30,41,59,0.55)" stroke="rgba(6,182,212,0.25)"/>
+
+  <g transform="translate(60,44)">
+    <rect x="0" y="0" width="22" height="22" fill="#f25022"/>
+    <rect x="26" y="0" width="22" height="22" fill="#7fba00"/>
+    <rect x="0" y="26" width="22" height="22" fill="#00a4ef"/>
+    <rect x="26" y="26" width="22" height="22" fill="#ffb900"/>
+  </g>
+
+  <text x="130" y="82" fill="#e2e8f0" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="0.3">Microsoft</text>
+</svg>
