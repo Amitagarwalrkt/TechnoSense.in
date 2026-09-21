@@ -255,7 +255,7 @@
       <div className="footer-copyright footer-copyright-style-2 pt-2 pb-2">
         <div className="row">
           <div className="col-12 text-center">
-            <h5 className="mb-0 text-light">TechnoSense NextGen Solutions Pvt Limited├é(c) 2024. All Rights Reserved</h5>
+            <h5 className="mb-0 text-light">TechnoSense NextGen Solutions Pvt Limited (c) 2024. All Rights Reserved</h5>
           </div>
         </div>
       </div>
