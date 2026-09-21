@@ -250,13 +250,123 @@ info@technosense.in
 Website:
 https://technosense.in/
 
-Important Note for Developers
+Technology Stack
 
-This README documents the public-facing information and capabilities presented on the TechnoSense website.
+- React
+- Vite
+- React Router
+- Nodemailer for local development contact-form delivery
+- PHP and PHPMailer for production contact-form delivery
+- Existing CSS, image, video, icon, and vendor assets in `css`, `img`, `technosense`, and `vendor`
 
-The public website does not, by itself, establish the underlying implementation stack. Therefore, this README intentionally does not claim specific frameworks, libraries, hosting platforms, databases, CI/CD systems, or source-code architecture unless those details are confirmed from the actual project repository.
+Prerequisites
 
-If this README is being used for the website's source-code repository, add a project-specific Technology Stack, Installation, Local Development, Deployment, and Environment Variables section based on the actual codebase.
+- Node.js 20 or newer
+- npm
+- Git
+- PHP 8 or newer for production hosting, if the PHP contact endpoint is used
+- A Gmail account with a Gmail App Password for contact-form email delivery
+
+Installation
+
+Clone the repository and enter the project directory:
+
+```powershell
+git clone https://github.com/Amitagarwalrkt/TechnoSense.in.git
+cd TechnoSense.in
+```
+
+Install the JavaScript dependencies:
+
+```powershell
+npm install
+```
+
+Create the local SMTP configuration file:
+
+```powershell
+Copy-Item smtp-config.example.php smtp-config.php
+```
+
+Open `smtp-config.php` and set your own SMTP host, port, username, app password, sender email, and sender name. Never commit this file because it contains credentials. The file is ignored by Git.
+
+Run the Website Locally
+
+Start the Vite development server:
+
+```powershell
+npm run dev
+```
+
+Open the local website:
+
+```text
+http://localhost:5173/
+```
+
+The Vite development server handles the React application and provides a local contact-form API at `/send-message.php` using the SMTP values from `smtp-config.php`.
+
+Useful Development Commands
+
+```powershell
+# Start the development server
+npm run dev
+
+# Create a production build in dist/
+npm run build
+
+# Serve the production build locally
+npm run preview
+```
+
+The preview server is normally available at:
+
+```text
+http://localhost:4173/
+```
+
+Production Deployment
+
+Build the project:
+
+```powershell
+npm run build
+```
+
+Upload the contents of `dist/` to the web server. The production server must provide:
+
+- `dist/index.html` as the React entry point
+- The generated JavaScript and CSS assets
+- The copied `css`, `img`, `technosense`, and `vendor` directories
+- `send-message.php`
+- `smtp-config.php` with valid server-side SMTP credentials
+- PHP with the PHPMailer files in `vendor/phpmailer`
+
+For Apache or another SPA-aware web server, configure unknown application routes such as `/about-us` and `/contact-us` to serve `index.html`. Do not expose `smtp-config.php` as downloadable source, and keep it outside public access when the hosting provider supports that configuration.
+
+Production Contact Form Test
+
+After deployment, open `/contact-us`, complete every required field, and submit the form. If delivery fails, verify:
+
+1. `smtp-config.php` exists on the server.
+2. The Gmail App Password is valid and has no spaces or expired access.
+3. `vendor/phpmailer/src` contains `Exception.php`, `PHPMailer.php`, and `SMTP.php`.
+4. The server allows outbound SMTP connections on port 587.
+5. PHP error logs contain no PHPMailer or SMTP connection errors.
+
+Project Structure
+
+```text
+src/main.jsx       React entry point
+src/App.jsx        React Router configuration and shared behavior
+src/pages/         JSX page components
+src/app.css        React-specific styles
+index.html         Vite document shell
+vite.config.js     Vite configuration and local contact API
+send-message.php   Production contact-form endpoint
+smtp-config.php    Local/server SMTP configuration, ignored by Git
+dist/              Generated production output
+```
 
 License
 
