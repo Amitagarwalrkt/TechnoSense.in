@@ -70,7 +70,12 @@ function ReactPage({ Page, handlesContactForm = false }) {
       success?.classList.add('d-none')
       error?.classList.add('d-none')
       try {
-        const response = await fetch('/send-message.php', { method: 'POST', body: new FormData(form) })
+        const formData = new FormData(form)
+        const response = await fetch('/send-message.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body: new URLSearchParams(formData)
+        })
         const result = await response.json().catch(() => ({}))
         if (!response.ok || result.response !== 'success') throw new Error(result.errorMessage || 'Unable to send your message.')
         success?.classList.remove('d-none')

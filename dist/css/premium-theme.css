@@ -56,7 +56,7 @@
 
 /* Logo — bigger visually, navbar stays slim */
 .navbar-logo {
-    width: 230px !important;
+    width: 100px !important;
     height: 68px !important;
     margin-right: 28px !important;
     flex-shrink: 0 !important;
@@ -84,8 +84,8 @@
 }
 
 .logo-img {
-    width: 220px !important;
-    height: 64px !important;
+    width: 150px !important;
+    height: 100px !important;
     max-height: none !important;
     max-width: min(420px, 62vw) !important;
     margin: 0 !important;
