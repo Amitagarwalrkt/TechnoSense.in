@@ -91,9 +91,11 @@ function copyLegacySite() {
       const root = resolve(import.meta.dirname)
       const output = resolve(root, options.dir || 'dist')
       for (const directory of ['css', 'img', 'technosense', 'vendor']) {
-        cpSync(resolve(root, directory), resolve(output, directory), { recursive: true })
+        const source = resolve(root, directory)
+        if (existsSync(source)) cpSync(source, resolve(output, directory), { recursive: true })
       }
-      cpSync(resolve(root, 'send-message.php'), resolve(output, 'send-message.php'))
+      const mailEndpoint = resolve(root, 'send-message.php')
+      if (existsSync(mailEndpoint)) cpSync(mailEndpoint, resolve(output, 'send-message.php'))
     }
   }
 }

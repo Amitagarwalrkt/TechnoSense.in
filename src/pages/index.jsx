@@ -893,36 +893,36 @@ export default function Index() {
   {/* Typewriter Effect Script */}
   {/* Stats Animation Script */}
   {/* AI Assistant Button & Chatbot */}
-  <button id="ai-assistant-toggle" className="ai-assistant-button" aria-label="Ask me: open AI Assistant" title="Ask me" onClick={() => setAssistantOpen((open) => !open)}>✦<span className="ai-assistant-label">Ask me</span></button>
+  <button id="ai-assistant-toggle" className="ai-assistant-button" aria-label="Ask TechNova: open assistant" title="Ask TechNova" onClick={() => setAssistantOpen((open) => !open)}><strong className="technova-mark">T</strong><span className="ai-assistant-label">Ask TechNova</span></button>
   {/* AI Assistant Chatbot Shell */}
   <div className={`shell ${assistantOpen ? 'open' : ''}`} id="chatbot-shell">
     <main>
       <header>
         <div>
-          <h1>AI Assistant</h1>
+          <h1>TechNova</h1>
         </div>
         <div className="profile">
           <span>Welcome</span>
-          <div className="avatar">✦</div>
+          <div className="avatar"><strong className="technova-mark">T</strong></div>
         </div>
       </header>
       <section className="content">
         <div className="welcome">
-          <div className="spark">✦</div>
+          <div className="spark"><strong className="technova-mark">T</strong></div>
           <h2>How can I help you today?</h2>
           <p>Ask anything, explore ideas, or get help with your work.</p>
         </div>
         <div className="chat">
           <div className="message">
-            <div className="logo" style={{width: 28, height: 28, borderRadius: 9, fontSize: 14}}>✦</div>
-            <div className="bubble">Hello! I'm your TechnoSense AI Assistant. I'm here to help you work smarter.</div>
+            <div className="logo" style={{width: 28, height: 28, borderRadius: 9, fontSize: 14}}><strong className="technova-mark">T</strong></div>
+            <div className="bubble">Hello! I'm TechNova. I'm here to help you work smarter.</div>
           </div>
         </div>
         <div className="input-wrap">
-          <input type="text" placeholder="Message your AI assistant..." aria-label="Message your AI assistant" />
+          <input type="text" placeholder="Message TechNova..." aria-label="Message TechNova" />
           <button aria-label="Send">↑</button>
         </div>
-        <div className="disclaimer">AI Assistant is a demo preview. Responses may not always be accurate.</div>
+        <div className="disclaimer">TechNova is a demo preview. Responses may not always be accurate.</div>
       </section>
     </main>
   </div>
