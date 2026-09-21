@@ -56,8 +56,8 @@
 
 /* Logo — bigger visually, navbar stays slim */
 .navbar-logo {
-    width: 270px !important;
-    height: 76px !important;
+    width: 100px !important;
+    height: 68px !important;
     margin-right: 28px !important;
     flex-shrink: 0 !important;
     overflow: visible !important;
@@ -84,8 +84,8 @@
 }
 
 .logo-img {
-    width: 260px !important;
-    height: 76px !important;
+    width: 150px !important;
+    height: 100px !important;
     max-height: none !important;
     max-width: min(420px, 62vw) !important;
     margin: 0 !important;
@@ -178,7 +178,7 @@
         margin-right: 0 !important;
         display: flex !important;
         align-items: center !important;
-        height: 56px !important;
+        height: 52px !important;
         max-width: calc(100% - 56px) !important;
         overflow: hidden !important;
     }
@@ -189,15 +189,15 @@
         box-shadow: none !important;
         border: none !important;
         border-radius: 0 !important;
-        height: 56px !important;
+        height: 52px !important;
         align-items: center !important;
     }
 
     .logo-img {
-        width: min(210px, 60vw) !important;
-        height: 56px !important;
+        width: min(180px, 54vw) !important;
+        height: 52px !important;
         max-height: none !important;
-        max-width: min(220px, 60vw) !important;
+        max-width: min(190px, 54vw) !important;
         margin: 0 !important;
         background: transparent !important;
         border-radius: 0 !important;
