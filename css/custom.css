@@ -7158,7 +7158,9 @@ body .main .who-we-are-section {
 }
 
 #chatbot-shell.shell.show,
-.shell.show {
+.shell.show,
+#chatbot-shell.shell.open,
+.shell.open {
     display: flex !important;
 }
 
@@ -7552,6 +7554,15 @@ body .main .who-we-are-section {
 
 /* Mobile */
 @media (max-width: 600px) {
+    .ai-assistant-button {
+        right: 16px !important;
+        bottom: 84px !important;
+    }
+
+    .ai-assistant-label {
+        display: none !important;
+    }
+
     #chatbot-shell .input-wrap,
     .shell .input-wrap {
         left: 9px !important;

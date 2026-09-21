@@ -1,1 +1,0 @@
-(function($){'use strict';$(window).on('load',function(){setTimeout(function(){$('.custom-hero-bg').addClass('loaded');},500);});}).apply(this,[jQuery]);

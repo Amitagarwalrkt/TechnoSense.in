@@ -326,7 +326,7 @@ body {
     border: 1px solid var(--border-light);
     border-radius: 12px;
     padding: 12px 0;
-    margin-top: 15px;
+    margin-top: 0;
     min-width: 280px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
     list-style: none;
@@ -364,13 +364,10 @@ body {
 .dropdown-menu::before {
     content: '';
     position: absolute;
-    top: -8px;
-    left: 30px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #FFFFFF;
+    top: -18px;
+    left: 0;
+    right: 0;
+    height: 18px;
 }
 
 .dropdown-item {
@@ -416,9 +413,9 @@ body {
 
 .dropdown-submenu > .submenu {
     position: absolute;
-    top: 0;
-    left: 100%;
-    margin-left: 8px;
+    top: -6px;
+    left: calc(100% - 10px);
+    margin-left: 0;
     background: var(--bg-dark-light);
     border: 1px solid rgba(200, 16, 46, 0.3);
     border-radius: 12px;
@@ -443,11 +440,22 @@ body {
 
 /* Desktop hover - keep for desktop only */
 @media (min-width: 992px) {
-    .dropdown-submenu:hover > .submenu {
+    .dropdown-submenu:hover > .submenu,
+    .dropdown-submenu > .submenu:hover {
         display: block;
         opacity: 1;
         visibility: visible;
         transform: translateX(0);
+        pointer-events: auto;
+    }
+
+    .dropdown-submenu > .submenu::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -18px;
+        width: 18px;
     }
 }
 
@@ -7150,7 +7158,9 @@ body .main .who-we-are-section {
 }
 
 #chatbot-shell.shell.show,
-.shell.show {
+.shell.show,
+#chatbot-shell.shell.open,
+.shell.open {
     display: flex !important;
 }
 
@@ -7544,6 +7554,15 @@ body .main .who-we-are-section {
 
 /* Mobile */
 @media (max-width: 600px) {
+    .ai-assistant-button {
+        right: 16px !important;
+        bottom: 84px !important;
+    }
+
+    .ai-assistant-label {
+        display: none !important;
+    }
+
     #chatbot-shell .input-wrap,
     .shell .input-wrap {
         left: 9px !important;
