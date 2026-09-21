@@ -100,6 +100,9 @@ function copyLegacySite() {
 
 export default defineConfig({
   plugins: [react(), localContactApi(), copyLegacySite()],
+  build: {
+    sourcemap: false
+  },
   server: {
     host: 'localhost',
     port: 5173
