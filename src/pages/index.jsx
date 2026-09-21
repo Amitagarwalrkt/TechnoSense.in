@@ -493,7 +493,7 @@ export default function Index() {
             <img src="img/clients/valvoline.svg" alt="Valvoline" loading="lazy" decoding="async" />
           </figure>
           <figure className="clients-logo-item" role="listitem">
-            <img src="img/clients/airtel.svg" alt="Airtel" loading="lazy" decoding="async" />
+            <img src="img/clients/airtel.webp?v=20260921" alt="Airtel" loading="lazy" decoding="async" />
           </figure>
           <figure className="clients-logo-item" role="listitem">
             <img src="img/clients/altuis.svg" alt="Altuis" loading="lazy" decoding="async" />
