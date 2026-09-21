@@ -679,7 +679,7 @@
       </div>
     </section>
   </div>
-  <footer id="footer" className="footer-texts-more-lighten">
+  <footer id="footer" className="footer-texts-more-lighten legacy-footer">
     <div className="container">
       <div className="row py-4 mt-4">
         <div className="col-md-6 col-lg-3 mb-5 mb-lg-0">
