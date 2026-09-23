@@ -1,17 +1,6 @@
-<<<<<<< HEAD
 ﻿export default function Index() {
   return (
 <div>
-=======
-﻿import { useState } from 'react'
-
-export default function Index() {
-  const [assistantOpen, setAssistantOpen] = useState(false)
-
-  return (
-<div>
-  <div id="root" />
->>>>>>> d7f8d5c373b003c3772ecc9af0874266fc016599
   <div className="body">
     {/* Modern Navbar */}
     <header className="modern-navbar" id="navbar">
@@ -896,46 +885,6 @@ export default function Index() {
   {/*  */}
   {/* Theme Base, Components and Settings */}
   {/* Theme Initialization Files */}
-<<<<<<< HEAD
-=======
-  {/* Typewriter Effect Script */}
-  {/* Stats Animation Script */}
-  {/* AI Assistant Button & Chatbot */}
-  <button id="ai-assistant-toggle" className="ai-assistant-button" aria-label="Ask TechNova: open assistant" title="Ask TechNova" onClick={() => setAssistantOpen((open) => !open)}><strong className="technova-mark">T</strong><span className="ai-assistant-label">Ask TechNova</span></button>
-  {/* AI Assistant Chatbot Shell */}
-  <div className={`shell ${assistantOpen ? 'open' : ''}`} id="chatbot-shell">
-    <main>
-      <header>
-        <div>
-          <h1>TechNova</h1>
-        </div>
-        <div className="profile">
-          <span>Welcome</span>
-          <div className="avatar"><strong className="technova-mark">T</strong></div>
-        </div>
-      </header>
-      <section className="content">
-        <div className="welcome">
-          <div className="spark"><strong className="technova-mark">T</strong></div>
-          <h2>How can I help you today?</h2>
-          <p>Ask anything, explore ideas, or get help with your work.</p>
-        </div>
-        <div className="chat">
-          <div className="message">
-            <div className="logo" style={{width: 28, height: 28, borderRadius: 9, fontSize: 14}}><strong className="technova-mark">T</strong></div>
-            <div className="bubble">Hello! I'm TechNova. I'm here to help you work smarter.</div>
-          </div>
-        </div>
-        <div className="input-wrap">
-          <input type="text" placeholder="Message TechNova..." aria-label="Message TechNova" />
-          <button aria-label="Send">↑</button>
-        </div>
-        <div className="disclaimer">TechNova is a demo preview. Responses may not always be accurate.</div>
-      </section>
-    </main>
-  </div>
-  {/* AI Assistant JavaScript */}
->>>>>>> d7f8d5c373b003c3772ecc9af0874266fc016599
 </div>
 
   )

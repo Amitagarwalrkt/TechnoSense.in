@@ -4,6 +4,32 @@ body.react-route-active { background: #F9FAFB; }
 .body { overflow-x: hidden; }
 .body img, .body video, .body iframe { max-width: 100%; }
 .body table { display: block; max-width: 100%; overflow-x: auto; }
+
+/* Keep the shared site chrome compact and consistent across legacy pages. */
+.modern-navbar { min-height: 0; }
+.navbar-main { min-height: 60px; padding: 6px 0; }
+.navbar-wrapper { min-height: 52px; gap: 16px; }
+.navbar-logo { height: 52px; margin-right: 24px; }
+.logo-img { max-height: 44px; }
+.navbar-menu { gap: 0; }
+.nav-link { padding: 8px 12px; font-size: 13px; }
+.btn-nav-cta { padding: 10px 22px; font-size: 12px; }
+
+@media (max-width: 991px) {
+	.navbar-main { min-height: 58px; padding: 4px 0; }
+	.navbar-wrapper { min-height: 50px; }
+	.navbar-logo { height: 50px; }
+	.logo-img { max-height: 42px; }
+	.navbar-menu { top: 58px; }
+}
+
+@media (max-width: 768px) {
+	.navbar-main { min-height: 56px; padding: 3px 0; }
+	.navbar-logo { height: 50px; }
+	.logo-img { max-height: 40px; }
+	.navbar-menu { top: 56px; }
+}
+
 .react-page-loading, .react-page-error { min-height: 100vh; display: grid; place-items: center; font-family: Poppins, sans-serif; color: #111827; background: #FFFFFF; }
 .react-page-error { color: #C8102E; }
 .assistant-page { min-height: 100vh; display: flex; background: #FAFAFA; color: #111827; font-family: Poppins, sans-serif; }
