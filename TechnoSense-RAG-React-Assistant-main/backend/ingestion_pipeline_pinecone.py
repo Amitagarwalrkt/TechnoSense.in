@@ -1,5 +1,6 @@
 import os
 import yaml
+from pathlib import Path
 
 from dotenv import load_dotenv
 from langchain_core.documents import Document
@@ -13,7 +14,7 @@ load_dotenv()
 # 1. CONFIGURATION
 
 
-KNOWLEDGE_BASE_DIR = "D:/TechnoSense RAG Chatbot"
+KNOWLEDGE_BASE_DIR = Path(__file__).resolve().parents[1] / "RAG_knowledge_base"
 
 INDEX_NAME = os.environ["INDEX_NAME"]
 

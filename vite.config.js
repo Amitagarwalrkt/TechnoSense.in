@@ -202,6 +202,9 @@ export default defineConfig({
   server: {
     host: 'localhost',
     port: 5173,
+    watch: {
+      ignored: ['**/venv/**', '**/venv-new/**', '**/__pycache__/**'],
+    },
 
     proxy: {
       '/api': {
