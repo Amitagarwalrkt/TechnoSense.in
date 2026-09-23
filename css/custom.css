@@ -2811,11 +2811,11 @@ ul.list-unstyled li a:hover {
 .footer-texts-more-lighten {
     background: linear-gradient(180deg, #8B0A1F 0%, #6B0818 100%);
     border-top: 3px solid var(--primary-red);
-    color: rgba(255, 255, 255, 0.88);
+    color: rgba(116, 90, 90, 0.88);
 }
 
 .footer-texts-more-lighten a {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgb(255, 255, 255);
     transition: color 0.3s ease;
 }
 
