@@ -1,0 +1,458 @@
+TECHNOSENSE WEBSITE
+SETUP, TECHNOLOGY, AND OPERATIONS GUIDE
+============================================================
+
+1. PROJECT OVERVIEW
+------------------------------------------------------------
+TechnoSense.in is a React-based corporate website for TechnoSense
+NextGen Solutions Pvt. Limited. The project contains:
+
+- A Vite-powered React frontend.
+- React Router-based page navigation.
+- A responsive corporate website with service, blog, career,
+	contact, and company pages.
+- TailwindCSS for new React-owned UI work.
+- Existing Bootstrap, Porto theme, Font Awesome, and vendor assets
+	used by the legacy page templates.
+- A Vite development middleware endpoint for contact form email.
+- An optional Flask-based RAG assistant backend.
+- AWS Bedrock for embeddings and answer generation.
+- Pinecone for vector search.
+
+The repository contains the main website at the project root and the
+RAG assistant backend in:
+
+TechnoSense-RAG-React-Assistant-main/backend
+
+
+2. TECHNOLOGY STACK
+------------------------------------------------------------
+
+Frontend:
+- React
+- React DOM
+- React Router DOM
+- Vite
+- JavaScript ES modules
+- React Markdown
+
+Styling:
+- TailwindCSS 3
+- PostCSS
+- Autoprefixer
+- Tailwind Typography
+- Poppins web font
+- Bootstrap and legacy Porto theme styles
+- Font Awesome
+- Existing vendor CSS and JavaScript plugins
+
+Backend:
+- Python 3
+- Flask
+- Flask-CORS
+- python-dotenv
+- LangChain Core
+- LangChain AWS
+- LangChain Text Splitters
+- LangChain Pinecone
+- Pinecone client
+- boto3
+- AWS Bedrock
+
+Email:
+- Nodemailer
+- SMTP configuration in smtp-config.php
+- Vite local middleware for development contact form requests
+
+Build and tooling:
+- npm
+- Vite production build
+- Git and GitHub
+
+
+3. REQUIREMENTS
+------------------------------------------------------------
+
+Install these tools before starting:
+
+- Node.js 18 or newer
+- npm 9 or newer
+- Python 3.10 or newer
+- Git
+- AWS account with Bedrock access when using the AI assistant
+- Pinecone account and index when using the AI assistant
+
+Recommended checks:
+
+node --version
+npm --version
+python --version
+git --version
+
+
+4. FRONTEND INSTALLATION
+------------------------------------------------------------
+
+Open PowerShell in the project root:
+
+cd "C:\Users\<username>\Desktop\TechnoSense.in"
+
+Install the exact dependency versions from the lockfile:
+
+npm ci
+
+Use npm ci for a clean setup or a new machine. Use npm install only
+when intentionally changing package versions.
+
+Start the frontend development server:
+
+npm run dev
+
+The normal URL is:
+
+http://localhost:5173/
+
+If port 5173 is already being used, Vite chooses another available
+port, such as 5174 or 5175. Use the URL printed by Vite.
+
+Build the production frontend:
+
+npm run build
+
+Preview the production build locally:
+
+npm run preview
+
+
+5. FRONTEND NPM SCRIPTS
+------------------------------------------------------------
+
+npm run dev
+Starts the Vite development server.
+
+npm run build
+Builds the React application into dist/.
+
+npm run preview
+Serves the generated dist/ build for local verification.
+
+
+6. FRONTEND STRUCTURE
+------------------------------------------------------------
+
+src/main.jsx
+- React entry point.
+- Creates the React root.
+- Enables BrowserRouter and React StrictMode.
+
+src/App.jsx
+- Defines routes.
+- Normalizes legacy .html URLs.
+- Handles internal navigation.
+- Mounts the shared RAG chat widget.
+- Handles the contact form submission flow.
+
+src/pages/
+- React page templates for the homepage, service pages, blog,
+	careers, contact, and other routes.
+
+src/components/
+- Shared React components.
+- The RAG chat widget and its message, header, history, and
+	suggested-question components are under components/rag-chat/.
+
+src/app.css
+- Tailwind layers.
+- React-owned shared layout and assistant styles.
+
+tailwind.config.js
+- Tailwind content scanning paths.
+- Brand colors, animations, typography, and responsive utilities.
+- Preflight is disabled to avoid breaking existing Bootstrap and
+	Porto-based page templates during the staged migration.
+
+postcss.config.js
+- Connects TailwindCSS and Autoprefixer to the Vite CSS pipeline.
+
+css/
+- Existing global theme and page styles.
+- custom.css and premium-theme.css contain shared navbar, footer,
+	hero, service, and legacy page styles.
+
+vendor/
+- Existing third-party CSS, JavaScript, fonts, and image assets.
+
+img/ and technosense/
+- Website images, logos, illustrations, and other static assets.
+
+
+7. TAILWINDCSS USAGE
+------------------------------------------------------------
+
+TailwindCSS is configured at the project root. New React components
+should prefer utility classes directly in JSX.
+
+Example:
+
+<button className="rounded-lg bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800">
+	Contact us
+</button>
+
+Tailwind scans:
+
+- index.html
+- src/**/*.js
+- src/**/*.jsx
+- src/**/*.ts
+- src/**/*.tsx
+
+The existing Bootstrap, Porto, and vendor CSS is intentionally kept
+because the legacy page templates still depend on those selectors.
+Migrate one page family at a time and visually test it before removing
+its legacy CSS.
+
+
+8. CONTACT FORM EMAIL
+------------------------------------------------------------
+
+The Vite config provides a development middleware endpoint:
+
+POST /send-message.php
+
+The endpoint validates:
+
+- name
+- email
+- phone
+- requirement
+- message
+
+It reads SMTP settings from smtp-config.php. Create that file from
+the provided example:
+
+Copy-Item smtp-config.example.php smtp-config.php
+
+Set the SMTP values in smtp-config.php. Never commit real passwords,
+SMTP credentials, API keys, AWS keys, or other secrets.
+
+The contact form sends:
+
+1. A notification email to the configured company recipient.
+2. A confirmation email back to the visitor.
+
+The production build copies send-message.php into dist/. A production
+server must provide a compatible PHP mail endpoint if the deployed
+site uses that file instead of the Vite middleware.
+
+
+9. RAG BACKEND SETUP
+------------------------------------------------------------
+
+The Flask backend is located at:
+
+TechnoSense-RAG-React-Assistant-main/backend
+
+Create a fresh virtual environment from the repository root:
+
+cd TechnoSense-RAG-React-Assistant-main/backend
+python -m venv venv-new
+.\venv-new\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r ..\requirements.txt
+
+The existing venv folder may point to a Python installation that no
+longer exists. A fresh virtual environment avoids that stale launcher
+problem.
+
+Create the backend environment file:
+
+Copy-Item .env1 .env
+
+The backend requires these values:
+
+AWS_ACCESS_KEY_ID=your-aws-access-key
+AWS_SECRET_ACCESS_KEY=your-aws-secret-key
+AWS_REGION=us-east-1
+INDEX_NAME=your-pinecone-index-name
+PINECONE_API_KEY=your-pinecone-api-key
+
+Optional LangSmith values may also be configured:
+
+LANGSMITH_TRACING=false
+LANGSMITH_ENDPOINT=
+LANGSMITH_API_KEY=
+LANGSMITH_PROJECT=
+
+Use secure secret management in production. Do not commit .env or
+.env1 files containing credentials.
+
+Start the backend:
+
+cd TechnoSense-RAG-React-Assistant-main/backend
+python api.py
+
+The Flask API runs on:
+
+http://localhost:5000
+
+
+10. BACKEND API ROUTES
+------------------------------------------------------------
+
+GET /api/health
+
+Returns a health response when the Flask server is running.
+
+Example:
+
+Invoke-WebRequest -UseBasicParsing http://localhost:5000/api/health
+
+POST /api/chat
+
+Request body:
+
+{
+	"query": "What services does TechnoSense provide?"
+}
+
+Successful response:
+
+{
+	"role": "assistant",
+	"content": "...",
+	"timestamp": "..."
+}
+
+The RAG pipeline retrieves relevant documents from Pinecone and sends
+the retrieved context to an AWS Bedrock model. The current pipeline
+uses Amazon Titan Embeddings and Amazon Nova Micro in us-east-1.
+
+
+11. RUN FRONTEND AND BACKEND TOGETHER
+------------------------------------------------------------
+
+Use two PowerShell terminals.
+
+Terminal 1 - frontend:
+
+cd "C:\Users\<username>\Desktop\TechnoSense.in"
+npm run dev
+
+Terminal 2 - backend:
+
+cd "C:\Users\<username>\Desktop\TechnoSense.in\TechnoSense-RAG-React-Assistant-main\backend"
+python api.py
+
+The Vite proxy forwards frontend requests beginning with /api to:
+
+http://localhost:5000
+
+The browser only needs the frontend URL. The chat widget then calls
+/api/chat through the Vite proxy.
+
+
+12. PRODUCTION BUILD AND DEPLOYMENT
+------------------------------------------------------------
+
+Build the website:
+
+npm run build
+
+The generated static output is written to dist/. The Vite build also
+copies the required css/, img/, technosense/, and vendor/ assets.
+
+Before deployment:
+
+- Configure the production web server for SPA fallback to index.html.
+- Provide the production contact form endpoint.
+- Run the Flask API separately behind a production WSGI server.
+- Configure HTTPS.
+- Store AWS, Pinecone, and SMTP secrets outside Git.
+- Confirm the production API URL and proxy configuration.
+- Test the home page, every service page, contact form, and chat widget.
+
+Do not use Flask's debug development server in production. Use a WSGI
+server such as Waitress or Gunicorn where appropriate for the hosting
+platform.
+
+
+13. TROUBLESHOOTING
+------------------------------------------------------------
+
+Problem: refresh-runtime.js is missing.
+Solution:
+
+Stop running Node processes and reinstall dependencies:
+
+Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force
+npm ci
+
+Problem: Port 5173 is already in use.
+Solution:
+
+Use the alternate URL printed by Vite, or stop the old Vite process.
+
+Problem: Backend reports KeyError: INDEX_NAME.
+Solution:
+
+Start Flask from the backend directory and confirm backend/.env exists
+with INDEX_NAME configured.
+
+Problem: Backend virtual environment reports “No Python at ...”.
+Solution:
+
+Delete or rename the stale virtual environment and create a fresh one:
+
+python -m venv venv-new
+.\venv-new\Scripts\Activate.ps1
+pip install -r ..\requirements.txt
+
+Problem: Contact form reports SMTP is not configured.
+Solution:
+
+Create smtp-config.php from smtp-config.example.php and provide valid
+SMTP host, port, username, password, sender, and sender name values.
+
+Problem: Chat requests return HTTP 500.
+Solution:
+
+Check Flask output, AWS Bedrock permissions, AWS region, Pinecone
+credentials, index name, and that the Pinecone index contains data.
+
+
+14. SECURITY CHECKLIST
+------------------------------------------------------------
+
+- Never commit .env, .env1, smtp-config.php, AWS keys, Pinecone keys,
+	SMTP passwords, or LangSmith keys.
+- Rotate credentials that were accidentally exposed.
+- Use HTTPS in production.
+- Restrict AWS IAM permissions to the services and models required.
+- Restrict Pinecone access to the required index.
+- Disable Flask debug mode in production.
+- Validate and rate-limit public chat and contact endpoints.
+- Keep npm and Python dependencies updated and review security alerts.
+
+
+15. QUICK START
+------------------------------------------------------------
+
+Frontend only:
+
+npm ci
+npm run dev
+
+Frontend plus RAG backend:
+
+Terminal 1:
+npm run dev
+
+Terminal 2:
+cd TechnoSense-RAG-React-Assistant-main/backend
+python api.py
+
+Production build:
+
+npm run build
+npm run preview
+

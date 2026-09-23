@@ -25,6 +25,10 @@
     --premium-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(0, 0, 0, 0.06);
     --premium-shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.08);
     --premium-section-pad: clamp(72px, 8vw, 110px);
+    --glass-surface: rgba(255, 255, 255, 0.5);
+    --glass-surface-strong: rgba(255, 255, 255, 0.66);
+    --glass-border: rgba(255, 255, 255, 0.78);
+    --glass-shadow: 0 22px 55px rgba(31, 41, 55, 0.14), 0 2px 10px rgba(31, 41, 55, 0.06);
 }
 
 ::selection {
@@ -34,22 +38,24 @@
 
 /* ── Navbar — soft gray, less glare ── */
 .modern-navbar {
-    background: rgba(232, 235, 239, 0.98) !important;
-    backdrop-filter: blur(18px) saturate(110%) !important;
-    -webkit-backdrop-filter: blur(18px) saturate(110%) !important;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.05) !important;
-    border-bottom: 1px solid #D5D9E0 !important;
+    background: var(--glass-surface) !important;
+    backdrop-filter: blur(30px) saturate(175%) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(175%) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38), 0 12px 32px rgba(31, 41, 55, 0.1) !important;
+    border-bottom: 0 !important;
     overflow: visible !important;
+    transform-style: preserve-3d;
+    perspective: 1200px;
 }
 
 .navbar-main {
     padding: 8px 0 !important;
-    min-height: 70px !important;
-    max-height: 70px !important;
+    min-height: 82px !important;
+    max-height: 82px !important;
 }
 
 .navbar-wrapper {
-    min-height: 52px !important;
+    min-height: 64px !important;
     align-items: center !important;
     gap: 18px !important;
 }
@@ -57,7 +63,7 @@
 /* Logo — bigger visually, navbar stays slim */
 .navbar-logo {
     width: 100px !important;
-    height: 52px !important;
+    height: 64px !important;
     margin-right: 24px !important;
     flex-shrink: 0 !important;
     overflow: visible !important;
@@ -99,7 +105,7 @@
 }
 
 .nav-link {
-    font-weight: 500 !important;
+    font-weight: 700 !important;
     font-size: 15px !important;
     letter-spacing: 0.01em;
     color: #374151 !important;
@@ -129,7 +135,7 @@
     padding: 10px 22px !important;
     font-size: 12px !important;
     letter-spacing: 0.1em !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important;
     white-space: nowrap !important;
 }
 
@@ -165,20 +171,20 @@
 @media (max-width: 991px) {
     .navbar-main {
         padding: 4px 0 !important;
-        min-height: 58px !important;
-        max-height: 58px !important;
+        min-height: 68px !important;
+        max-height: 68px !important;
     }
 
     .navbar-wrapper {
         align-items: center !important;
-        min-height: 50px !important;
+        min-height: 60px !important;
     }
 
     .navbar-logo {
         margin-right: 0 !important;
         display: flex !important;
         align-items: center !important;
-        height: 48px !important;
+        height: 58px !important;
         max-width: calc(100% - 56px) !important;
         overflow: hidden !important;
     }
@@ -189,7 +195,7 @@
         box-shadow: none !important;
         border: none !important;
         border-radius: 0 !important;
-        height: 48px !important;
+        height: 58px !important;
         align-items: center !important;
     }
 
@@ -211,7 +217,7 @@
         justify-content: flex-start !important;
         margin-left: 0 !important;
         padding-left: 0 !important;
-        top: 58px !important;
+        top: 68px !important;
         border-radius: 0 0 16px 16px !important;
         background: #FFFFFF !important;
     }
@@ -308,11 +314,13 @@
 }
 
 .service-card {
-    background: var(--premium-white) !important;
-    border: 1px solid var(--premium-gray-200) !important;
+    background: var(--glass-surface-strong) !important;
+    border: 1px solid var(--glass-border) !important;
     border-radius: var(--premium-radius) !important;
     padding: 36px 28px !important;
-    box-shadow: var(--premium-shadow) !important;
+    box-shadow: var(--glass-shadow) !important;
+    backdrop-filter: blur(16px) saturate(130%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
 }
 
@@ -350,8 +358,8 @@
 }
 
 .carousel-nav-btn {
-    background: var(--premium-white) !important;
-    border: 1px solid var(--premium-gray-200) !important;
+    background: var(--glass-surface-strong) !important;
+    border: 1px solid var(--glass-border) !important;
     box-shadow: var(--premium-shadow) !important;
     color: var(--premium-red) !important;
 }
@@ -749,11 +757,13 @@
     gap: 28px;
     flex-wrap: wrap;
     padding: 28px 36px;
-    background: #FFFFFF;
+    background: var(--glass-surface-strong);
     border-radius: 20px;
-    border: 1px solid #E5E7EB;
+    border: 1px solid var(--glass-border);
     border-left: 4px solid var(--premium-red);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(200, 16, 46, 0.04);
+    box-shadow: var(--glass-shadow), 0 0 0 1px rgba(200, 16, 46, 0.04);
+    backdrop-filter: blur(18px) saturate(135%);
+    -webkit-backdrop-filter: blur(18px) saturate(135%);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -3872,13 +3882,13 @@
 .footer-premium-main {
     position: relative;
     z-index: 2;
-    padding: clamp(56px, 6vw, 80px) 0 clamp(40px, 5vw, 56px);
+    padding: clamp(28px, 3.5vw, 40px) 0 clamp(20px, 2.5vw, 30px);
 }
 
 .footer-premium-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.9fr 1.1fr 1fr;
-    gap: clamp(28px, 3vw, 44px);
+    gap: clamp(18px, 2vw, 28px);
     align-items: start;
 }
 
@@ -3896,7 +3906,7 @@
     background: transparent;
     border: none;
     box-shadow: none;
-    margin-bottom: 22px;
+    margin-bottom: 10px;
     transition: transform 0.3s ease, opacity 0.3s ease;
     text-decoration: none;
 }
@@ -3908,9 +3918,10 @@
 }
 
 .footer-logo-img {
-    max-height: 88px;
-    max-width: 300px;
-    width: auto;
+    width: 175px;
+    height: 105px;
+    max-height: none;
+    max-width: 320px;
     display: block;
     object-fit: contain;
 }
@@ -3919,7 +3930,7 @@
     color: rgba(255, 255, 255, 0.62);
     font-size: 14px;
     line-height: 1.7;
-    margin-bottom: 24px;
+    margin-bottom: 10px;
     max-width: 320px;
 }
 
@@ -3958,8 +3969,8 @@
     font-weight: 800 !important;
     letter-spacing: 0.12em !important;
     text-transform: uppercase !important;
-    margin-bottom: 22px !important;
-    padding-bottom: 12px;
+    margin-bottom: 14px !important;
+    padding-bottom: 8px;
     position: relative;
 }
 
@@ -3981,7 +3992,7 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
 }
 
 .footer-link-list a {
@@ -4014,8 +4025,8 @@
 
 /* Services */
 .footer-service-block {
-    margin-bottom: 18px;
-    padding-bottom: 18px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -4063,15 +4074,15 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 9px;
 }
 
 .footer-contact-list li {
     display: flex;
     align-items: flex-start;
     gap: 14px;
-    padding: 14px 16px;
-    border-radius: 14px;
+    padding: 10px 12px;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.07);
     transition: border-color 0.25s ease, background 0.25s ease;
@@ -4084,8 +4095,8 @@
 
 .footer-contact-icon {
     flex-shrink: 0;
-    width: 38px;
-    height: 38px;
+    width: 32px;
+    height: 32px;
     border-radius: 10px;
     display: inline-flex;
     align-items: center;
@@ -4136,7 +4147,7 @@
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
-    padding: 18px 0;
+    padding: 9px 0;
 }
 
 .footer-premium-bar p {
@@ -6029,6 +6040,108 @@ html .scroll-to-top,
         display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
+        transform: none !important;
+    }
+}
+
+/* ── Enhanced glass surfaces ── */
+.container.pb-1,
+.partner-card,
+.faq-premium-panel,
+.faq-premium-item,
+.form-control,
+.carousel-nav-btn,
+.service-card,
+.cta-premium-card,
+.footer-contact-list li {
+    background: var(--glass-surface) !important;
+    border-color: var(--glass-border) !important;
+    box-shadow: var(--glass-shadow) !important;
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+}
+
+.container.pb-1,
+.partner-card,
+.faq-premium-panel,
+.faq-premium-item,
+.service-card,
+.cta-premium-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.container.pb-1::before,
+.partner-card::after,
+.faq-premium-panel::after,
+.faq-premium-item::after,
+.service-card::after,
+.cta-premium-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(125deg, rgba(255, 255, 255, 0.28), transparent 34%, transparent 72%, rgba(255, 255, 255, 0.08));
+    opacity: 0.8;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.58) !important;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.78) !important;
+    box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.12), 0 12px 30px rgba(31, 41, 55, 0.08) !important;
+}
+
+/* ── 3D glass depth ── */
+.service-card,
+.partner-card,
+.faq-premium-panel,
+.faq-premium-item,
+.cta-premium-card,
+.container.pb-1 {
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease !important;
+}
+
+.service-card:hover,
+.partner-card:hover,
+.faq-premium-panel:hover,
+.faq-premium-item:hover,
+.cta-premium-card:hover,
+.container.pb-1:hover {
+    transform: translateY(-6px) rotateX(1deg) rotateY(-1deg) !important;
+    box-shadow: 0 28px 60px rgba(31, 41, 55, 0.18), 0 8px 20px rgba(200, 16, 46, 0.08) !important;
+}
+
+.service-card::before,
+.partner-card::before,
+.faq-premium-panel::before,
+.cta-premium-card::before {
+    transform: translateZ(1px);
+}
+
+.service-card > *,
+.partner-card > *,
+.faq-premium-panel > *,
+.faq-premium-item > *,
+.cta-premium-card > *,
+.container.pb-1 > * {
+    position: relative;
+    z-index: 1;
+    transform: translateZ(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .partner-card,
+    .faq-premium-panel,
+    .faq-premium-item,
+    .cta-premium-card,
+    .container.pb-1 {
+        transition: none !important;
         transform: none !important;
     }
 }

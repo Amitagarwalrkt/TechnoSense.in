@@ -23,7 +23,7 @@ export default function ChatHeader({ onClose, onClear, onSendInput, disabled }) 
       <div className="rag-chat-header-top">
         <div className="rag-chat-brand">
           <span className="rag-chat-brand-mark" aria-hidden="true">T</span>
-          <h1>Ask TechnoSense</h1>
+          <h1>Ask TechNova</h1>
         </div>
 
         <div className="rag-chat-actions">

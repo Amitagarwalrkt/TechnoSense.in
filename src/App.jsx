@@ -1,42 +1,42 @@
-import { useEffect, useLayoutEffect } from 'react'
+import { lazy, Suspense, useEffect, useLayoutEffect } from 'react'
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import './app.css'
 import RagChatWidget from './components/rag-chat/RagChatWidget'
-import AboutUs from './pages/about-us'
-import Assistent from './pages/assistent'
-import Blog from './pages/blog'
-import BlogCloudAdoption from './pages/blog-cloud-adoption'
-import Career from './pages/career'
-import CloudAdoptionStrategy from './pages/cloud-adoption-strategy'
-import CloudConsulting from './pages/cloud-consulting'
-import ContactUs from './pages/contact-us'
-import Demo from './pages/demo'
-import DevelopmentServices from './pages/development-services'
-import Devops from './pages/devops'
-import DotMap from './pages/dotMap'
-import EnterpriseCloudMigrationStrategy from './pages/enterprise-cloud-migration-strategy'
-import EnterpriseMobilitySolutions from './pages/enterprise-mobility-solutions'
-import ImplementationMigration from './pages/implementation-migration'
-import HomePage from './pages/index'
-import InfrastructureManagement from './pages/infrastructure-management'
-import ItInfraRoadmapConsulting from './pages/it-infra-roadmap-consulting'
-import MafMcsCloud from './pages/maf-mcs-cloud'
-import ManagedServices from './pages/managed-services'
-import MicrosoftO365 from './pages/microsoft-o365'
-import MobileAppDevelopment from './pages/mobile-app-development'
-import MobileDevicesManagement from './pages/mobile-devices-management'
-import NetworkSecurityCompliances from './pages/network-security-compliances'
-import O365LicensingSetup from './pages/O365-licensing-setup'
-import OnsiteOffshoreResources from './pages/onsite-offshore-resources'
-import OracleApex from './pages/oracle-apex'
-import OracleDatabaseInstallation from './pages/oracle-database-installation'
-import OracleDatabaseManagement from './pages/oracle-database-management'
-import SecuritySolutions from './pages/security-solutions'
-import ServerSetupMigration from './pages/server-setup-migration'
-import SetupPlatformMigrations from './pages/setup-platform-migrations'
-import VersionUpgrades from './pages/version-upgrades'
-import WebMobileApplicationDevelopment from './pages/web-mobile-application-development'
-import WebsiteDevelopment from './pages/website-development'
+const AboutUs = lazy(() => import('./pages/about-us'))
+const Assistent = lazy(() => import('./pages/assistent'))
+const Blog = lazy(() => import('./pages/blog'))
+const BlogCloudAdoption = lazy(() => import('./pages/blog-cloud-adoption'))
+const Career = lazy(() => import('./pages/career'))
+const CloudAdoptionStrategy = lazy(() => import('./pages/cloud-adoption-strategy'))
+const CloudConsulting = lazy(() => import('./pages/cloud-consulting'))
+const ContactUs = lazy(() => import('./pages/contact-us'))
+const Demo = lazy(() => import('./pages/demo'))
+const DevelopmentServices = lazy(() => import('./pages/development-services'))
+const Devops = lazy(() => import('./pages/devops'))
+const DotMap = lazy(() => import('./pages/dotMap'))
+const EnterpriseCloudMigrationStrategy = lazy(() => import('./pages/enterprise-cloud-migration-strategy'))
+const EnterpriseMobilitySolutions = lazy(() => import('./pages/enterprise-mobility-solutions'))
+const ImplementationMigration = lazy(() => import('./pages/implementation-migration'))
+const HomePage = lazy(() => import('./pages/index'))
+const InfrastructureManagement = lazy(() => import('./pages/infrastructure-management'))
+const ItInfraRoadmapConsulting = lazy(() => import('./pages/it-infra-roadmap-consulting'))
+const MafMcsCloud = lazy(() => import('./pages/maf-mcs-cloud'))
+const ManagedServices = lazy(() => import('./pages/managed-services'))
+const MicrosoftO365 = lazy(() => import('./pages/microsoft-o365'))
+const MobileAppDevelopment = lazy(() => import('./pages/mobile-app-development'))
+const MobileDevicesManagement = lazy(() => import('./pages/mobile-devices-management'))
+const NetworkSecurityCompliances = lazy(() => import('./pages/network-security-compliances'))
+const O365LicensingSetup = lazy(() => import('./pages/O365-licensing-setup'))
+const OnsiteOffshoreResources = lazy(() => import('./pages/onsite-offshore-resources'))
+const OracleApex = lazy(() => import('./pages/oracle-apex'))
+const OracleDatabaseInstallation = lazy(() => import('./pages/oracle-database-installation'))
+const OracleDatabaseManagement = lazy(() => import('./pages/oracle-database-management'))
+const SecuritySolutions = lazy(() => import('./pages/security-solutions'))
+const ServerSetupMigration = lazy(() => import('./pages/server-setup-migration'))
+const SetupPlatformMigrations = lazy(() => import('./pages/setup-platform-migrations'))
+const VersionUpgrades = lazy(() => import('./pages/version-upgrades'))
+const WebMobileApplicationDevelopment = lazy(() => import('./pages/web-mobile-application-development'))
+const WebsiteDevelopment = lazy(() => import('./pages/website-development'))
 
 const routes = {
   '/about-us': AboutUs, '/assistent': Assistent, '/blog': Blog,
@@ -124,25 +124,22 @@ function App() {
   }, [location.pathname, navigate])
   return (
     <>
-      <Routes>
-        <Route path="/" element={<ReactPage Page={HomePage} />} />
-        {Object.entries(routes).map(([path, Page]) => (
-          <Route
-            key={path}
-            path={path}
-            element={<ReactPage Page={Page} handlesContactForm={path === '/contact-us'} />}
-          />
-        ))}
-        <Route path="*" element={<ReactPage Page={routes['/website-development']} />} />
-      </Routes>
+      <Suspense fallback={<div className="react-page-loading">Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<ReactPage Page={HomePage} />} />
+          {Object.entries(routes).map(([path, Page]) => (
+            <Route
+              key={path}
+              path={path}
+              element={<ReactPage Page={Page} handlesContactForm={path === '/contact-us'} />}
+            />
+          ))}
+          <Route path="*" element={<ReactPage Page={routes['/website-development']} />} />
+        </Routes>
+      </Suspense>
       <RagChatWidget />
     </>
   )
-  return <Routes>
-    <Route path="/" element={<ReactPage Page={HomePage} />} />
-    {Object.entries(routes).map(([path, Page]) => <Route key={path} path={path} element={<ReactPage Page={Page} handlesContactForm={path === '/contact-us'} />} />)}
-    <Route path="*" element={<ReactPage Page={routes['/website-development']} />} />
-  </Routes>
 }
 
 export default App

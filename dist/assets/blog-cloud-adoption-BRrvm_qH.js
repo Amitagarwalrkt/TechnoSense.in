@@ -1,0 +1,1 @@
+import{t as e}from"./index-CNF5A7Iz.js";var t=e();function n(){return(0,t.jsxs)(`p`,{children:[`This article has moved. `,(0,t.jsx)(`a`,{href:`/enterprise-cloud-migration-strategy`,children:`Read the Enterprise Cloud Migration Strategy guide`}),`.`]})}export{n as default};

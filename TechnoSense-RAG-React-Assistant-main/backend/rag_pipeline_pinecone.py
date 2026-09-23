@@ -2,12 +2,14 @@ import os
 from dotenv import load_dotenv
 from langchain_aws import BedrockEmbeddings, ChatBedrock
 from langchain_pinecone import PineconeVectorStore
+from pinecone import Pinecone
 
 load_dotenv()
 
 # 1. CONFIGURATION
 
 INDEX_NAME = os.environ["INDEX_NAME"]
+PINECONE_API_KEY = os.environ["PINECONE_API_KEY"].strip()
 
 REGION_NAME = "us-east-1"
 
@@ -28,9 +30,14 @@ embeddings = BedrockEmbeddings(
 
 # 3. CONNECT TO PINECONE
 
+pinecone = Pinecone(api_key=PINECONE_API_KEY)
+INDEX_HOST = pinecone.describe_index(INDEX_NAME).host
+
 vector_store = PineconeVectorStore(
     index_name=INDEX_NAME,
-    embedding=embeddings
+    embedding=embeddings,
+    host=INDEX_HOST,
+    pinecone_api_key=PINECONE_API_KEY,
 )
 
 
