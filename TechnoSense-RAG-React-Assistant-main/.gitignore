@@ -1,0 +1,25 @@
+# ---------- Environment & Secrets (CRITICAL - do not commit) ----------
+.env
+
+# ---------- Python / Backend ----------
+__pycache__/
+*.pyc
+*.pyo
+
+# ---------- Node / Frontend (Vite + React) ----------
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+*.log
+
+# ---------- IDE / Editor ----------
+.idea/
+.vscode/
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+
+# ---------- Local scratch / testing files ----------
+retriever_pinecone_testing.py
+app_pinecone_testing.py

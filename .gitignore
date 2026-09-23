@@ -1,0 +1,6 @@
+smtp-config.php
+node_modules/
+dist/**/*.map
+.env
+.env.*
+!.env.example

@@ -1,0 +1,10 @@
+flask
+flask-cors
+python-dotenv
+PyYAML
+langchain-core
+langchain-aws
+langchain-text-splitters
+langchain-pinecone
+pinecone-client
+boto3
