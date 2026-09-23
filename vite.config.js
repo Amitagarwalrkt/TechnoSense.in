@@ -107,6 +107,7 @@ export default defineConfig({
   },
   server: {
     host: 'localhost',
+<<<<<<< HEAD
     port: 5173,
     proxy: {
       '/api': {
@@ -115,4 +116,8 @@ export default defineConfig({
       },
     },
   },
+=======
+    port: 5173
+  }
+>>>>>>> d7f8d5c373b003c3772ecc9af0874266fc016599
 })
