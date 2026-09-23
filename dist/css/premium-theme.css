@@ -44,12 +44,12 @@
 
 .navbar-main {
     padding: 8px 0 !important;
-    min-height: 92px !important;
-    max-height: 92px !important;
+    min-height: 70px !important;
+    max-height: 70px !important;
 }
 
 .navbar-wrapper {
-    min-height: 76px !important;
+    min-height: 52px !important;
     align-items: center !important;
     gap: 18px !important;
 }
@@ -57,8 +57,8 @@
 /* Logo — bigger visually, navbar stays slim */
 .navbar-logo {
     width: 100px !important;
-    height: 68px !important;
-    margin-right: 28px !important;
+    height: 52px !important;
+    margin-right: 24px !important;
     flex-shrink: 0 !important;
     overflow: visible !important;
 }
@@ -84,15 +84,15 @@
 }
 
 .logo-img {
-    width: 150px !important;
-    height: 100px !important;
+    width: 180px !important;
+    height: 180px !important;
     max-height: none !important;
     max-width: min(420px, 62vw) !important;
     margin: 0 !important;
     display: block !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
     object-position: center !important;
-    transform: none !important;
+    transform: translate(-34px, -45px) !important;
     mix-blend-mode: normal !important;
     filter: drop-shadow(0 2px 4px rgba(17, 24, 39, 0.12)) !important;
     background: transparent !important;
@@ -100,10 +100,10 @@
 
 .nav-link {
     font-weight: 500 !important;
-    font-size: 14px !important;
+    font-size: 13px !important;
     letter-spacing: 0.01em;
     color: #374151 !important;
-    padding: 10px 13px !important;
+    padding: 8px 12px !important;
     border-radius: 8px !important;
 }
 
@@ -126,8 +126,8 @@
 
 .btn-nav-cta {
     border-radius: 10px !important;
-    padding: 14px 26px !important;
-    font-size: 12.5px !important;
+    padding: 10px 22px !important;
+    font-size: 12px !important;
     letter-spacing: 0.1em !important;
     font-weight: 700 !important;
     white-space: nowrap !important;
@@ -164,21 +164,21 @@
 
 @media (max-width: 991px) {
     .navbar-main {
-        padding: 9px 0 !important;
-        min-height: 78px !important;
-        max-height: 78px !important;
+        padding: 4px 0 !important;
+        min-height: 58px !important;
+        max-height: 58px !important;
     }
 
     .navbar-wrapper {
         align-items: center !important;
-        min-height: 56px !important;
+        min-height: 50px !important;
     }
 
     .navbar-logo {
         margin-right: 0 !important;
         display: flex !important;
         align-items: center !important;
-        height: 52px !important;
+        height: 48px !important;
         max-width: calc(100% - 56px) !important;
         overflow: hidden !important;
     }
@@ -189,20 +189,20 @@
         box-shadow: none !important;
         border: none !important;
         border-radius: 0 !important;
-        height: 52px !important;
+        height: 48px !important;
         align-items: center !important;
     }
 
     .logo-img {
-        width: min(180px, 54vw) !important;
-        height: 52px !important;
+        width: 160px !important;
+        height: 160px !important;
         max-height: none !important;
         max-width: min(190px, 54vw) !important;
         margin: 0 !important;
         background: transparent !important;
         border-radius: 0 !important;
         box-shadow: none !important;
-        object-fit: cover !important;
+        object-fit: contain !important;
         object-position: center !important;
         filter: drop-shadow(0 2px 4px rgba(17, 24, 39, 0.14)) !important;
     }
@@ -211,7 +211,7 @@
         justify-content: flex-start !important;
         margin-left: 0 !important;
         padding-left: 0 !important;
-        top: 78px !important;
+        top: 58px !important;
         border-radius: 0 0 16px 16px !important;
         background: #FFFFFF !important;
     }
@@ -2707,7 +2707,7 @@
         object-fit: contain;
         opacity: 1 !important;
         filter: contrast(1.15) !important;
-        transform: none !important;
+        transform: translate(-28px, -38px) !important;
     }
 
     .clients-logo-item--crazibrain img {

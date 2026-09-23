@@ -1,10 +1,7 @@
 import { useEffect, useLayoutEffect } from 'react'
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import './app.css'
-<<<<<<< HEAD
 import RagChatWidget from './components/rag-chat/RagChatWidget'
-=======
->>>>>>> d7f8d5c373b003c3772ecc9af0874266fc016599
 import AboutUs from './pages/about-us'
 import Assistent from './pages/assistent'
 import Blog from './pages/blog'
@@ -125,7 +122,6 @@ function App() {
     document.addEventListener('click', handleLink)
     return () => { document.body.classList.remove('react-route-active'); document.removeEventListener('click', handleLink) }
   }, [location.pathname, navigate])
-<<<<<<< HEAD
   return (
     <>
       <Routes>
@@ -142,13 +138,11 @@ function App() {
       <RagChatWidget />
     </>
   )
-=======
   return <Routes>
     <Route path="/" element={<ReactPage Page={HomePage} />} />
     {Object.entries(routes).map(([path, Page]) => <Route key={path} path={path} element={<ReactPage Page={Page} handlesContactForm={path === '/contact-us'} />} />)}
     <Route path="*" element={<ReactPage Page={routes['/website-development']} />} />
   </Routes>
->>>>>>> d7f8d5c373b003c3772ecc9af0874266fc016599
 }
 
 export default App
