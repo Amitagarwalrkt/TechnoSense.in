@@ -91,11 +91,11 @@ export default function RagChatWidget() {
 
         <div className="rag-chat-body">
           {messages.length === 0 && !isLoading ? (
-            <div className="rag-chat-scroll" style={{ flex: 1, padding: '18px 16px' }}>
+            <div className="rag-chat-scroll flex-1 px-4 py-[18px]">
               <SuggestedQuestions onSelect={sendMessage} />
             </div>
           ) : (
-            <div style={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
+            <div className="min-h-0 flex-1 overflow-hidden">
               <ChatHistory messages={messages} isLoading={isLoading} />
             </div>
           )}
@@ -121,22 +121,7 @@ export default function RagChatWidget() {
         {!isOpen && <span className="ai-assistant-label">Ask TechNova</span>}
         {unreadBadge > 0 && !isOpen && (
           <span
-            style={{
-              position: 'absolute',
-              top: -2,
-              right: -2,
-              minWidth: 18,
-              height: 18,
-              padding: '0 5px',
-              borderRadius: 999,
-              background: '#111827',
-              color: '#fff',
-              fontSize: 10,
-              fontWeight: 700,
-              display: 'grid',
-              placeItems: 'center',
-              boxShadow: '0 0 0 2px #fff',
-            }}
+            className="absolute -right-0.5 -top-0.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-gray-900 px-[5px] text-[10px] font-bold text-white shadow-[0_0_0_2px_#fff]"
           >
             {unreadBadge > 9 ? '9+' : unreadBadge}
           </span>

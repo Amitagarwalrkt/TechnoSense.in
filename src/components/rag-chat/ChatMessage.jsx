@@ -16,7 +16,7 @@ export default function ChatMessage({ message }) {
       <div className="rag-bubble-col">
         <div className="rag-bubble">
           {isUser ? (
-            <p style={{ whiteSpace: 'pre-wrap' }}>{message.content}</p>
+            <p className="whitespace-pre-wrap">{message.content}</p>
           ) : (
             <ReactMarkdown>{message.content}</ReactMarkdown>
           )}
