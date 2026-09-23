@@ -6,6 +6,25 @@ TechnoSense NextGen Solutions Pvt. Limited is an IT services and technology solu
 
 Website: https://technosense.in/
 
+## Styling and TailwindCSS
+
+The React application uses TailwindCSS 3 with PostCSS. Tailwind scans `src/` and
+the root `index.html`; its configuration is in `tailwind.config.js` and its
+PostCSS integration is in `postcss.config.js`.
+
+Install dependencies and run the site with:
+
+```bash
+npm ci
+npm run dev
+```
+
+The existing Bootstrap, Porto theme, and vendor styles are retained while page
+templates are migrated incrementally. New React components should prefer
+Tailwind utility classes. Do not remove `css/custom.css`, `css/premium-theme.css`,
+or the vendor styles until the legacy pages that use their selectors have also
+been migrated and visually tested.
+
 Overview
 
 The TechnoSense website presents the company's IT infrastructure, cloud, development, database, Microsoft 365, security, and resource-placement services.

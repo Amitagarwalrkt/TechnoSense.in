@@ -14,7 +14,7 @@ export default function ChatHistory({ messages, isLoading }) {
   if (messages.length === 0 && !isLoading) return null
 
   return (
-    <div ref={scrollRef} className="rag-chat-scroll" style={{ height: '100%', padding: '16px 16px 8px' }}>
+    <div ref={scrollRef} className="rag-chat-scroll h-full px-4 pt-4 pb-2">
       {messages.map((msg, idx) => (
         <ChatMessage key={idx} message={msg} />
       ))}

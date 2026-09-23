@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #root:empty { display: none; }
 body.react-route-active > .body { display: none; }
 body.react-route-active { background: #F9FAFB; }

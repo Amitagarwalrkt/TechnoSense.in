@@ -1,6 +1,3 @@
-@tailwind components;
-@tailwind utilities;
-
 /* ── Widget shell: anchored bottom-right, rises from the T ── */
 #rag-chat-root {
   position: fixed;
