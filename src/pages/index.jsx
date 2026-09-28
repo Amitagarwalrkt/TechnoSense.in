@@ -83,7 +83,18 @@ export default function Index() {
                       Mobility Solutions</a></li>
                 </ul>
               </li>
-              <li><a href="/blog" className="nav-link">Blog</a></li>
+              <li className="nav-dropdown">
+                <a href="#" className="nav-link dropdown-toggle">Resources <i className="fas fa-chevron-down" /></a>
+                <ul className="dropdown-menu">
+                  <li className="dropdown-submenu">
+                    <a href="/infrastructure-management" className="dropdown-item">Blog <i className="fas fa-chevron-right" /></a>
+                    <ul className="submenu">
+                      <li><a href="/infrastructure-management">Certificates</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
               <li><a href="/career" className="nav-link">Career</a></li>
               <li><a href="/contact-us" className="nav-link">Contact Us</a></li>
             </ul>
