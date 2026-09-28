@@ -1,4 +1,5 @@
-﻿export default function Blog() {
+import SiteFooter from '../components/SiteFooter'
+export default function Blog() {
   return (
 <div className="body">
   <header className="modern-navbar" id="navbar">
@@ -39,7 +40,6 @@
                     <li><a href="/oracle-apex">Oracle ApEx</a></li>
                     <li><a href="/website-development">Website Development</a></li>
                     <li><a href="/mobile-app-development">Mobile App Development</a></li>
-                    <li><a href="/web-mobile-application-development">Web &amp; Mobile Application Development</a></li>
                     <li><a href="/maf-mcs-cloud">MAF &amp; MCS Cloud</a></li>
                   </ul>
                 </li>
@@ -90,32 +90,47 @@
     </section>
     <div className="container blog-page">
       <article className="blog-featured">
-        <a href="/enterprise-cloud-migration-strategy" className="blog-featured-media">
-          <img src="img/blog/enterprise-cloud-migration-cover.jpg" alt="Enterprise cloud migration strategy and infrastructure roadmap for businesses" loading="eager" decoding="async" />
+        <a href="/it-infrastructure-modernization-strategy" className="blog-featured-media">
+          <img src="img/blog/it-infrastructure-modernization-cover.jpg" alt="IT Infrastructure Modernization Strategy for Enterprises in 2026" loading="eager" decoding="async" />
           <span className="blog-featured-badge">Featured</span>
         </a>
         <div className="blog-featured-body">
           <div className="blog-meta">
-            <span className="blog-tag">Cloud</span>
-            <span><i className="far fa-calendar-alt" /> Sep 17, 2026</span>
-            <span><i className="far fa-clock" /> 12 min read</span>
+            <span className="blog-tag">Infrastructure</span>
+            <span><i className="far fa-calendar-alt" /> Sep 24, 2026</span>
+            <span><i className="far fa-clock" /> 16 min read</span>
           </div>
           <h2 className="blog-featured-title">
-            <a href="/enterprise-cloud-migration-strategy">Enterprise Cloud Migration Strategy: A Practical Roadmap for Moving from On Premises to Cloud</a>
+            <a href="/it-infrastructure-modernization-strategy">IT Infrastructure Modernization Strategy for Enterprises in 2026</a>
           </h2>
-          <p className="blog-featured-excerpt">A practical plan for deciding what should move, how each workload should migrate, and how the new environment will be secured, monitored, and supported.</p>
-          <a href="/enterprise-cloud-migration-strategy" className="blog-read-link">Read Article <i className="fas fa-arrow-right" /></a>
+          <p className="blog-featured-excerpt">Learn how enterprises can modernize IT infrastructure, cloud, databases, security and DevOps through a structured modernization roadmap.</p>
+          <a href="/it-infrastructure-modernization-strategy" className="blog-read-link">Read Article <i className="fas fa-arrow-right" /></a>
         </div>
       </article>
       <div className="blog-toolbar">
         <div className="blog-filters" role="tablist" aria-label="Blog categories">
           <button type="button" className="blog-filter is-active" data-filter="all">All</button>
+          <button type="button" className="blog-filter" data-filter="infrastructure">Infrastructure</button>
           <button type="button" className="blog-filter" data-filter="cloud">Cloud</button>
         </div>
-        <p className="blog-count"><span id="blogVisibleCount">1</span> article</p>
+        <p className="blog-count"><span id="blogVisibleCount">2</span> articles</p>
       </div>
       <div className="blog-layout">
         <div className="blog-grid" id="blogGrid">
+          <article className="blog-card" data-category="infrastructure">
+            <a href="/it-infrastructure-modernization-strategy" className="blog-card-media">
+              <img src="img/blog/it-infrastructure-modernization-cover.jpg" alt="IT Infrastructure Modernization Strategy for Enterprises in 2026" loading="lazy" decoding="async" />
+            </a>
+            <div className="blog-card-body">
+              <div className="blog-meta">
+                <span className="blog-tag">Infrastructure</span>
+                <span>Sep 24, 2026</span>
+              </div>
+              <h3 className="blog-card-title"><a href="/it-infrastructure-modernization-strategy">IT Infrastructure Modernization Strategy for Enterprises in 2026</a></h3>
+              <p className="blog-card-excerpt">A structured roadmap covering assessment, architecture, security, databases, DevOps, and controlled migration for enterprise estates.</p>
+              <a href="/it-infrastructure-modernization-strategy" className="blog-read-link">Read More <i className="fas fa-arrow-right" /></a>
+            </div>
+          </article>
           <article className="blog-card" data-category="cloud">
             <a href="/enterprise-cloud-migration-strategy" className="blog-card-media">
               <img src="img/blog/enterprise-cloud-migration-cover.jpg" alt="Enterprise cloud migration strategy and infrastructure roadmap for businesses" loading="lazy" decoding="async" />
@@ -135,12 +150,22 @@
           <div className="blog-side-card">
             <h3 className="blog-side-title">Categories</h3>
             <ul className="blog-side-list">
+              <li><button type="button" className="blog-side-link" data-filter="infrastructure"><span>Infrastructure</span><em>1</em></button></li>
               <li><button type="button" className="blog-side-link" data-filter="cloud"><span>Cloud</span><em>1</em></button></li>
             </ul>
           </div>
           <div className="blog-side-card">
             <h3 className="blog-side-title">Popular Reads</h3>
             <ul className="blog-popular">
+              <li>
+                <a href="/it-infrastructure-modernization-strategy">
+                  <img src="img/blog/it-infrastructure-modernization-cover.jpg" alt="IT Infrastructure Modernization Strategy for Enterprises in 2026" loading="lazy" />
+                  <span>
+                    <strong>IT Infrastructure Modernization Strategy</strong>
+                    <small>Sep 24, 2026</small>
+                  </span>
+                </a>
+              </li>
               <li>
                 <a href="/enterprise-cloud-migration-strategy">
                   <img src="img/blog/enterprise-cloud-migration-cover.jpg" alt loading="lazy" />
@@ -162,87 +187,7 @@
       </div>
     </div>
   </div>
-  <footer id="footer" className="footer-texts-more-lighten footer-premium">
-    <div className="footer-premium-bg" aria-hidden="true" />
-    <div className="footer-premium-glow footer-premium-glow--1" aria-hidden="true" />
-    <div className="footer-premium-glow footer-premium-glow--2" aria-hidden="true" />
-    <div className="container footer-premium-main">
-      <div className="footer-premium-grid">
-        <div className="footer-brand-col">
-          <a href="/" className="footer-logo-wrap" aria-label="TechnoSense Home">
-            <img src="img/logos/technosense-logo.png" alt="TechnoSense" className="footer-logo-img" />
-          </a>
-          <p className="footer-brand-desc">NextGen IT solutions - cloud, infrastructure, DevOps, and digital transformation delivered with enterprise-grade reliability.</p>
-          <div className="footer-social-row">
-            <a href="https://www.linkedin.com/company/technosense-nextgen-solutions/posts/?feedView=all" className="footer-social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i className="fab fa-linkedin-in" /></a>
-            <a href="https://www.instagram.com/" className="footer-social-link" target="_blank" rel="noopener noreferrer" title="Instagram"><i className="fab fa-instagram" /></a>
-            <a href="https://www.twitter.com/" className="footer-social-link" target="_blank" rel="noopener noreferrer" title="Twitter"><i className="fab fa-x-twitter" /></a>
-            <a href="https://www.facebook.com/" className="footer-social-link" target="_blank" rel="noopener noreferrer" title="Facebook"><i className="fab fa-facebook-f" /></a>
-          </div>
-        </div>
-        <div className="footer-links-col">
-          <h5 className="footer-col-title">Useful Links</h5>
-          <ul className="footer-link-list">
-            <li><a href="/"><i className="fas fa-chevron-right" /> Home</a></li>
-            <li><a href="/about-us"><i className="fas fa-chevron-right" /> About Us</a></li>
-            <li><a href="/blog"><i className="fas fa-chevron-right" /> Blog</a></li>
-            <li><a href="/contact-us"><i className="fas fa-chevron-right" /> Contact Us</a></li>
-            <li><a href="/career"><i className="fas fa-chevron-right" /> Careers</a></li>
-            <li><a href="/cloud-consulting"><i className="fas fa-chevron-right" /> Cloud Solutions</a></li>
-            <li><a href="/devops"><i className="fas fa-chevron-right" /> DevOps Consulting</a></li>
-            <li><a href="/development-services"><i className="fas fa-chevron-right" /> Development Services</a></li>
-          </ul>
-        </div>
-        <div className="footer-services-col">
-          <h5 className="footer-col-title">Our Services</h5>
-          <div className="footer-service-block">
-            <a href="/cloud-consulting" className="footer-service-title">Cloud Consulting</a>
-            <p><a href="/cloud-adoption-strategy">Cloud Adoption Strategy</a> · <a href="/implementation-migration">Implementation &amp; Migration</a> · <a href="/devops">DevOps</a></p>
-          </div>
-          <div className="footer-service-block">
-            <a href="/development-services" className="footer-service-title">Development Services</a>
-            <p><a href="/website-development">Website Development</a> · <a href="/mobile-app-development">Mobile Apps</a> · <a href="/oracle-apex">Oracle ApEx</a></p>
-          </div>
-          <div className="footer-service-block">
-            <a href="/oracle-database-management" className="footer-service-title">Database</a>
-            <p><a href="/oracle-database-installation">Oracle Installation</a> · <a href="/version-upgrades">Version Upgrades</a> · <a href="/server-setup-migration">Server Setup &amp; Migration</a></p>
-          </div>
-        </div>
-        <div className="footer-contact-col">
-          <h5 className="footer-col-title">Contact Info</h5>
-          <ul className="footer-contact-list">
-            <li>
-              <span className="footer-contact-icon"><i className="fas fa-map-marker-alt" /></span>
-              <div>
-                <span className="footer-contact-label">Address</span>
-                <p>48, 7th Floor, ETT tower - 2B-36, Sector 132 Noida.</p>
-              </div>
-            </li>
-            <li>
-              <span className="footer-contact-icon"><i className="fas fa-phone-alt" /></span>
-              <div>
-                <span className="footer-contact-label">Phone</span>
-                <p><a href="tel:+91-9911191139">+91-9911191139</a></p>
-              </div>
-            </li>
-            <li>
-              <span className="footer-contact-icon"><i className="fas fa-envelope" /></span>
-              <div>
-                <span className="footer-contact-label">Email</span>
-                <p><a href="mailto:info@technosense.in">info@technosense.in</a></p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div className="footer-premium-bar">
-      <div className="container footer-premium-bar-inner">
-        <p>TechnoSense NextGen Solutions Pvt Limited (c) 2024. All Rights Reserved.</p>
-        <a href="#" className="footer-back-top" aria-label="Back to top">Back to top <i className="fas fa-arrow-up" /></a>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </div>
 
   )

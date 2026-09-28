@@ -1,15 +1,15 @@
 const SUGGESTED = [
-  'I want to learn about TechnoSense products and services',
-  'I need technical support',
-  'I have a question about careers & openings',
-  'I want to know about technology partnerships',
+  'What services does TechnoSense offer?',
+  'Tell me about cloud consulting and DevOps',
+  'I need help with careers and openings',
+  'How do I contact the TechnoSense team?',
 ]
 
 export default function SuggestedQuestions({ onSelect }) {
   return (
     <div>
-      <h2 className="rag-suggest-title">Want help getting started?</h2>
-      <p className="rag-suggest-sub">Tell us a little bit about what you&apos;re looking for.</p>
+      <h2 className="rag-suggest-title">How can TechNova help?</h2>
+      <p className="rag-suggest-sub">Pick a prompt or type your own question below.</p>
 
       {SUGGESTED.map((text) => (
         <button

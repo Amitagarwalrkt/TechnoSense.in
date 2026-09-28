@@ -1,4 +1,5 @@
-﻿export default function EnterpriseCloudMigrationStrategy() {
+import SiteFooter from '../components/SiteFooter'
+export default function EnterpriseCloudMigrationStrategy() {
   return (
 <div className="body">
   <header className="modern-navbar" id="navbar">
@@ -155,43 +156,7 @@
       </div>
     </article>
   </div>
-  <footer id="footer" className="footer-texts-more-lighten footer-premium">
-    <div className="footer-premium-bg" aria-hidden="true" />
-    <div className="container footer-premium-main">
-      <div className="footer-premium-grid">
-        <div className="footer-brand-col">
-          <a href="/" className="footer-logo-wrap"><img src="img/logos/technosense-logo.png" alt="TechnoSense" className="footer-logo-img" /></a>
-          <p className="footer-brand-desc">NextGen IT solutions - cloud, infrastructure, DevOps, and digital transformation.</p>
-        </div>
-        <div className="footer-links-col">
-          <h5 className="footer-col-title">Useful Links</h5>
-          <ul className="footer-link-list">
-            <li><a href="/"><i className="fas fa-chevron-right" /> Home</a></li>
-            <li><a href="/blog"><i className="fas fa-chevron-right" /> Blog</a></li>
-            <li><a href="/contact-us"><i className="fas fa-chevron-right" /> Contact Us</a></li>
-            <li><a href="/career"><i className="fas fa-chevron-right" /> Careers</a></li>
-          </ul>
-        </div>
-        <div className="footer-contact-col">
-          <h5 className="footer-col-title">Contact</h5>
-          <ul className="footer-contact-list">
-            <li>
-              <span className="footer-contact-icon"><i className="fas fa-envelope" /></span>
-              <div>
-                <span className="footer-contact-label">Email</span>
-                <p><a href="mailto:info@technosense.in">info@technosense.in</a></p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div className="footer-premium-bar">
-      <div className="container footer-premium-bar-inner">
-        <p>TechnoSense NextGen Solutions Pvt Limited (c) 2024. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </div>
 
   )
