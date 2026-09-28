@@ -102,8 +102,9 @@ export default function RagChatWidget() {
 
           <div className="rag-disclaimer">
             <p>
-              AI-generated responses are for informational purposes only and do
-              not constitute official advice.
+              TechNova is TechnoSense&apos;s AI assistant. Responses are
+              informational and may not always be complete — confirm critical
+              details with our team.
             </p>
           </div>
         </div>
@@ -113,16 +114,16 @@ export default function RagChatWidget() {
         id="ai-assistant-toggle"
         type="button"
         className={`ai-assistant-button${isOpen ? ' is-open' : ''}`}
-        aria-label={isOpen ? 'Close assistant' : 'Ask TechNova: open assistant'}
+        aria-label={isOpen ? 'Close TechNova' : 'Ask TechNova: open assistant'}
         title="Ask TechNova"
         onClick={toggleOpen}
       >
-        <strong className="technova-mark">T</strong>
+        <span className="ai-assistant-icon" aria-hidden="true">
+          <strong className="technova-mark">TN</strong>
+        </span>
         {!isOpen && <span className="ai-assistant-label">Ask TechNova</span>}
         {unreadBadge > 0 && !isOpen && (
-          <span
-            className="absolute -right-0.5 -top-0.5 grid h-[18px] min-w-[18px] place-items-center rounded-full bg-gray-900 px-[5px] text-[10px] font-bold text-white shadow-[0_0_0_2px_#fff]"
-          >
+          <span className="ai-assistant-badge">
             {unreadBadge > 9 ? '9+' : unreadBadge}
           </span>
         )}

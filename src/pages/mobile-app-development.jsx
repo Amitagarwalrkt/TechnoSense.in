@@ -1,4 +1,5 @@
-﻿export default function MobileAppDevelopment() {
+import SiteFooter from '../components/SiteFooter'
+export default function MobileAppDevelopment() {
   return (
 <div className="body">
   <header className="modern-navbar" id="navbar">
@@ -39,7 +40,6 @@
                     <li><a href="/oracle-apex">Oracle ApEx</a></li>
                     <li><a href="/website-development">Website Development</a></li>
                     <li><a href="/mobile-app-development">Mobile App Development</a></li>
-                    <li><a href="/web-mobile-application-development">Web &amp; Mobile Application Development</a></li>
                     <li><a href="/maf-mcs-cloud">MAF &amp; MCS Cloud</a></li>
                   </ul>
                 </li>
@@ -83,20 +83,20 @@
       <div className="container">
         <div className="section-label">Development Services</div>
         <h1 className="inner-page-title">Mobile App <span>Development</span></h1>
-        <p className="inner-page-desc">Android, iOS, and cross-platform apps for customers, field teams, and internal operations - built to stay stable after launch.</p>
+        <p className="inner-page-desc">Flutter-first cross-platform apps — plus native Android and iOS where it matters — backed by Node.js APIs that stay reliable after launch.</p>
       </div>
     </section>
     <div className="container dev-page">
       <div className="dev-intro">
         <div className="dev-intro-copy">
-          <div className="section-label">Apps people actually use</div>
-          <h2>From idea to a store-ready app, without the guesswork.</h2>
-          <p>TechnoSense builds mobile apps that fit real workflows - customer self-service, sales visits, approvals, and notifications - not a demo that only looks good in a screenshot.</p>
-          <p>We cover native and cross-platform delivery, plus the API and admin panel the app needs to stay useful after the first release.</p>
+          <div className="section-label">Apps for customers &amp; field teams</div>
+          <h2>Android, iOS, and Flutter apps built for real workflows.</h2>
+          <p>TechnoSense builds mobile products for customers, field and sales teams, and internal operations — booking, tracking, approvals, and notifications that hold up outside a demo screenshot.</p>
+          <p>We default to Flutter for shared Android and iOS codebases, and go native when device APIs or performance demand it. Node.js backends, secure auth, and push notifications ship with the app — not as a follow-up project.</p>
           <ul className="dev-points">
-            <li><i className="fas fa-check" /> Android and iOS, or one codebase when that is the smarter call</li>
-            <li><i className="fas fa-check" /> Login, roles, offline-friendly flows, and push notifications</li>
-            <li><i className="fas fa-check" /> Store submission support and a release plan your team can follow</li>
+            <li><i className="fas fa-check" /> Flutter-first delivery with Dart; native Android / iOS when the use case needs it</li>
+            <li><i className="fas fa-check" /> Secure auth, roles, offline-friendly flows, and push notifications</li>
+            <li><i className="fas fa-check" /> Node.js / REST APIs and store submission support with a release plan your team can follow</li>
           </ul>
           <div className="dev-hero-actions">
             <a href="/contact-us" className="btn-cyberguard">Start an App Project <i className="fas fa-arrow-right" /></a>
@@ -107,153 +107,121 @@
           <img src="img/services/app-development.png" alt="App development" loading="eager" />
         </div>
       </div>
+      <div className="dev-tech-strip" aria-label="Primary mobile stack">
+        <span>Flutter</span>
+        <span>Dart</span>
+        <span>Android</span>
+        <span>iOS</span>
+        <span>Node.js</span>
+      </div>
       <div className="dev-section-head">
         <div>
           <div className="section-label">What we build</div>
-          <h2>App work we take from prototype to release</h2>
+          <h2>App work we take from prototype to store release</h2>
         </div>
       </div>
       <div className="dev-grid">
         <article className="dev-card">
           <div className="dev-card-icon"><i className="fas fa-mobile-alt" /></div>
           <h3>Customer apps</h3>
-          <p>Booking, tracking, catalogues, and account screens that stay simple on a small screen.</p>
+          <p>Booking, tracking, catalogues, and account screens that stay clear on a small screen and sync to your backend.</p>
+        </article>
+        <article className="dev-card">
+          <div className="dev-card-icon"><i className="fas fa-rocket" /></div>
+          <h3>Flutter apps</h3>
+          <p>One Dart codebase for Android and iOS — faster iteration, consistent UI, and a single release pipeline when cross-platform is the right call.</p>
         </article>
         <article className="dev-card">
           <div className="dev-card-icon"><i className="fas fa-users" /></div>
           <h3>Field &amp; sales apps</h3>
-          <p>Visit logs, check-ins, offline forms, and sync when the network comes back.</p>
+          <p>Visit logs, check-ins, offline forms, and sync when the network comes back — built for teams on the move.</p>
         </article>
         <article className="dev-card">
           <div className="dev-card-icon"><i className="fas fa-building" /></div>
           <h3>Internal tools</h3>
-          <p>Approvals, attendance, tickets, and dashboards for teams that should not live in email.</p>
+          <p>Approvals, attendance, tickets, and mobile dashboards for teams that should not live in email threads.</p>
         </article>
         <article className="dev-card">
           <div className="dev-card-icon"><i className="fas fa-bell" /></div>
-          <h3>Notifications</h3>
-          <p>Push, SMS, and in-app alerts tied to real events - order updates, approvals, reminders.</p>
+          <h3>Push notifications</h3>
+          <p>Push, SMS, and in-app alerts tied to real events — order updates, approvals, reminders — via Firebase or your own stack.</p>
         </article>
         <article className="dev-card">
           <div className="dev-card-icon"><i className="fas fa-lock" /></div>
-          <h3>Secure access</h3>
-          <p>Login, roles, and device-aware controls so the right person sees the right data.</p>
+          <h3>Secure auth</h3>
+          <p>Login, roles, tokens, and device-aware controls so the right person sees the right data — on every release.</p>
         </article>
-        <article className="dev-card">
-          <div className="dev-card-icon"><i className="fas fa-sync-alt" /></div>
-          <h3>App + website together</h3>
-          <p>One back-end for the site and the app, so customers get the same account on both.</p>
-        </article>
+      </div>
+      <div className="dev-highlight">
+        <div className="dev-highlight-icon"><i className="fas fa-server" /></div>
+        <div>
+          <h3>App + API as one delivery</h3>
+          <p>Flutter or native clients ship with Node.js REST APIs, Firebase where it fits, and the same account model as your website — so customers and field teams stay in sync.</p>
+        </div>
       </div>
       <div className="dev-section-head">
         <div>
           <div className="section-label">How we work</div>
-          <h2>Four steps from flow to store release</h2>
+          <h2>Four steps from brief to store release</h2>
         </div>
       </div>
       <div className="dev-steps">
         <article className="dev-step">
           <em>01</em>
-          <h3>Scope</h3>
-          <p>Users, screens, and the one job the first version must do well.</p>
+          <h3>Discover</h3>
+          <p>Users, platforms, and the one job the first version must do well — Flutter, native, or both.</p>
         </article>
         <article className="dev-step">
           <em>02</em>
-          <h3>Prototype</h3>
-          <p>Clickable flows on phone size before we lock engineering time.</p>
+          <h3>Design</h3>
+          <p>Clickable flows on phone size, brand UI, and navigation reviewed before engineering locks in.</p>
         </article>
         <article className="dev-step">
           <em>03</em>
           <h3>Build</h3>
-          <p>App, API, and admin. You test on real devices, not only a browser mock.</p>
+          <p>Flutter / native app, Node.js APIs, and admin. You test on real devices, not only a browser mock.</p>
         </article>
         <article className="dev-step">
           <em>04</em>
-          <h3>Release</h3>
-          <p>Store listings, rollout, and a support window for the first production issues.</p>
+          <h3>Launch</h3>
+          <p>Store listings, rollout, and a support window for the first production issues after go-live.</p>
         </article>
       </div>
       <div className="dev-section-head">
         <div>
           <div className="section-label">Stack</div>
-          <h2>Platforms we deliver on</h2>
+          <h2>Platforms and backends we deliver on</h2>
         </div>
       </div>
       <div className="dev-stack">
-        <span>Android</span>
-        <span>iOS</span>
         <span>Flutter</span>
         <span>React Native</span>
-        <span>Java</span>
-        <span>.NET APIs</span>
-        <span>PHP APIs</span>
+        <span>Android</span>
+        <span>iOS</span>
+        <span>Dart</span>
+        <span>Node.js</span>
         <span>Firebase</span>
+        <span>REST APIs</span>
       </div>
       <div className="dev-cta-band">
         <div>
           <div className="section-label">Next step</div>
-          <h2>Have an app brief ready?</h2>
-          <p>Share the users, the platforms, and whether you already have a website or API. We├óΓé¼Γäóll map a first release that can actually ship.</p>
+          <h2>Have a Flutter or native app brief ready?</h2>
+          <p>Share the users, platforms, and whether you already have a website or API. We&apos;ll map a first release that can actually ship.</p>
         </div>
         <a href="/contact-us" className="btn-cyberguard">Get a Quote <i className="fas fa-arrow-right" /></a>
       </div>
       <div className="dev-sister">
         <div>
           <div className="section-label">Also building websites</div>
-          <h2>Corporate sites, portals, and e-commerce</h2>
-          <p>If the product starts on the web - or the app needs a marketing site - that page is here.</p>
+          <h2>React, Next.js, and Node.js web products</h2>
+          <p>If the product starts on the web — or the app needs a marketing site or portal — that page is here.</p>
         </div>
         <a href="/website-development" className="btn-cyberguard">Website Development <i className="fas fa-arrow-right" /></a>
       </div>
     </div>
   </div>
-  <footer id="footer" className="footer-texts-more-lighten footer-premium">
-    <div className="footer-premium-bg" aria-hidden="true" />
-    <div className="container footer-premium-main">
-      <div className="footer-premium-grid">
-        <div className="footer-brand-col">
-          <a href="/" className="footer-logo-wrap" aria-label="TechnoSense Home">
-            <img src="img/logos/technosense-logo.png" alt="TechnoSense" className="footer-logo-img" />
-          </a>
-          <p className="footer-brand-desc">NextGen IT solutions - websites, mobile apps, cloud, and infrastructure delivered with enterprise-grade reliability.</p>
-        </div>
-        <div className="footer-links-col">
-          <h5 className="footer-col-title">Useful Links</h5>
-          <ul className="footer-link-list">
-            <li><a href="/"><i className="fas fa-chevron-right" /> Home</a></li>
-            <li><a href="/about-us"><i className="fas fa-chevron-right" /> About Us</a></li>
-            <li><a href="/website-development"><i className="fas fa-chevron-right" /> Website Development</a></li>
-            <li><a href="/mobile-app-development"><i className="fas fa-chevron-right" /> Mobile App Development</a></li>
-            <li><a href="/contact-us"><i className="fas fa-chevron-right" /> Contact Us</a></li>
-          </ul>
-        </div>
-        <div className="footer-contact-col">
-          <h5 className="footer-col-title">Contact Info</h5>
-          <ul className="footer-contact-list">
-            <li>
-              <span className="footer-contact-icon"><i className="fas fa-envelope" /></span>
-              <div>
-                <span className="footer-contact-label">Email</span>
-                <p><a href="mailto:info@technosense.in">info@technosense.in</a></p>
-              </div>
-            </li>
-            <li>
-              <span className="footer-contact-icon"><i className="fas fa-phone-alt" /></span>
-              <div>
-                <span className="footer-contact-label">Phone</span>
-                <p><a href="tel:+91-9911191139">+91-9911191139</a></p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div className="footer-premium-bar">
-      <div className="container footer-premium-bar-inner">
-        <p>TechnoSense NextGen Solutions Pvt Limited (c) 2024. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </div>
 
   )

@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useLayoutEffect } from 'react'
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { Route, Routes, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import './app.css'
 import RagChatWidget from './components/rag-chat/RagChatWidget'
 const AboutUs = lazy(() => import('./pages/about-us'))
@@ -19,6 +19,7 @@ const EnterpriseMobilitySolutions = lazy(() => import('./pages/enterprise-mobili
 const ImplementationMigration = lazy(() => import('./pages/implementation-migration'))
 const HomePage = lazy(() => import('./pages/index'))
 const InfrastructureManagement = lazy(() => import('./pages/infrastructure-management'))
+const ItInfrastructureModernizationStrategy = lazy(() => import('./pages/it-infrastructure-modernization-strategy'))
 const ItInfraRoadmapConsulting = lazy(() => import('./pages/it-infra-roadmap-consulting'))
 const MafMcsCloud = lazy(() => import('./pages/maf-mcs-cloud'))
 const ManagedServices = lazy(() => import('./pages/managed-services'))
@@ -35,7 +36,6 @@ const SecuritySolutions = lazy(() => import('./pages/security-solutions'))
 const ServerSetupMigration = lazy(() => import('./pages/server-setup-migration'))
 const SetupPlatformMigrations = lazy(() => import('./pages/setup-platform-migrations'))
 const VersionUpgrades = lazy(() => import('./pages/version-upgrades'))
-const WebMobileApplicationDevelopment = lazy(() => import('./pages/web-mobile-application-development'))
 const WebsiteDevelopment = lazy(() => import('./pages/website-development'))
 
 const routes = {
@@ -47,6 +47,7 @@ const routes = {
   '/enterprise-cloud-migration-strategy': EnterpriseCloudMigrationStrategy,
   '/enterprise-mobility-solutions': EnterpriseMobilitySolutions,
   '/implementation-migration': ImplementationMigration, '/infrastructure-management': InfrastructureManagement,
+  '/it-infrastructure-modernization-strategy': ItInfrastructureModernizationStrategy,
   '/it-infra-roadmap-consulting': ItInfraRoadmapConsulting, '/maf-mcs-cloud': MafMcsCloud,
   '/managed-services': ManagedServices, '/microsoft-o365': MicrosoftO365,
   '/mobile-app-development': MobileAppDevelopment, '/mobile-devices-management': MobileDevicesManagement,
@@ -55,7 +56,7 @@ const routes = {
   '/oracle-database-installation': OracleDatabaseInstallation, '/oracle-database-management': OracleDatabaseManagement,
   '/security-solutions': SecuritySolutions, '/server-setup-migration': ServerSetupMigration,
   '/setup-platform-migrations': SetupPlatformMigrations, '/version-upgrades': VersionUpgrades,
-  '/web-mobile-application-development': WebMobileApplicationDevelopment, '/website-development': WebsiteDevelopment
+  '/website-development': WebsiteDevelopment
 }
 
 function ReactPage({ Page, handlesContactForm = false }) {
@@ -127,6 +128,10 @@ function App() {
       <Suspense fallback={<div className="react-page-loading">Loading...</div>}>
         <Routes>
           <Route path="/" element={<ReactPage Page={HomePage} />} />
+          <Route
+            path="/web-mobile-application-development"
+            element={<Navigate to="/development-services" replace />}
+          />
           {Object.entries(routes).map(([path, Page]) => (
             <Route
               key={path}

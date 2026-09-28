@@ -1,4 +1,7 @@
-﻿export default function Index() {
+import SiteFooter from '../components/SiteFooter'
+import FaqSection from '../components/FaqSection'
+
+export default function Index() {
   return (
 <div>
   <div className="body">
@@ -52,8 +55,6 @@
                       <li><a href="/oracle-apex">Oracle ApEx</a></li>
                       <li><a href="/website-development">Website Development</a></li>
                       <li><a href="/mobile-app-development">Mobile App Development</a></li>
-                      <li><a href="/web-mobile-application-development">Web &amp; Mobile
-                          Application Development</a></li>
                       <li><a href="/maf-mcs-cloud">MAF &amp; MCS Cloud</a></li>
                     </ul>
                   </li>
@@ -117,7 +118,7 @@
                   <span className="hero-badge-dot" />
                   NextGen IT Solutions
                 </div>
-                <div className="hero-eyebrow">Discover · Innovate · Automate</div>
+                <div className="hero-eyebrow">Discover � Innovate � Automate</div>
                 <div className="hero-title-container">
                   <h1 className="hero-title">
                     Transform Your Business with
@@ -168,7 +169,7 @@
                   <div className="hero-float-icon"><i className="fas fa-cloud" /></div>
                   <div>
                     <strong>Cloud Consulting</strong>
-                    <span>AWS · Azure · Hybrid</span>
+                    <span>AWS � Azure � Hybrid</span>
                   </div>
                 </div>
                 <div className="hero-float-card hero-float-card--2">
@@ -182,7 +183,7 @@
                   <div className="hero-float-icon"><i className="fas fa-code-branch" /></div>
                   <div>
                     <strong>DevOps &amp; Automation</strong>
-                    <span>CI/CD · IaC · Monitoring</span>
+                    <span>CI/CD � IaC � Monitoring</span>
                   </div>
                 </div>
               </div>
@@ -237,7 +238,7 @@
                 <div className="about-glass-badge-icon"><i className="fas fa-globe-americas" /></div>
                 <div>
                   <strong>Global Delivery</strong>
-                  <span>India · USA · Europe · APAC</span>
+                  <span>India � USA � Europe � APAC</span>
                 </div>
               </div>
               <div className="about-float-stat about-float-stat--1">
@@ -688,198 +689,9 @@
         </div>
       </div>
     </section>
-    {/* FAQ Section */}
-    <section className="faq-section faq-premium">
-      <div className="faq-premium-bg" aria-hidden="true" />
-      <div className="container">
-        <div className="section-header faq-premium-header">
-          <div className="faq-header-meta">
-            <div className="section-label">FAQ</div>
-            <span className="faq-count-badge"><i className="fas fa-circle-question" /> 5 Common Questions</span>
-          </div>
-          <h2 className="section-title faq-premium-title">Frequent <span className="faq-title-accent">Questions</span></h2>
-          <div className="faq-heading-line" aria-hidden="true" />
-          <p className="section-description">Clear answers about our IT services, security practices, and how we support your business from day one through long-term partnership.</p>
-        </div>
-        <div className="faq-premium-panel">
-          <div className="faq-accordion accordion" id="FAQAccordion">
-            <div className="card faq-premium-item">
-              <div className="card-header">
-                <h4 className="card-title m-0">
-                  <a className="accordion-toggle" data-bs-toggle="collapse" href="#collapseFAQOne" aria-expanded="true">
-                    <span className="faq-item-badge">01</span>
-                    <span className="faq-question-text">What sets TechnoSense NextGen Solutions apart from other IT service providers?</span>
-                    <span className="faq-toggle-icon" aria-hidden="true"><i className="fas fa-plus" /></span>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseFAQOne" className="collapse show" data-bs-parent="#FAQAccordion">
-                <div className="card-body">
-                  <p className="mb-0">TechnoSense NextGen Solutions distinguishes itself through a combination of deep industry expertise, a commitment to excellence, and a track record of delivering successful projects globally. Our team's extensive experience with industry leaders worldwide ensures that we bring cutting-edge solutions to every client engagement.</p>
-                </div>
-              </div>
-            </div>
-            <div className="card faq-premium-item">
-              <div className="card-header">
-                <h4 className="card-title m-0">
-                  <a className="accordion-toggle collapsed" data-bs-toggle="collapse" href="#collapseFAQTwo">
-                    <span className="faq-item-badge">02</span>
-                    <span className="faq-question-text">What types of businesses can benefit from TechnoSense NextGen Solutions services?</span>
-                    <span className="faq-toggle-icon" aria-hidden="true"><i className="fas fa-plus" /></span>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseFAQTwo" className="collapse" data-bs-parent="#FAQAccordion">
-                <div className="card-body">
-                  <p className="mb-0">TechnoSense NextGen Solutions caters to businesses of all sizes, from startups to large enterprises. Our flexible approach allows us to tailor solutions to meet the unique needs and challenges of each organization, whether they're looking to streamline IT operations, optimize infrastructure, or drive digital transformation.</p>
-                </div>
-              </div>
-            </div>
-            <div className="card faq-premium-item">
-              <div className="card-header">
-                <h4 className="card-title m-0">
-                  <a className="accordion-toggle collapsed" data-bs-toggle="collapse" href="#collapseFAQFour">
-                    <span className="faq-item-badge">03</span>
-                    <span className="faq-question-text">How does TechnoSense NextGen Solutions ensure the security of clients' IT infrastructure?</span>
-                    <span className="faq-toggle-icon" aria-hidden="true"><i className="fas fa-plus" /></span>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseFAQFour" className="collapse" data-bs-parent="#FAQAccordion">
-                <div className="card-body">
-                  <p className="mb-0">Security is a top priority at Technosense, and we employ industry-leading practices and technologies to safeguard our clients' IT environments. From network security assessments to robust cybersecurity solutions, we work proactively to mitigate risks and protect against threats.</p>
-                </div>
-              </div>
-            </div>
-            <div className="card faq-premium-item">
-              <div className="card-header">
-                <h4 className="card-title m-0">
-                  <a className="accordion-toggle collapsed" data-bs-toggle="collapse" href="#collapseFAQFive">
-                    <span className="faq-item-badge">04</span>
-                    <span className="faq-question-text">What support options does TechnoSense NextGen Solutions provide after implementation?</span>
-                    <span className="faq-toggle-icon" aria-hidden="true"><i className="fas fa-plus" /></span>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseFAQFive" className="collapse" data-bs-parent="#FAQAccordion">
-                <div className="card-body">
-                  <p className="mb-0">TechnoSense NextGen Solutions offers ongoing support and maintenance services to ensure the continued success of our clients' IT initiatives. From version upgrades to performance tuning, our support team is available to address any issues and keep systems running smoothly.</p>
-                </div>
-              </div>
-            </div>
-            <div className="card faq-premium-item">
-              <div className="card-header">
-                <h4 className="card-title m-0">
-                  <a className="accordion-toggle collapsed" data-bs-toggle="collapse" href="#collapseFAQTSix">
-                    <span className="faq-item-badge">05</span>
-                    <span className="faq-question-text">How can I get started with TechnoSense NextGen Solutions services?</span>
-                    <span className="faq-toggle-icon" aria-hidden="true"><i className="fas fa-plus" /></span>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseFAQTSix" className="collapse" data-bs-parent="#FAQAccordion">
-                <div className="card-body">
-                  <p className="mb-0">Getting started with TechnoSense NextGen Solutions is easy. Simply reach out to our team via our website or contact information provided, and we'll schedule a consultation to discuss your specific needs and how we can help. From there, we'll work together to develop a customized plan that aligns with your business objectives.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="faq-panel-footer">
-            <div className="faq-footer-copy">
-              <span className="faq-footer-icon"><i className="fas fa-headset" /></span>
-              <div>
-                <strong>Still have questions?</strong>
-                <p>Our experts respond within one business day.</p>
-              </div>
-            </div>
-            <a href="/contact-us" className="btn-cyberguard faq-premium-btn">Contact Us <i className="fas fa-arrow-right" /></a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <FaqSection />
   </div>
-  <footer id="footer" className="footer-texts-more-lighten footer-premium">
-    <div className="footer-premium-bg" aria-hidden="true" />
-    <div className="footer-premium-glow footer-premium-glow--1" aria-hidden="true" />
-    <div className="footer-premium-glow footer-premium-glow--2" aria-hidden="true" />
-    <div className="container footer-premium-main">
-      <div className="footer-premium-grid">
-        <div className="footer-brand-col">
-          <a href="/" className="footer-logo-wrap" aria-label="TechnoSense Home">
-            <img src="img/logos/technosense-logo.png" alt="TechnoSense" className="footer-logo-img" />
-          </a>
-          <p className="footer-brand-desc">NextGen IT solutions - cloud, infrastructure, DevOps, and digital transformation delivered with enterprise-grade reliability.</p>
-          <div className="footer-social-row">
-            <a href="https://www.linkedin.com/company/technosense-nextgen-solutions/posts/?feedView=all" className="footer-social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i className="fab fa-linkedin-in" /></a>
-            <a href="https://www.instagram.com/" className="footer-social-link" target="_blank" rel="noopener noreferrer" title="Instagram"><i className="fab fa-instagram" /></a>
-            <a href="https://www.twitter.com/" className="footer-social-link" target="_blank" rel="noopener noreferrer" title="Twitter"><i className="fab fa-x-twitter" /></a>
-            <a href="https://www.facebook.com/" className="footer-social-link" target="_blank" rel="noopener noreferrer" title="Facebook"><i className="fab fa-facebook-f" /></a>
-          </div>
-        </div>
-        <div className="footer-links-col">
-          <h5 className="footer-col-title">Useful Links</h5>
-          <ul className="footer-link-list">
-            <li><a href="/"><i className="fas fa-chevron-right" /> Home</a></li>
-            <li><a href="/about-us"><i className="fas fa-chevron-right" /> About Us</a></li>
-            <li><a href="/blog"><i className="fas fa-chevron-right" /> Blog</a></li>
-            <li><a href="/contact-us"><i className="fas fa-chevron-right" /> Contact Us</a></li>
-            <li><a href="/career"><i className="fas fa-chevron-right" /> Careers</a></li>
-            <li><a href="/cloud-consulting"><i className="fas fa-chevron-right" /> Cloud Solutions</a></li>
-            <li><a href="/devops"><i className="fas fa-chevron-right" /> DevOps Consulting</a></li>
-            <li><a href="/development-services"><i className="fas fa-chevron-right" /> Development Services</a></li>
-            <li><a href="/enterprise-mobility-solutions"><i className="fas fa-chevron-right" /> Enterprise Mobility</a></li>
-          </ul>
-        </div>
-        <div className="footer-services-col">
-          <h5 className="footer-col-title">Our Services</h5>
-          <div className="footer-service-block">
-            <a href="/cloud-consulting" className="footer-service-title">Cloud Consulting</a>
-            <p><a href="/cloud-adoption-strategy">Cloud Adoption Strategy</a> · <a href="/implementation-migration">Implementation &amp; Migration</a> · <a href="/devops">DevOps</a></p>
-          </div>
-          <div className="footer-service-block">
-            <a href="/development-services" className="footer-service-title">Development Services</a>
-            <p><a href="/website-development">Website Development</a> · <a href="/mobile-app-development">Mobile Apps</a> · <a href="/oracle-apex">Oracle ApEx</a></p>
-          </div>
-          <div className="footer-service-block">
-            <a href="/oracle-database-management" className="footer-service-title">Database</a>
-            <p><a href="/oracle-database-installation">Oracle Installation</a> · <a href="/oracle-database-installation">Version Upgrades</a> · <a href="/oracle-database-installation">Server Setup &amp; Migration</a> · <a href="/oracle-database-installation">Managed Services</a></p>
-          </div>
-        </div>
-        <div className="footer-contact-col">
-          <h5 className="footer-col-title">Contact Info</h5>
-          <ul className="footer-contact-list">
-            <li>
-              <span className="footer-contact-icon"><i className="fas fa-map-marker-alt" /></span>
-              <div>
-                <span className="footer-contact-label">Address</span>
-                <p>48, 7th Floor, ETT tower - 2B-36, Sector 132 Noida.</p>
-              </div>
-            </li>
-            <li>
-              <span className="footer-contact-icon"><i className="fas fa-phone-alt" /></span>
-              <div>
-                <span className="footer-contact-label">Phone</span>
-                <p><a href="tel:+91-9911191139">+91-9911191139</a></p>
-              </div>
-            </li>
-            <li>
-              <span className="footer-contact-icon"><i className="fas fa-envelope" /></span>
-              <div>
-                <span className="footer-contact-label">Email</span>
-                <p><a href="mailto:info@technosense.in">info@technosense.in</a></p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div className="footer-premium-bar">
-      <div className="container footer-premium-bar-inner">
-        <p>TechnoSense NextGen Solutions Pvt Limited (c) 2024. All Rights Reserved.</p>
-        <a href="#" className="footer-back-top" aria-label="Back to top">Back to top <i className="fas fa-arrow-up" /></a>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
   {/* Vendor */}
   {/* Cloudflare email decode script removed - not needed for local development */}
   {/*  */}

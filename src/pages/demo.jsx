@@ -1,4 +1,5 @@
-﻿export default function Demo() {
+import SiteFooter from '../components/SiteFooter'
+export default function Demo() {
   return (
 <div className="body">
   <header id="header" className="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 120, 'stickyHeaderContainerHeight': 70}">
@@ -89,9 +90,6 @@
                             <ul className="dropdown-menu">
                               <li><a className="dropdown-item" href="/oracle-apex"> Oracle
                                   ApEx</a></li>
-                              <li><a className="dropdown-item" href="/web-mobile-application-development"> Web &amp; Mobile
-                                  Application Development </a>
-                              </li>
                               <li><a className="dropdown-item" href="/maf-mcs-cloud"> MAF &amp;
                                   MCS Cloud </a></li>
                             </ul>
@@ -282,7 +280,8 @@
                   <h3 className="h3_services"> Development Services </h3>
                   <ol className="ol_service">
                     <li>Oracle ApEx</li>
-                    <li>Web &amp; Mobile Application Development </li>
+                    <li>Website Development</li>
+                    <li>Mobile App Development</li>
                     <li>MAF &amp; MCS Cloud</li>
                   </ol>
                 </div>
@@ -679,101 +678,7 @@
       </div>
     </section>
   </div>
-  <footer id="footer" className="footer-texts-more-lighten">
-    <div className="container">
-      <div className="row py-4 mt-4">
-        <div className="col-md-6 col-lg-3 mb-5 mb-lg-0">
-          <h5 className="text-4 text-color-light mb-3">CONTACT INFO</h5>
-          <ul className="list list-unstyled">
-            <li className="pb-1 mb-2">
-              <span className="d-block font-weight-normal line-height-1 text-color-light">ADDRESS</span> 
-              48, 7th Floor, ETT tower - 2B-36, Sector 132 Noida.
-            </li>
-            <li className="pb-1 mb-2">
-              <span className="d-block font-weight-normal line-height-1 text-color-light">PHONE</span>
-              <a href="tel:+91-9911191139">+91-9911191139</a>
-            </li>
-            <li className="pb-1 mb-2">
-              <span className="d-block font-weight-normal line-height-1 text-color-light">EMAIL</span>
-              <a href="mailto:info@technosense.in"> info@technosense.in</a>
-            </li>
-            {/* <li class="pb-1 mb-2">
-								<span class="d-block font-weight-normal line-height-1 text-color-light">WORKING DAYS/HOURS </span>
-								Mon - Sun / 10:00AM - 05:00PM
-							</li> */}
-          </ul>
-          <ul className="social-icons social-icons-clean-with-border social-icons-medium">
-            <li className="social-icons-instagram">
-              <a href="http://www.instagram.com/" className="no-footer-css" target="_blank" title="Instagram"><i className="fab fa-instagram" /></a>
-            </li>
-            <li className="social-icons-twitter mx-2">
-              <a href="http://www.twitter.com/" className="no-footer-css" target="_blank" title="Twitter"><i className="fab fa-x-twitter" /></a>
-            </li>
-            <li className="social-icons-facebook">
-              <a href="http://www.facebook.com/" className="no-footer-css" target="_blank" title="Facebook"><i className="fab fa-facebook-f" /></a>
-            </li>
-          </ul>
-        </div>
-        <div className="col-md-6 col-lg-2 mb-5 mb-lg-0">
-          <h5 className="text-4 text-color-light mb-3">USEFUL LINKS</h5>
-          <ul className="list list-unstyled mb-0">
-            <li className="mb-0"><a href="/">Home</a></li>
-            <li className="mb-0"><a href="/about-us">About Us</a></li>
-            <li className="mb-0"><a href="/contact-us">Contact Us</a></li>
-            <li className="mb-0"><a href="/career">Careers</a></li>
-            <li className="mb-0"><a href="/cloud-consulting">Cloud Solutions</a></li>
-            <li className="mb-0"><a href="/devops">DevOps Consulting</a></li>
-            <li className="mb-0"><a href="/development-services">Development Services</a></li>
-            <li className="mb-0"><a href="/enterprise-mobility-solutions">Enterprise Mobility Solutions</a></li>
-          </ul>
-        </div>
-        <div className="col-md-6 col-lg-4 mb-5 mb-md-0">
-          <h5 className="text-4 text-color-light mb-3">Our Service</h5>
-          <article className="mb-3">
-            <a href="/cloud-consulting" className="text-color-light text-3-5">Cloud Consulting</a>
-            <p className="line-height-2 mb-0"><a href="/cloud-adoption-strategy">Cloud Adoption Strategy,</a>  <a href="/implementation-migration">Implementation &amp; Migration, </a> <a href="/devops">DevOps</a></p>
-          </article>
-          <article className="mb-3">
-            <a href="/development-services" className="text-color-light text-3-5">Development Services</a>
-            <p className="line-height-2 mb-0"><a href="/oracle-apex">Oracle ApEx, </a>  <a href="/web-mobile-application-development">Web &amp; Mobile Application Development, </a> <a href="/maf-mcs-cloud">MAF &amp; MCS Cloud</a></p>
-          </article>
-          <article>
-            <a href="/oracle-database-management" className="text-color-light text-3-5">Database</a>
-            <p className="line-height-2 mb-0"> <a href="/oracle-database-installation">Oracle Database Installation, </a> <a href="/oracle-database-installation">Version Upgrades, </a> <a href="/oracle-database-installation">Server Setup &amp; Migration, </a> <a href="/oracle-database-installation">Managed Services</a></p>
-          </article>
-        </div>
-        <div className="col-md-6 col-lg-3">
-          <h5 className="text-4 text-color-light mb-3">SUBSCRIBE NEWSLETTER</h5>
-          <p className="mb-2">Get all the latest information on events, sales and offers. Sign up for newsletter:</p>
-          <div className="alert alert-success d-none" id="newsletterSuccess">
-            <strong>Success!</strong> You've been added to our email list.
-          </div>
-          <div className="alert alert-danger d-none" id="newsletterError" />
-          <form id="newsletterForm" className="form-style-5 opacity-10" action="https://www.okler.net/previews/porto/10.2.0/php/newsletter-subscribe.php" method="POST">
-            <div className="row">
-              <div className="form-group col">
-                <input className="form-control" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text" />
-              </div>
-            </div>
-            <div className="row">
-              <div className="form-group col">
-                <button className="btn btn-primary btn-rounded btn-px-4 btn-py-2 font-weight-bold" type="submit">SUBSCRIBE</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div className="container">
-      <div className="footer-copyright footer-copyright-style-2 pt-2 pb-2">
-        <div className="row">
-          <div className="col-12 text-center">
-            <h5 className="mb-0 text-light">TechnoSense NextGen Solutions Pvt Limited├é(c) 2024. All Rights Reserved</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 </div>
 
   )

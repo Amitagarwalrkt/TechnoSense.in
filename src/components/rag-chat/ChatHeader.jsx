@@ -22,8 +22,14 @@ export default function ChatHeader({ onClose, onClear, onSendInput, disabled }) 
     <div className="rag-chat-header">
       <div className="rag-chat-header-top">
         <div className="rag-chat-brand">
-          <span className="rag-chat-brand-mark" aria-hidden="true">T</span>
-          <h1>Ask TechNova</h1>
+          <span className="rag-chat-brand-mark" aria-hidden="true">TN</span>
+          <div className="rag-chat-brand-copy">
+            <h1>TechNova</h1>
+            <span className="rag-chat-brand-status">
+              <i className="rag-chat-status-dot" aria-hidden="true" />
+              Online · TechnoSense AI
+            </span>
+          </div>
         </div>
 
         <div className="rag-chat-actions">
@@ -45,7 +51,7 @@ export default function ChatHeader({ onClose, onClear, onSendInput, disabled }) 
             className="rag-chat-icon-btn"
             onClick={onClose}
             title="Minimize"
-            aria-label="Minimize chat"
+            aria-label="Minimize TechNova"
           >
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round">
               <line x1="5" y1="12" x2="19" y2="12" />
@@ -54,8 +60,6 @@ export default function ChatHeader({ onClose, onClear, onSendInput, disabled }) 
         </div>
       </div>
 
-      <p>Instant answers about TechnoSense services, solutions, and more.</p>
-
       <form onSubmit={submit}>
         <div className="rag-chat-input-wrap">
           <input
@@ -63,15 +67,15 @@ export default function ChatHeader({ onClose, onClear, onSendInput, disabled }) 
             value={value}
             onChange={(e) => setValue(e.target.value)}
             onKeyDown={onKey}
-            placeholder="Ask a question…"
+            placeholder="Message TechNova…"
             disabled={disabled}
-            aria-label="Ask a question"
+            aria-label="Message TechNova"
           />
           <button
             type="submit"
             className="rag-chat-send"
             disabled={disabled || !value.trim()}
-            aria-label="Send"
+            aria-label="Send message to TechNova"
           >
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
