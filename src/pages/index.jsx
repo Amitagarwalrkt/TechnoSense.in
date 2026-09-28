@@ -83,7 +83,7 @@ export default function Index() {
                       Mobility Solutions</a></li>
                 </ul>
               </li>
-              <li><a href="/blog" className="nav-link"></a></li>
+              <li><a href="/blog" className="nav-link">Blog</a></li>
               <li><a href="/career" className="nav-link">Career</a></li>
               <li><a href="/contact-us" className="nav-link">Contact Us</a></li>
             </ul>
