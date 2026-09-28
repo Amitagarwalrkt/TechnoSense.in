@@ -86,13 +86,12 @@ export default function Index() {
               <li className="nav-dropdown">
                 <a href="#" className="nav-link dropdown-toggle">Resources <i className="fas fa-chevron-down" /></a>
                 <ul className="dropdown-menu">
-                  <li className="dropdown-submenu">
+                  { <li className="dropdown-submenu">
                     <a href="/infrastructure-management" className="dropdown-item">Blog <i className="fas fa-chevron-right" /></a>
                     <ul className="submenu">
-                      <li><a href="/infrastructure-management">Certificates</a>
-                      </li>
+                      <li><a href="/blog">Blog</a></li>
                     </ul>
-                  </li>
+                  </li>}
                 </ul>
               </li>
               <li><a href="/career" className="nav-link">Career</a></li>
