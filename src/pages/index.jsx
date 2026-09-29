@@ -118,7 +118,7 @@ export default function Index() {
                   <span className="hero-badge-dot" />
                   NextGen IT Solutions
                 </div>
-                <div className="hero-eyebrow">Discover � Innovate � Automate</div>
+                <div className="hero-eyebrow">Discover / Innovate / Automate</div>
                 <div className="hero-title-container">
                   <h1 className="hero-title">
                     Transform Your Business with
@@ -169,7 +169,7 @@ export default function Index() {
                   <div className="hero-float-icon"><i className="fas fa-cloud" /></div>
                   <div>
                     <strong>Cloud Consulting</strong>
-                    <span>AWS � Azure � Hybrid</span>
+                    <span>AWS /  / Hybrid</span>
                   </div>
                 </div>
                 <div className="hero-float-card hero-float-card--2">
@@ -183,7 +183,7 @@ export default function Index() {
                   <div className="hero-float-icon"><i className="fas fa-code-branch" /></div>
                   <div>
                     <strong>DevOps &amp; Automation</strong>
-                    <span>CI/CD � IaC � Monitoring</span>
+                    <span>CI/CD / IaC / Monitoring</span>
                   </div>
                 </div>
               </div>
@@ -238,7 +238,7 @@ export default function Index() {
                 <div className="about-glass-badge-icon"><i className="fas fa-globe-americas" /></div>
                 <div>
                   <strong>Global Delivery</strong>
-                  <span>India � USA � Europe � APAC</span>
+                  <span>India / USA / Europe / APAC</span>
                 </div>
               </div>
               <div className="about-float-stat about-float-stat--1">
@@ -486,7 +486,7 @@ export default function Index() {
             <img src="img/clients/emaar-india.svg" alt="EMAAR India" loading="lazy" decoding="async" />
           </figure>
           <figure className="clients-logo-item" role="listitem">
-            <img src="img/clients/valvoline.svg" alt="Valvoline" loading="lazy" decoding="async" />
+            <img src="img\clients\volvoline.svg" alt="Valvoline" loading="lazy" decoding="async" />
           </figure>
           <figure className="clients-logo-item" role="listitem">
             <img src="img/clients/airtel.webp?v=20260921" alt="Airtel" loading="lazy" decoding="async" />
