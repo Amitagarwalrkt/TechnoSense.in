@@ -10,3 +10,4 @@ dist/**/*.map
 node_modules/
 venv/
 __pycache__/
+dist/send-message.php
