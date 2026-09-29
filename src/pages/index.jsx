@@ -169,7 +169,7 @@ export default function Index() {
                   <div className="hero-float-icon"><i className="fas fa-cloud" /></div>
                   <div>
                     <strong>Cloud Consulting</strong>
-                    <span>AWS /  / Hybrid</span>
+                    <span>AWS / Oracle / Hybrid</span>
                   </div>
                 </div>
                 <div className="hero-float-card hero-float-card--2">
