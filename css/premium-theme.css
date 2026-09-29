@@ -2586,180 +2586,435 @@
     border: none;
     box-shadow: none;
 }
+/* =========================================================
+   CLIENT LOGO WALL
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   OUTER CLIENT CARD
+   --------------------------------------------------------- */
 
 .clients-logo-item {
-    flex: unset;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 100%;
     min-width: 0;
-    min-height: 128px;
-    margin: 0;
-    padding: 28px 20px;
-    background: #FFFFFF;
-    border: 1px solid #D1D5DB;
+
+    height: 150px;
+    min-height: 150px;
+
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #d1d5db;
     border-radius: 16px;
+
     box-shadow: 0 8px 24px rgba(17, 24, 39, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
+
+
+/* ---------------------------------------------------------
+   LAST CARD
+   --------------------------------------------------------- */
 
 .clients-logo-item:last-child {
-    border-right: 1px solid #D1D5DB;
+    border-right: 1px solid #d1d5db;
 }
 
+
+/* ---------------------------------------------------------
+   HOVER EFFECT
+   --------------------------------------------------------- */
+
 .clients-logo-item:hover {
-    background: #FFFFFF;
+    background: #ffffff;
+
     transform: translateY(-4px);
+
     border-color: rgba(200, 16, 46, 0.28);
+
     box-shadow: 0 14px 32px rgba(17, 24, 39, 0.12);
 }
 
-.clients-logo-item img {
+
+/* =========================================================
+   INNER LOGO CONTAINER
+   ========================================================= */
+
+.clients-logo-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* BIGGER INNER BOX */
+    width: 220px;
+    height: 90px;
+
+    padding: 10px 20px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 8px 20px rgba(17, 24, 39, 0.14);
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   LOGO IMAGE
+   ========================================================= */
+
+.clients-logo-inner img {
     display: block;
-    width: auto;
-    max-width: 160px;
-    height: 64px;
+
+    /* BIGGER LOGO */
+    width: 190px;
+    height: 70px;
+
+    max-width: 100%;
+    max-height: 100%;
+
     object-fit: contain;
     object-position: center;
+
     opacity: 1;
+
     filter: contrast(1.1);
+
     transition: transform 0.25s ease;
 }
 
-.clients-logo-item--crazibrain img {
-    height: 96px;
-    max-width: 170px;
+
+/* =========================================================
+   LOGO HOVER
+   ========================================================= */
+
+.clients-logo-item:hover .clients-logo-inner img {
+    transform: scale(1.06);
 }
 
-.clients-logo-item:hover img {
+
+/* =========================================================
+   FALLBACK
+   If you have any logo without .clients-logo-inner
+   ========================================================= */
+
+.clients-logo-item > img {
+    display: block;
+
+    width: 190px;
+    height: 70px;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
     opacity: 1;
-    transform: scale(1.05);
+
+    filter: contrast(1.1);
 }
+
+
+/* =========================================================
+   TABLET / LAPTOP
+   ========================================================= */
 
 @media (max-width: 1100px) {
+
     .clients-logo-wall {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+
 }
 
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
 @media (max-width: 900px) {
+
     .clients-logo-wall {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+
         gap: 14px;
+
         max-width: 640px;
     }
 
+
+    /* OUTER CARD */
+
     .clients-logo-item {
-        min-width: 0;
-        min-height: 112px;
-        height: 112px;
-        padding: 16px 14px;
-        border-radius: 14px;
-        box-shadow: 0 4px 14px rgba(17, 24, 39, 0.08);
-    }
-
-    .clients-logo-item img {
         width: 100%;
-        max-width: 150px;
-        height: 52px;
-        opacity: 1 !important;
-        filter: none !important;
+
+        height: 135px;
+        min-height: 135px;
+
+        padding: 16px;
+
+        border-radius: 14px;
+
+        box-shadow:
+            0 4px 14px rgba(17, 24, 39, 0.08);
     }
 
-    .clients-logo-item--crazibrain img {
-        height: 70px;
-        max-width: 130px;
+
+    /* INNER BOX */
+
+    .clients-logo-inner {
+        width: 190px;
+        height: 78px;
+
+        padding: 8px 14px;
+
+        border-radius: 9px;
     }
+
+
+    /* LOGO */
+
+    .clients-logo-inner img {
+        width: 165px;
+        height: 60px;
+
+        max-width: 100%;
+        max-height: 100%;
+
+        object-fit: contain;
+    }
+
+
+    /* FALLBACK */
+
+    .clients-logo-item > img {
+        width: 165px;
+        height: 60px;
+    }
+
 }
 
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 767px) {
+
     .clients-premium {
         padding: 48px 0 !important;
     }
 
+
     .clients-premium-header {
         margin-bottom: 24px !important;
+
         padding: 0 4px;
     }
 
+
     .clients-header-meta {
         gap: 8px;
+
         margin-bottom: 14px;
     }
+
 
     .clients-header-meta .section-label,
     .clients-count-badge {
         height: 32px;
+
         font-size: 10px !important;
+
         padding: 0 12px !important;
     }
 
+
+    /* -----------------------------------------------------
+       LOGO GRID
+       ----------------------------------------------------- */
+
     .clients-logo-wall {
+        display: grid;
+
         grid-template-columns: repeat(2, minmax(0, 1fr));
+
         gap: 12px;
-        max-width: 100%;
+
         width: 100%;
+        max-width: 100%;
     }
 
+
+    /* -----------------------------------------------------
+       OUTER CARD
+       ----------------------------------------------------- */
+
     .clients-logo-item {
+        width: 100%;
+
+        height: 120px;
+        min-height: 120px;
+
         margin: 0;
-        min-height: 100px;
-        height: 100px;
-        padding: 12px 10px;
+
+        padding: 10px;
+
         border-radius: 12px;
-        border: 1px solid #D1D5DB;
-        background: #FFFFFF;
-        box-shadow: 0 3px 10px rgba(17, 24, 39, 0.07);
+
+        border: 1px solid #d1d5db;
+
+        background: #ffffff;
+
+        box-shadow:
+            0 3px 10px rgba(17, 24, 39, 0.07);
+
         overflow: hidden;
     }
 
-    .clients-logo-item img {
-        width: auto;
-        max-width: 88%;
-        height: 48px;
-        object-fit: contain;
-        opacity: 1 !important;
-        filter: contrast(1.15) !important;
-        transform: translate(-28px, -38px) !important;
+
+    /* -----------------------------------------------------
+       INNER LOGO BOX
+       ----------------------------------------------------- */
+
+    .clients-logo-inner {
+        width: 165px;
+        height: 70px;
+
+        max-width: 95%;
+
+        padding: 7px 10px;
+
+        border-radius: 8px;
+
+        box-shadow:
+            0 5px 14px rgba(17, 24, 39, 0.12);
     }
 
-    .clients-logo-item--crazibrain img {
-        height: 64px;
-        max-width: 78%;
+
+    /* -----------------------------------------------------
+       LOGO
+       ----------------------------------------------------- */
+
+    .clients-logo-inner img {
+        width: 145px;
+        height: 54px;
+
+        max-width: 100%;
+        max-height: 100%;
+
+        object-fit: contain;
+        object-position: center;
+
+        opacity: 1 !important;
+
+        filter: contrast(1.1) !important;
+
+        transform: none !important;
     }
+
+
+    /* -----------------------------------------------------
+       FALLBACK LOGO
+       ----------------------------------------------------- */
+
+    .clients-logo-item > img {
+        width: 145px;
+        height: 54px;
+
+        max-width: 90%;
+
+        object-fit: contain;
+
+        transform: none !important;
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE HOVER
+       ----------------------------------------------------- */
 
     .clients-logo-item:hover {
         transform: none;
-        box-shadow: 0 3px 10px rgba(17, 24, 39, 0.07);
+
+        box-shadow:
+            0 3px 10px rgba(17, 24, 39, 0.07);
     }
 
-    .clients-logo-item:hover img {
-        transform: none;
+
+    .clients-logo-item:hover .clients-logo-inner img {
+        transform: none !important;
     }
+
 }
 
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
 @media (max-width: 400px) {
+
     .clients-header-meta {
         flex-direction: column;
+
         gap: 8px;
     }
 
+
+    /* OUTER CARD */
+
     .clients-logo-item {
-        min-height: 92px;
-        height: 92px;
-        padding: 10px 8px;
+        height: 110px;
+        min-height: 110px;
+
+        padding: 8px;
     }
 
-    .clients-logo-item img {
-        height: 42px;
-        max-width: 92%;
+
+    /* INNER BOX */
+
+    .clients-logo-inner {
+        width: 145px;
+        height: 62px;
+
+        padding: 6px 8px;
     }
 
-    .clients-logo-item--crazibrain img {
-        height: 56px;
+
+    /* LOGO */
+
+    .clients-logo-inner img {
+        width: 128px;
+        height: 48px;
     }
+
+
+    /* FALLBACK */
+
+    .clients-logo-item > img {
+        width: 128px;
+        height: 48px;
+    }
+
 }
-
 /* ================================================================
    PREMIUM STATS — Cinematic dark glass strip (hero-matched)
    ================================================================ */
