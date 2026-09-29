@@ -184,7 +184,7 @@ export default function SiteFooter() {
       </div>
       <div className="footer-premium-bar">
         <div className="container footer-premium-bar-inner">
-          <p>TechnoSense NextGen Solutions Pvt Limited (c) 2024. All Rights Reserved.</p>
+          <p>TechnoSense NextGen Solutions Pvt Limited © 2024. All Rights Reserved.</p>
           <a href="#" className="footer-back-top" aria-label="Back to top">
             Back to top <i className="fas fa-arrow-up" />
           </a>
