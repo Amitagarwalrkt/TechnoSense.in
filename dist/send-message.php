@@ -241,7 +241,7 @@ try {
     /*
      * Only POST requests allowed
      */
-    if (($\_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+    if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
 
         contactJsonError(
             'Invalid request method.',
