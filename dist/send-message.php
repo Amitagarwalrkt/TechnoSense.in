@@ -389,8 +389,7 @@ try {
      *
      * Change this URL if your actual logo path is different.
      */
-    $logoUrl =
-        'C:\Users\Amit Agarwal\OneDrive - TECHNOSENSE NEXTGEN SOLUTIONS PRIVATE LIMITED\Desktop\TechnoSense.in\dist\assets\android-chrome-192x192-DI05UMHt.png';
+    $logoUrl ='dist/assets/android-chrome-192x192-DI05UMHt.png';
 
 
     /*
