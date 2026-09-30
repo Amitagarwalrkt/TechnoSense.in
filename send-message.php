@@ -31,7 +31,7 @@ $exceptionPath = __DIR__ . '/vendor/phpmailer/src/Exception.php';
 $phpmailerPath = __DIR__ . '/vendor/phpmailer/src/PHPMailer.php';
 $smtpPath     = __DIR__ . '/vendor/phpmailer/src/SMTP.php';
 $configPath   = __DIR__ . '/smtp-config.php';
-$logoPath     = __DIR__ . '/dist/assets/android-chrome-192x192-DI05UMHt.png';
+$logoUrl = 'https://technosense.in/assets/android-chrome-192x192-DI05UMHt.png';
 
 /*
 |--------------------------------------------------------------------------
