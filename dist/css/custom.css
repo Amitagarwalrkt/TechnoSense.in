@@ -365,6 +365,12 @@ body {
     transform: translateY(0);
 }
 
+@media (min-width: 992px) {
+    .navbar-menu > .nav-dropdown > .dropdown-menu::before {
+        display: none;
+    }
+}
+
 /* Disable hover effects on mobile/tablet */
 /* Removed hover-only behavior for mobile - now using click-based toggle */
 
