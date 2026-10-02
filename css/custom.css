@@ -229,6 +229,13 @@ body {
     border-bottom: none !important;
 }
 
+.nav-link,
+.dropdown-item,
+.submenu li a,
+.navbar-toggle {
+    touch-action: manipulation;
+}
+
 .nav-link::after {
     content: '';
     position: absolute;
@@ -569,6 +576,14 @@ body {
     .navbar-toggle {
         display: flex;
     }
+
+    .header-nav-main nav.legacy-mobile-nav {
+        display: none;
+    }
+
+    .header-nav-main nav.legacy-mobile-nav.show {
+        display: block;
+    }
     
     .navbar-menu {
         position: fixed;
@@ -650,6 +665,14 @@ body {
         display: block;
         max-height: 500px;
     }
+
+    #mainNav > .nav-dropdown.active > .dropdown-menu {
+        display: block !important;
+        max-height: 500px !important;
+        overflow: visible !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
     
     .submenu {
         position: static !important;
@@ -682,7 +705,7 @@ body {
     /* Ensure .open class takes precedence */
     .dropdown-submenu.active > .submenu.open {
         display: block !important;
-        max-height: 50px !important;
+        max-height: 500px !important;
     }
     
     .logo-img {
@@ -2533,12 +2556,21 @@ strong.text-dark {
 }
 
 .world-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     width: 100%;
-    height: 100%;
-  }
+    min-height: 100vh;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.world-dots img {
+    display: block;
+    width: min(100%, 1100px);
+    max-height: calc(100vh - 48px);
+    height: auto;
+    object-fit: contain;
+}
   
   .about-map-wrapper .world-dots {
     justify-content: flex-start;

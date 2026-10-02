@@ -1,7 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, Response, request, jsonify, stream_with_context
 from flask_cors import CORS
 from datetime import datetime
-from rag_pipeline_pinecone import generate_answer
+from rag_pipeline_pinecone import generate_answer_stream
 
 app = Flask(__name__)
 CORS(app)
@@ -17,19 +17,18 @@ def chat():
     if not query:
         return jsonify({"error": "Query cannot be empty"}), 400
 
-    try:
-        answer = generate_answer(query)
-        timestamp = datetime.now().strftime("%I:%M %p")
-        return jsonify({
-            "role": "assistant",
-            "content": answer,
-            "timestamp": timestamp
-        }), 200
-    except Exception as e:
-        print(f"Error generating answer: {e}")
-        return jsonify({
-            "error": "Sorry, I encountered an error while processing your question."
-        }), 500
+    def generate():
+        try:
+            yield from generate_answer_stream(query)
+        except Exception as e:
+            print(f"Error generating answer: {e}")
+            yield "\n\nSorry, I encountered an error while processing your question."
+
+    return Response(
+        stream_with_context(generate()),
+        mimetype="text/plain",
+        headers={"Cache-Control": "no-cache, no-transform", "X-Accel-Buffering": "no"},
+    )
 
 
 @app.route("/api/health", methods=["GET"])

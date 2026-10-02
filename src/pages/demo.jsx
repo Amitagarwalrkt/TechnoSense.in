@@ -1,4 +1,5 @@
 import SiteFooter from '../components/SiteFooter'
+import ResourcesMenuItem from '../components/ResourcesMenuItem'
 export default function Demo() {
   return (
 <div className="body">
@@ -50,7 +51,7 @@ export default function Demo() {
             <div className="header-row">
               <div className="header-nav header-nav-line header-nav-top-line header-nav-top-line-with-border order-2 order-lg-1">
                 <div className="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
-                  <nav className="collapse">
+                  <nav className="legacy-mobile-nav">
                     <ul className="nav nav-pills" id="mainNav">
                       <li className> <a className="active" href="/"> Home </a>
                       </li>
@@ -138,6 +139,7 @@ export default function Demo() {
                               Solutions</a></li>
                         </ul>
                       </li>
+                      <ResourcesMenuItem />
                       <li className> <a className href="/about-us">
                           Career </a>
                       </li>

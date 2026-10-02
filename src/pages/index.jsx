@@ -1,4 +1,5 @@
 import SiteFooter from '../components/SiteFooter'
+import ResourcesMenuItem from '../components/ResourcesMenuItem'
 import FaqSection from '../components/FaqSection'
 
 export default function Index() {
@@ -83,7 +84,7 @@ export default function Index() {
                       Mobility Solutions</a></li>
                 </ul>
               </li>
-              <li><a href="/blog" className="nav-link">Blog</a></li>
+              <ResourcesMenuItem />
               <li><a href="/career" className="nav-link">Career</a></li>
               <li><a href="/contact-us" className="nav-link">Contact Us</a></li>
             </ul>

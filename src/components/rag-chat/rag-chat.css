@@ -2,7 +2,7 @@
 #rag-chat-root {
   position: fixed;
   right: 22px;
-  bottom: 22px;
+  bottom: 32px;
   z-index: 10000;
   width: auto;
   height: auto;
@@ -10,6 +10,13 @@
   -webkit-font-smoothing: antialiased;
   color: #1f2937;
   line-height: 1.5;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+body.mobile-nav-open #rag-chat-root {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 #rag-chat-root *,
@@ -30,6 +37,7 @@
 }
 
 #rag-chat-root .ai-assistant-button {
+  --rag-fab-collapsed-size: 48px;
   position: relative !important;
   right: auto !important;
   bottom: auto !important;
@@ -53,9 +61,10 @@
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
-    padding 0.25s ease,
-    gap 0.25s ease !important;
-  animation: ragFabPulse 2.8s ease-out infinite !important;
+    width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    gap 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  animation: ragFabEnter 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1 both !important;
 }
 
 #rag-chat-root .ai-assistant-button:hover {
@@ -66,11 +75,16 @@
 }
 
 #rag-chat-root .ai-assistant-button.is-open {
-  width: 48px !important;
+  width: var(--rag-fab-collapsed-size) !important;
   padding: 0 !important;
   gap: 0 !important;
-  animation: none !important;
   box-shadow: 0 8px 22px rgba(139, 10, 31, 0.4) !important;
+}
+
+#rag-chat-root .ai-assistant-button.is-intro-complete {
+  width: var(--rag-fab-collapsed-size) !important;
+  padding: 0 !important;
+  gap: 0 !important;
 }
 
 #rag-chat-root .ai-assistant-icon {
@@ -109,10 +123,20 @@
   letter-spacing: 0.01em !important;
   line-height: 1 !important;
   white-space: nowrap !important;
+  max-width: 110px;
+  overflow: hidden;
   pointer-events: none !important;
-  animation: none !important;
+  transition:
+    max-width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease-out,
+    padding 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
   transform: none !important;
-  opacity: 1 !important;
+}
+
+#rag-chat-root .ai-assistant-button.is-intro-complete .ai-assistant-label {
+  max-width: 0;
+  opacity: 0;
+  padding-right: 0 !important;
 }
 
 #rag-chat-root .ai-assistant-button .technova-mark {
@@ -657,21 +681,14 @@
   margin-bottom: 0;
 }
 
-@keyframes ragFabPulse {
+@keyframes ragFabEnter {
   0% {
-    box-shadow:
-      0 10px 28px rgba(139, 10, 31, 0.45),
-      0 0 0 0 rgba(200, 16, 46, 0.35);
-  }
-  70% {
-    box-shadow:
-      0 10px 28px rgba(139, 10, 31, 0.45),
-      0 0 0 14px rgba(200, 16, 46, 0);
+    opacity: 0;
+    transform: translateX(-14px) scale(0.96);
   }
   100% {
-    box-shadow:
-      0 10px 28px rgba(139, 10, 31, 0.45),
-      0 0 0 0 rgba(200, 16, 46, 0);
+    opacity: 1;
+    transform: translateX(0) scale(1);
   }
 }
 
@@ -708,7 +725,7 @@
 @media (max-width: 600px) {
   #rag-chat-root {
     right: 14px;
-    bottom: 16px;
+    bottom: 26px;
   }
 
   #rag-chat-root .rag-chat-panel {
@@ -718,6 +735,7 @@
   }
 
   #rag-chat-root .ai-assistant-button {
+    --rag-fab-collapsed-size: 44px;
     height: 44px !important;
     min-width: 44px !important;
     padding: 3px 12px 3px 3px !important;
@@ -725,8 +743,12 @@
   }
 
   #rag-chat-root .ai-assistant-button.is-open {
-    width: 44px !important;
+    width: var(--rag-fab-collapsed-size) !important;
     padding: 0 !important;
+  }
+
+  #rag-chat-root .ai-assistant-button.is-intro-complete {
+    width: var(--rag-fab-collapsed-size) !important;
   }
 
   #rag-chat-root .ai-assistant-icon {
@@ -741,6 +763,19 @@
 
   #rag-chat-root .ai-assistant-label {
     font-size: 12px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #rag-chat-root .ai-assistant-button {
+    width: var(--rag-fab-collapsed-size) !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    animation: none !important;
+  }
+
+  #rag-chat-root .ai-assistant-label {
+    display: none !important;
   }
 }
 

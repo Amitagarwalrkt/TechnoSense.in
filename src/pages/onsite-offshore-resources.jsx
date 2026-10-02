@@ -1,4 +1,5 @@
 import SiteFooter from '../components/SiteFooter'
+import ResourcesMenuItem from '../components/ResourcesMenuItem'
 export default function OnsiteOffshoreResources() {
   return (
 <div className="body">
@@ -78,7 +79,7 @@ export default function OnsiteOffshoreResources() {
                     Mobility Solutions</a></li>
               </ul>
             </li>
-            <li><a href="/blog" className="nav-link">Blog</a></li>
+            <ResourcesMenuItem />
             <li><a href="/career" className="nav-link">Career</a></li>
             <li><a href="/contact-us" className="nav-link">Contact Us</a></li>
           </ul>

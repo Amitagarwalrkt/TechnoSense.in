@@ -9,3 +9,6 @@ dist/**/*.map
 node_modules/
 venv/
 __pycache__/
+build.log
+send-message.php
+smtp-config.example.php

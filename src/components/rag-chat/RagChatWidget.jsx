@@ -18,8 +18,20 @@ export default function RagChatWidget() {
   const [messages, setMessages] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const [isIntroComplete, setIsIntroComplete] = useState(false)
+  const [scrollRequest, setScrollRequest] = useState(0)
   const [unreadBadge, setUnreadBadge] = useState(0)
   const wasOpenRef = useRef(false)
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setIsIntroComplete(true)
+      return undefined
+    }
+
+    const timeout = window.setTimeout(() => setIsIntroComplete(true), 2800)
+    return () => window.clearTimeout(timeout)
+  }, [])
 
   useEffect(() => {
     if (!wasOpenRef.current && isOpen) {
@@ -32,9 +44,11 @@ export default function RagChatWidget() {
   const sendMessage = async (query) => {
     if (isLoading) return
 
+    const timestamp = formatTime()
+    setScrollRequest((count) => count + 1)
     setMessages((prev) => [
       ...prev,
-      { role: 'user', content: query, timestamp: formatTime() },
+      { role: 'user', content: query, timestamp },
     ])
     setIsLoading(true)
 
@@ -44,30 +58,64 @@ export default function RagChatWidget() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query }),
       })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error || 'Request failed')
+      if (!res.ok) {
+        const error = await res.json().catch(() => ({}))
+        throw new Error(error.error || 'Request failed')
+      }
 
-      setMessages((prev) => [
-        ...prev,
-        {
+      if (res.headers.get('content-type')?.includes('application/json')) {
+        const data = await res.json()
+        setMessages((prev) => [...prev, {
           role: 'assistant',
           content: data.content,
-          timestamp: data.timestamp,
-        },
-      ])
+          timestamp: data.timestamp || timestamp,
+        }])
+      } else if (res.body) {
+        setMessages((prev) => [...prev, { role: 'assistant', content: '', timestamp }])
+        const reader = res.body.getReader()
+        const decoder = new TextDecoder()
+
+        const appendChunk = (chunk) => {
+          if (!chunk) return
+          setMessages((prev) => {
+            const lastIndex = prev.length - 1
+            const lastMessage = prev[lastIndex]
+            if (lastMessage?.role !== 'assistant' || lastMessage.timestamp !== timestamp) return prev
+            const next = [...prev]
+            next[lastIndex] = { ...lastMessage, content: lastMessage.content + chunk }
+            return next
+          })
+        }
+
+        while (true) {
+          const { value, done } = await reader.read()
+          if (done) {
+            appendChunk(decoder.decode())
+            break
+          }
+          appendChunk(decoder.decode(value, { stream: true }))
+        }
+      } else {
+        const content = await res.text()
+        setMessages((prev) => [...prev, { role: 'assistant', content, timestamp }])
+      }
 
       if (!isOpen) setUnreadBadge((n) => n + 1)
     } catch (err) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: 'assistant',
-          content:
-            err.message ||
-            'Sorry, I encountered an error while processing your question.',
-          timestamp: formatTime(),
-        },
-      ])
+      const errorMessage = err.message || 'Sorry, I encountered an error while processing your question.'
+      setMessages((prev) => {
+        const lastIndex = prev.length - 1
+        const lastMessage = prev[lastIndex]
+        if (lastMessage?.role === 'assistant' && lastMessage.timestamp === timestamp) {
+          const next = [...prev]
+          next[lastIndex] = {
+            ...lastMessage,
+            content: lastMessage.content ? `${lastMessage.content}\n\n${errorMessage}` : errorMessage,
+          }
+          return next
+        }
+        return [...prev, { role: 'assistant', content: errorMessage, timestamp }]
+      })
     } finally {
       setIsLoading(false)
     }
@@ -96,7 +144,11 @@ export default function RagChatWidget() {
             </div>
           ) : (
             <div className="min-h-0 flex-1 overflow-hidden">
-              <ChatHistory messages={messages} isLoading={isLoading} />
+              <ChatHistory
+                messages={messages}
+                isLoading={isLoading}
+                scrollRequest={scrollRequest}
+              />
             </div>
           )}
 
@@ -113,7 +165,7 @@ export default function RagChatWidget() {
       <button
         id="ai-assistant-toggle"
         type="button"
-        className={`ai-assistant-button${isOpen ? ' is-open' : ''}`}
+        className={`ai-assistant-button${isOpen ? ' is-open' : ''}${isIntroComplete ? ' is-intro-complete' : ''}`}
         aria-label={isOpen ? 'Close TechNova' : 'Ask TechNova: open assistant'}
         title="Ask TechNova"
         onClick={toggleOpen}

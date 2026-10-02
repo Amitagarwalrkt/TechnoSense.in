@@ -1,6 +1,6 @@
 export default function Assistent() {
   return (
-<div className="shell">
+<div className="shell show">
   <aside>
     <div className="brand"><div className="logo"><strong className="technova-mark">TN</strong></div> TechNova</div>
     <div className="menu-label">Workspace</div>

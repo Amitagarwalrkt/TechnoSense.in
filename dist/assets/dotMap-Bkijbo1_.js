@@ -1,1 +1,0 @@
-import{t as e}from"./index-CNF5A7Iz.js";var t=e();function n(){return(0,t.jsx)(`div`,{className:`world-dots`,id:`worldMap1`,children:(0,t.jsx)(`div`,{className:`container`})})}export{n as default};

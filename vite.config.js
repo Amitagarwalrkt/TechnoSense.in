@@ -202,6 +202,7 @@ export default defineConfig({
   server: {
     host: 'localhost',
     port: 5173,
+    allowedHosts: ['.trycloudflare.com'],
     watch: {
       ignored: ['**/venv/**', '**/venv-new/**', '**/__pycache__/**'],
     },
