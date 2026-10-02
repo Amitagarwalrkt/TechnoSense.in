@@ -1,1 +1,0 @@
-import{t as e}from"./index-BQcyIvjP.js";var t=e();function n(){return(0,t.jsx)(`main`,{className:`world-dots`,id:`worldMap1`,children:(0,t.jsx)(`img`,{src:`/img/map.png`,alt:`Dotted map of the world`})})}export{n as default};
