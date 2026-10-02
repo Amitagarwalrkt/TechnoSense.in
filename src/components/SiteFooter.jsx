@@ -185,9 +185,17 @@ export default function SiteFooter() {
       <div className="footer-premium-bar">
         <div className="container footer-premium-bar-inner">
           <p>TechnoSense NextGen Solutions Pvt Limited © 2024. All Rights Reserved.</p>
-          <a href="#" className="footer-back-top" aria-label="Back to top">
+          <button
+            type="button"
+            className="footer-back-top"
+            aria-label="Back to top"
+            onClick={() => window.scrollTo({
+              top: 0,
+              behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+            })}
+          >
             Back to top <i className="fas fa-arrow-up" />
-          </a>
+          </button>
         </div>
       </div>
     </footer>

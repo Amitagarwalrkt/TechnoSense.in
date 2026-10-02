@@ -1,5 +1,14 @@
+import { useState } from 'react'
 import SiteFooter from '../components/SiteFooter'
+import ResourcesMenuItem from '../components/ResourcesMenuItem'
 export default function Blog() {
+  const [activeCategory, setActiveCategory] = useState('all')
+  const visibleCount = activeCategory === 'all' ? 2 : 1
+
+  const selectCategory = (event) => {
+    setActiveCategory(event.currentTarget.dataset.filter)
+  }
+
   return (
 <div className="body">
   <header className="modern-navbar" id="navbar">
@@ -64,7 +73,7 @@ export default function Blog() {
                 <li><a href="/enterprise-mobility-solutions" className="dropdown-item">Enterprise Mobility Solutions</a></li>
               </ul>
             </li>
-            <li><a href="/blog" className="nav-link active">Blog</a></li>
+            <ResourcesMenuItem />
             <li><a href="/career" className="nav-link">Career</a></li>
             <li><a href="/contact-us" className="nav-link">Contact Us</a></li>
           </ul>
@@ -109,15 +118,15 @@ export default function Blog() {
       </article>
       <div className="blog-toolbar">
         <div className="blog-filters" role="tablist" aria-label="Blog categories">
-          <button type="button" className="blog-filter is-active" data-filter="all">All</button>
-          <button type="button" className="blog-filter" data-filter="infrastructure">Infrastructure</button>
-          <button type="button" className="blog-filter" data-filter="cloud">Cloud</button>
+          <button type="button" className={`blog-filter${activeCategory === 'all' ? ' is-active' : ''}`} data-filter="all" aria-pressed={activeCategory === 'all'} onClick={selectCategory}>All</button>
+          <button type="button" className={`blog-filter${activeCategory === 'infrastructure' ? ' is-active' : ''}`} data-filter="infrastructure" aria-pressed={activeCategory === 'infrastructure'} onClick={selectCategory}>Infrastructure</button>
+          <button type="button" className={`blog-filter${activeCategory === 'cloud' ? ' is-active' : ''}`} data-filter="cloud" aria-pressed={activeCategory === 'cloud'} onClick={selectCategory}>Cloud</button>
         </div>
-        <p className="blog-count"><span id="blogVisibleCount">2</span> articles</p>
+        <p className="blog-count"><span id="blogVisibleCount">{visibleCount}</span> {visibleCount === 1 ? 'article' : 'articles'}</p>
       </div>
       <div className="blog-layout">
-        <div className="blog-grid" id="blogGrid">
-          <article className="blog-card" data-category="infrastructure">
+        <div className={`blog-grid${activeCategory === 'all' ? '' : ' is-filtered'}`} id="blogGrid">
+          <article className="blog-card" data-category="infrastructure" hidden={activeCategory !== 'all' && activeCategory !== 'infrastructure'}>
             <a href="/it-infrastructure-modernization-strategy" className="blog-card-media">
               <img src="img/blog/it-infrastructure-modernization-cover.jpg" alt="IT Infrastructure Modernization Strategy for Enterprises in 2026" loading="lazy" decoding="async" />
             </a>
@@ -131,7 +140,7 @@ export default function Blog() {
               <a href="/it-infrastructure-modernization-strategy" className="blog-read-link">Read More <i className="fas fa-arrow-right" /></a>
             </div>
           </article>
-          <article className="blog-card" data-category="cloud">
+          <article className="blog-card" data-category="cloud" hidden={activeCategory !== 'all' && activeCategory !== 'cloud'}>
             <a href="/enterprise-cloud-migration-strategy" className="blog-card-media">
               <img src="img/blog/enterprise-cloud-migration-cover.jpg" alt="Enterprise cloud migration strategy and infrastructure roadmap for businesses" loading="lazy" decoding="async" />
             </a>
@@ -150,8 +159,8 @@ export default function Blog() {
           <div className="blog-side-card">
             <h3 className="blog-side-title">Categories</h3>
             <ul className="blog-side-list">
-              <li><button type="button" className="blog-side-link" data-filter="infrastructure"><span>Infrastructure</span><em>1</em></button></li>
-              <li><button type="button" className="blog-side-link" data-filter="cloud"><span>Cloud</span><em>1</em></button></li>
+              <li><button type="button" className={`blog-side-link${activeCategory === 'infrastructure' ? ' is-active' : ''}`} data-filter="infrastructure" aria-pressed={activeCategory === 'infrastructure'} onClick={selectCategory}><span>Infrastructure</span><em>1</em></button></li>
+              <li><button type="button" className={`blog-side-link${activeCategory === 'cloud' ? ' is-active' : ''}`} data-filter="cloud" aria-pressed={activeCategory === 'cloud'} onClick={selectCategory}><span>Cloud</span><em>1</em></button></li>
             </ul>
           </div>
           <div className="blog-side-card">

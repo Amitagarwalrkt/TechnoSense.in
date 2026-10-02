@@ -1,4 +1,5 @@
 import SiteFooter from '../components/SiteFooter'
+import ResourcesMenuItem from '../components/ResourcesMenuItem'
 export default function EnterpriseCloudMigrationStrategy() {
   return (
 <div className="body">
@@ -26,7 +27,7 @@ export default function EnterpriseCloudMigrationStrategy() {
                 <li><a href="/microsoft-o365" className="dropdown-item">Microsoft O365</a></li>
               </ul>
             </li>
-            <li><a href="/blog" className="nav-link active">Blog</a></li>
+            <ResourcesMenuItem />
             <li><a href="/career" className="nav-link">Career</a></li>
             <li><a href="/contact-us" className="nav-link">Contact Us</a></li>
           </ul>

@@ -106,6 +106,7 @@ function App() {
   }, [location.pathname])
 
   useEffect(() => {
+    document.body.classList.remove('mobile-nav-open')
     const normalizedPath = location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/'
     if (location.pathname !== normalizedPath && (normalizedPath === '/' || routes[normalizedPath])) {
       navigate(normalizedPath, { replace: true })
@@ -115,6 +116,16 @@ function App() {
     const handleLink = (event) => {
       const anchor = event.target.closest('a')
       if (!anchor || anchor.target === '_blank' || !anchor.href) return
+      if (anchor.getAttribute('href')?.trim() === '#') {
+        event.preventDefault()
+        return
+      }
+      if (
+        window.innerWidth <= 991 &&
+        (anchor.matches('.nav-dropdown > .nav-link') ||
+          (anchor.matches('.dropdown-submenu > .dropdown-item') &&
+            anchor.parentElement.querySelector(':scope > .submenu')))
+      ) return
       const url = new URL(anchor.href)
       if (url.origin !== window.location.origin) return
       const path = url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/'
@@ -123,6 +134,111 @@ function App() {
     document.addEventListener('click', handleLink)
     return () => { document.body.classList.remove('react-route-active'); document.removeEventListener('click', handleLink) }
   }, [location.pathname, navigate])
+
+  useEffect(() => {
+    const closeSubmenus = (item) => {
+      item.querySelectorAll('.dropdown-submenu').forEach((submenu) => submenu.classList.remove('active'))
+      item.querySelectorAll('.submenu').forEach((submenu) => submenu.classList.remove('open'))
+    }
+
+    const closeMenu = () => {
+      document.querySelectorAll('.navbar-menu').forEach((menu) => menu.classList.remove('active'))
+      document.querySelectorAll('.navbar-toggle').forEach((button) => button.classList.remove('active'))
+      document.querySelectorAll('.nav-dropdown, .dropdown-submenu').forEach((item) => item.classList.remove('active'))
+      document.querySelectorAll('.submenu').forEach((submenu) => submenu.classList.remove('open'))
+      document.body.classList.remove('mobile-nav-open')
+    }
+
+    const handleToggleClick = (event) => {
+      const legacyToggle = event.target.closest('.header-btn-collapse-nav')
+      if (legacyToggle) {
+        const target = legacyToggle.getAttribute('data-bs-target')
+        const menu = target ? document.querySelector(target) : null
+        if (menu) menu.classList.toggle('show')
+        return
+      }
+
+      const toggle = event.target.closest('.navbar-toggle')
+      if (!toggle) return
+      const menu = toggle.closest('.navbar-wrapper')?.querySelector('.navbar-menu')
+      if (!menu) return
+      const isOpen = menu.classList.contains('active')
+      closeMenu()
+      if (!isOpen) {
+        menu.classList.add('active')
+        toggle.classList.add('active')
+        document.body.classList.add('mobile-nav-open')
+      }
+    }
+
+    const handleDropdownClick = (event) => {
+      if (window.innerWidth > 991) return
+      const navToggleLink = event.target.closest('.nav-dropdown > .nav-link')
+      if (navToggleLink) {
+        event.preventDefault()
+        const parent = navToggleLink.closest('.nav-dropdown')
+        if (!parent) return
+        const isExpanded = parent.classList.contains('active')
+        document.querySelectorAll('.nav-dropdown').forEach((item) => {
+          if (item !== parent) {
+            item.classList.remove('active')
+            closeSubmenus(item)
+          }
+        })
+        if (isExpanded) {
+          parent.classList.remove('active')
+          closeSubmenus(parent)
+        } else {
+          parent.classList.add('active')
+        }
+        return
+      }
+
+      const submenuLink = event.target.closest('.dropdown-submenu > .dropdown-item')
+      if (submenuLink) {
+        event.preventDefault()
+        const parent = submenuLink.closest('.dropdown-submenu')
+        if (!parent) return
+        const subMenu = parent.querySelector(':scope > .submenu')
+        if (!subMenu) return
+        const isOpen = subMenu.classList.contains('open')
+        document.querySelectorAll('.dropdown-submenu').forEach((item) => {
+          if (item !== parent) {
+            item.classList.remove('active')
+            item.querySelectorAll('.submenu').forEach((submenu) => submenu.classList.remove('open'))
+          }
+        })
+        subMenu.classList.toggle('open', !isOpen)
+        parent.classList.toggle('active', !isOpen)
+      }
+    }
+
+    document.addEventListener('click', handleToggleClick)
+    document.addEventListener('click', handleDropdownClick)
+
+    const handleOutsideClick = (event) => {
+      const clickedInsideNav = event.target.closest('.navbar-menu') || event.target.closest('.navbar-toggle') || event.target.closest('.nav-dropdown') || event.target.closest('.dropdown-submenu')
+      if (!clickedInsideNav && window.innerWidth <= 991) {
+        closeMenu()
+      }
+    }
+
+    const handleResize = () => {
+      if (window.innerWidth > 991) closeMenu()
+    }
+
+    document.addEventListener('click', handleOutsideClick)
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      document.removeEventListener('click', handleToggleClick)
+      document.removeEventListener('click', handleDropdownClick)
+      document.removeEventListener('click', handleOutsideClick)
+      window.removeEventListener('resize', handleResize)
+      closeMenu()
+    }
+  }, [])
+
   return (
     <>
       <Suspense fallback={<div className="react-page-loading">Loading...</div>}>

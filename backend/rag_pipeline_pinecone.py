@@ -208,3 +208,28 @@ def generate_answer(query):
     return response.content
 
 
+def generate_answer_stream(query):
+    results = retrieve_documents(query)
+
+    if not results:
+        yield "I don't have enough information in my database to answer that."
+        return
+
+    context = build_context(results)
+    prompt = create_prompt(query, context)
+
+    print("Streaming answer...")
+
+    for chunk in llm.stream(prompt):
+        content = getattr(chunk, "content", "")
+        if isinstance(content, str):
+            if content:
+                yield content
+        elif isinstance(content, list):
+            for item in content:
+                if isinstance(item, str):
+                    yield item
+                elif isinstance(item, dict) and item.get("type") == "text":
+                    yield item.get("text", "")
+
+
