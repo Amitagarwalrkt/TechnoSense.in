@@ -1,9 +1,14 @@
 node_modules/
 dist/**/*.map
-
+.env
+.env.*
+!.env.example
+.env
+.env1
+.env.*
 node_modules/
 venv/
 __pycache__/
 build.log
 send-message.php
-smtp-config.example.php
+./smtp-config.example.php
