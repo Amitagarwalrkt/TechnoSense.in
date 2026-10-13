@@ -3,7 +3,7 @@ import SiteFooter from '../components/SiteFooter'
 import ResourcesMenuItem from '../components/ResourcesMenuItem'
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('all')
-  const visibleCount = activeCategory === 'all' ? 2 : 1
+  const visibleCount = activeCategory === 'all' ? 3 : 1
 
   const selectCategory = (event) => {
     setActiveCategory(event.currentTarget.dataset.filter)
@@ -99,21 +99,21 @@ export default function Blog() {
     </section>
     <div className="container blog-page">
       <article className="blog-featured">
-        <a href="/it-infrastructure-modernization-strategy" className="blog-featured-media">
-          <img src="img/blog/it-infrastructure-modernization-cover.jpg" alt="IT Infrastructure Modernization Strategy for Enterprises in 2026" loading="eager" decoding="async" />
+        <a href="/microsoft-365-for-enterprises" className="blog-featured-media">
+          <img src="img/blog/microsoft-365-for-enterprises-cover.jpg" alt="Microsoft 365 for Enterprises: a practical guide to secure collaboration, migration and Copilot readiness" loading="eager" decoding="async" />
           <span className="blog-featured-badge">Featured</span>
         </a>
         <div className="blog-featured-body">
           <div className="blog-meta">
-            <span className="blog-tag">Infrastructure</span>
-            <span><i className="far fa-calendar-alt" /> Sep 24, 2026</span>
-            <span><i className="far fa-clock" /> 16 min read</span>
+            <span className="blog-tag">Microsoft 365</span>
+            <span><i className="far fa-calendar-alt" /> Oct 9, 2026</span>
+            <span><i className="far fa-clock" /> 10 min read</span>
           </div>
           <h2 className="blog-featured-title">
-            <a href="/it-infrastructure-modernization-strategy">IT Infrastructure Modernization Strategy for Enterprises in 2026</a>
+            <a href="/microsoft-365-for-enterprises">Microsoft 365 for Enterprises: A Practical Guide to Secure Collaboration, Migration and Copilot Readiness</a>
           </h2>
-          <p className="blog-featured-excerpt">Learn how enterprises can modernize IT infrastructure, cloud, databases, security and DevOps through a structured modernization roadmap.</p>
-          <a href="/it-infrastructure-modernization-strategy" className="blog-read-link">Read Article <i className="fas fa-arrow-right" /></a>
+          <p className="blog-featured-excerpt">Learn how enterprises can improve Microsoft 365 licensing, migration, collaboration, security, Copilot readiness and ongoing management.</p>
+          <a href="/microsoft-365-for-enterprises" className="blog-read-link">Read Article <i className="fas fa-arrow-right" /></a>
         </div>
       </article>
       <div className="blog-toolbar">
@@ -121,11 +121,26 @@ export default function Blog() {
           <button type="button" className={`blog-filter${activeCategory === 'all' ? ' is-active' : ''}`} data-filter="all" aria-pressed={activeCategory === 'all'} onClick={selectCategory}>All</button>
           <button type="button" className={`blog-filter${activeCategory === 'infrastructure' ? ' is-active' : ''}`} data-filter="infrastructure" aria-pressed={activeCategory === 'infrastructure'} onClick={selectCategory}>Infrastructure</button>
           <button type="button" className={`blog-filter${activeCategory === 'cloud' ? ' is-active' : ''}`} data-filter="cloud" aria-pressed={activeCategory === 'cloud'} onClick={selectCategory}>Cloud</button>
+          <button type="button" className={`blog-filter${activeCategory === 'microsoft-365' ? ' is-active' : ''}`} data-filter="microsoft-365" aria-pressed={activeCategory === 'microsoft-365'} onClick={selectCategory}>Microsoft 365</button>
         </div>
         <p className="blog-count"><span id="blogVisibleCount">{visibleCount}</span> {visibleCount === 1 ? 'article' : 'articles'}</p>
       </div>
       <div className="blog-layout">
         <div className={`blog-grid${activeCategory === 'all' ? '' : ' is-filtered'}`} id="blogGrid">
+          <article className="blog-card" data-category="microsoft-365" hidden={activeCategory !== 'all' && activeCategory !== 'microsoft-365'}>
+            <a href="/microsoft-365-for-enterprises" className="blog-card-media">
+              <img src="img/blog/microsoft-365-for-enterprises-cover.jpg" alt="Microsoft 365 for Enterprises: a practical guide to secure collaboration, migration and Copilot readiness" loading="lazy" decoding="async" />
+            </a>
+            <div className="blog-card-body">
+              <div className="blog-meta">
+                <span className="blog-tag">Microsoft 365</span>
+                <span>Oct 9, 2026</span>
+              </div>
+              <h3 className="blog-card-title"><a href="/microsoft-365-for-enterprises">Microsoft 365 for Enterprises: Secure Collaboration, Migration and Copilot Readiness</a></h3>
+              <p className="blog-card-excerpt">Licensing, tenant migration, SharePoint governance, security, and Copilot readiness - a practical guide for enterprise IT leaders.</p>
+              <a href="/microsoft-365-for-enterprises" className="blog-read-link">Read More <i className="fas fa-arrow-right" /></a>
+            </div>
+          </article>
           <article className="blog-card" data-category="infrastructure" hidden={activeCategory !== 'all' && activeCategory !== 'infrastructure'}>
             <a href="/it-infrastructure-modernization-strategy" className="blog-card-media">
               <img src="img/blog/it-infrastructure-modernization-cover.jpg" alt="IT Infrastructure Modernization Strategy for Enterprises in 2026" loading="lazy" decoding="async" />
@@ -161,11 +176,21 @@ export default function Blog() {
             <ul className="blog-side-list">
               <li><button type="button" className={`blog-side-link${activeCategory === 'infrastructure' ? ' is-active' : ''}`} data-filter="infrastructure" aria-pressed={activeCategory === 'infrastructure'} onClick={selectCategory}><span>Infrastructure</span><em>1</em></button></li>
               <li><button type="button" className={`blog-side-link${activeCategory === 'cloud' ? ' is-active' : ''}`} data-filter="cloud" aria-pressed={activeCategory === 'cloud'} onClick={selectCategory}><span>Cloud</span><em>1</em></button></li>
+              <li><button type="button" className={`blog-side-link${activeCategory === 'microsoft-365' ? ' is-active' : ''}`} data-filter="microsoft-365" aria-pressed={activeCategory === 'microsoft-365'} onClick={selectCategory}><span>Microsoft 365</span><em>1</em></button></li>
             </ul>
           </div>
           <div className="blog-side-card">
             <h3 className="blog-side-title">Popular Reads</h3>
             <ul className="blog-popular">
+              <li>
+                <a href="/microsoft-365-for-enterprises">
+                  <img src="img/blog/microsoft-365-for-enterprises-cover.jpg" alt="Microsoft 365 for Enterprises" loading="lazy" />
+                  <span>
+                    <strong>Microsoft 365 for Enterprises</strong>
+                    <small>Oct 9, 2026</small>
+                  </span>
+                </a>
+              </li>
               <li>
                 <a href="/it-infrastructure-modernization-strategy">
                   <img src="img/blog/it-infrastructure-modernization-cover.jpg" alt="IT Infrastructure Modernization Strategy for Enterprises in 2026" loading="lazy" />

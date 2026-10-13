@@ -22,6 +22,7 @@ const InfrastructureManagement = lazy(() => import('./pages/infrastructure-manag
 const ItInfrastructureModernizationStrategy = lazy(() => import('./pages/it-infrastructure-modernization-strategy'))
 const ItInfraRoadmapConsulting = lazy(() => import('./pages/it-infra-roadmap-consulting'))
 const MafMcsCloud = lazy(() => import('./pages/maf-mcs-cloud'))
+const Microsoft365ForEnterprises = lazy(() => import('./pages/microsoft-365-for-enterprises'))
 const ManagedServices = lazy(() => import('./pages/managed-services'))
 const MicrosoftO365 = lazy(() => import('./pages/microsoft-o365'))
 const MobileAppDevelopment = lazy(() => import('./pages/mobile-app-development'))
@@ -49,7 +50,8 @@ const routes = {
   '/implementation-migration': ImplementationMigration, '/infrastructure-management': InfrastructureManagement,
   '/it-infrastructure-modernization-strategy': ItInfrastructureModernizationStrategy,
   '/it-infra-roadmap-consulting': ItInfraRoadmapConsulting, '/maf-mcs-cloud': MafMcsCloud,
-  '/managed-services': ManagedServices, '/microsoft-o365': MicrosoftO365,
+  '/managed-services': ManagedServices, '/microsoft-365-for-enterprises': Microsoft365ForEnterprises,
+  '/microsoft-o365': MicrosoftO365,
   '/mobile-app-development': MobileAppDevelopment, '/mobile-devices-management': MobileDevicesManagement,
   '/network-security-compliances': NetworkSecurityCompliances, '/O365-licensing-setup': O365LicensingSetup,
   '/onsite-offshore-resources': OnsiteOffshoreResources, '/oracle-apex': OracleApex,

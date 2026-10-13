@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="140" viewBox="0 0 520 140" role="img" aria-label="Britannia">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ef4444"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="140" fill="transparent"/>
+  <g transform="translate(60,44)">
+    <path d="M0 6 C60 -8, 170 -8, 240 10 C255 14, 260 18, 260 30 C260 44, 252 50, 238 54 C165 74, 60 70, 0 58 Z" fill="url(#bg)" opacity="0.95"/>
+    <text x="45" y="43" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="34" font-weight="800" letter-spacing="1">BRITANNIA</text>
+  </g>
+</svg>

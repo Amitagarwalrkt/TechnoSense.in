@@ -5,6 +5,7 @@ const blogRoutes = new Set([
   '/blog-cloud-adoption',
   '/enterprise-cloud-migration-strategy',
   '/it-infrastructure-modernization-strategy',
+  '/microsoft-365-for-enterprises',
 ])
 
 export default function ResourcesMenuItem() {

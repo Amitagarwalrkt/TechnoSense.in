@@ -187,6 +187,27 @@ export default function Index() {
                     <span>CI/CD / IaC / Monitoring</span>
                   </div>
                 </div>
+                <div className="hero-float-card hero-float-card--4">
+                  <div className="hero-float-icon"><i className="fas fa-envelope" /></div>
+                  <div>
+                    <strong>Microsoft O365</strong>
+                    <span>Gmail &amp; Google Workspace</span>
+                  </div>
+                </div>
+                <div className="hero-float-card hero-float-card--5">
+                  <div className="hero-float-icon"><i className="fas fa-headset" /></div>
+                  <div>
+                    <strong>Managed Services</strong>
+                    <span>24x7 monitoring &amp; support</span>
+                  </div>
+                </div>
+                <div className="hero-float-card hero-float-card--6">
+                  <div className="hero-float-icon"><i className="fas fa-mobile-alt" /></div>
+                  <div>
+                    <strong>Custom Mobile &amp; Web</strong>
+                    <span>Apps built for your business</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
