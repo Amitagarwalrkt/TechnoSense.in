@@ -149,7 +149,6 @@ export default function SiteFooter() {
               <li><a href="/devops">DevOps Consulting</a></li>
               <li><a href="/development-services">Development Services</a></li>
               <li><a href="/enterprise-mobility-solutions">Enterprise Mobility</a></li>
-              <li><a href="/enterprise-certificates">Certifications</a></li>
             </ul>
           </div>
 
