@@ -1,5 +1,5 @@
 const SUGGESTED = [
-  'What services does TechnoSense offer?',
+  'What career opportunities are available at TechnoSense?',
   'Tell me about cloud consulting and DevOps',
   'I need help with careers and openings',
   'How do I contact the TechnoSense team?',
